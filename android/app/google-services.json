@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "694108178205",
+    "project_id": "catanco-5df91",
+    "storage_bucket": "catanco-5df91.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694108178205:android:3a1f2eb5fc66273f60c3f4",
+        "android_client_info": {
+          "package_name": "com.catanco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA04QvVT3ILsbVngEqu0tRePMUdaAoegHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
