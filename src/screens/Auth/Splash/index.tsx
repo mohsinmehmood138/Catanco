@@ -1,9 +1,8 @@
 import {Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {appImages, GLColors} from '../../../shared/exporter';
-import {SplashImage} from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
+import {appImages, GLColors} from '../../../shared/exporter';
 
 
 interface SplashProps {
@@ -14,7 +13,7 @@ const SplashScreen = () => {
   const navigation = useNavigation<SplashProps>();
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('BottomTabs');
+      navigation.replace('AuthStack');
     }, 2000);
   }, []);
 

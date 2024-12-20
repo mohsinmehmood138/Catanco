@@ -2,7 +2,7 @@ import {appImages} from '../theme/assets';
 import Svg, {Path} from 'react-native-svg';
 import {UserIcon, NotificationIcon} from '../../assets/svg';
 
-export const Profile_Tab_Content = [
+export const PROFILE_TAB_CONTENT = [
   {
     tabsname: 'Manage Profile',
     tabsIcon: UserIcon,
@@ -29,9 +29,6 @@ export const Profile_Tab_Content = [
     tabsRoute: 'NotificationScreen',
   },
 ];
-
-
-
 
 interface IntroSlidesTypes {
   key: number;
@@ -76,8 +73,6 @@ export const APP_INTRO_SLIDES: IntroSlidesTypes[] = [
     gradientSecondColor: 'rgba(178, 219, 191, .8)',
   },
 ];
-
-
 
 interface RightIconProps {
   width: number | string;
@@ -145,7 +140,7 @@ export const LeftIcon: React.FC<RightIconProps> = ({
   );
 };
 
-export const Terms_And_Condition = [
+export const TERMS_AND_CONDITION = [
   {
     text: 'Aliquam euismod sodales enim, eget gravida justo vestibulum ac. In semper nunc nisl, vitae sodales tortor pellentesque a. Vivamus sit amet leo hendrerit, faucibus turpis accumsan, consequat ante',
   },
@@ -162,7 +157,7 @@ export const Terms_And_Condition = [
   },
 ];
 
-export const FAQS_List_Data = [
+export const FAQS_LIST_DATA = [
   {
     title: 'Question 1',
     content:
@@ -190,7 +185,7 @@ export const FAQS_List_Data = [
   },
 ];
 
-export const Today_Visitor_Data = [
+export const TODAY_VISITOR_DATA = [
   {
     id: '1',
     header: ' Ketty Joseph',

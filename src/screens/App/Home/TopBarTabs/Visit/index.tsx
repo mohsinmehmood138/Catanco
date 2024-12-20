@@ -6,7 +6,7 @@ import {
   appImages,
   WP,
 } from '../../../../../shared/exporter';
-import { useSharedState } from '../../../../../Hooks';
+import { useSharedState } from '../../../../../hooks';
 import UserBox from '../../../../../components/primitive/UserBox';
 import TodayVisitor from '../../../../../components/complex/TodayVisitor';
 

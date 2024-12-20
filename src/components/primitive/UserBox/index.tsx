@@ -1,4 +1,4 @@
-import {useSharedState} from '../../../Hooks';
+import {useSharedState} from '../../../hooks';
 import React, {useEffect, useState} from 'react';
 import {LeftArrowIcon} from '../../../assets/svg';
 import {appIcons} from '../../../shared/exporter';
@@ -60,7 +60,7 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
           <Text style={[styles.telehealthText, {marginLeft: 20}]}>
             New Visit
           </Text>
-          <TouchableOpacity style={styles.scanQrBoxButton} onPress={()=>navigation.navigate('QrScannerScreen')}>
+          <TouchableOpacity style={styles.scanQrBoxButton}>
             <Text style={[styles.scanQrBoxButtonText, {marginRight: 10}]} >
               Click to Scan
             </Text>

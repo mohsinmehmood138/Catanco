@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Accordion from 'react-native-collapsible/Accordion';
-import { FAQS_List_Data } from '../../../../shared/exporter';
+import { FAQS_LIST_DATA } from '../../../../shared/exporter';
 import AppHeader from '../../../../components/complex/AppHeader';
 import { SearchIcon,ExpandMoreIcon } from '../../../../assets/svg';
 import {GLFontsFamily, GLFontSize} from '../../../../shared/exporter';
@@ -42,7 +42,7 @@ const AccordionView = () => {
 
   return (
     <Accordion
-      sections={FAQS_List_Data}
+      sections={FAQS_LIST_DATA}
       activeSections={activeSections}
       renderHeader={(section, index, isActive) =>
         renderHeader(section, index, isActive)

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Profile_Tab_Content} from '../../../../shared/exporter';
+import {PROFILE_TAB_CONTENT} from '../../../../shared/exporter';
 import {ExpandMoreIcon, UserIcon} from '../../../../assets/svg';
 import AppHeader from '../../../../components/complex/AppHeader';
 import {GLFontsFamily, GLFontSize, appImages} from '../../../../shared/exporter';
@@ -28,7 +28,7 @@ const ProfileTab = () => {
         </View>
       </View>
       <View>
-        {Profile_Tab_Content.map(item => {
+        {PROFILE_TAB_CONTENT.map(item => {
           return (
             <TouchableOpacity
               style={styles.listContainer}

@@ -5,15 +5,16 @@ import {
   GLFontSize,
   WP,
 } from '../../../shared/exporter';
-import {
-  ClockIcon,
-  NotificationIcon,
-  GoBackIcon,
-  CalendarIcon,
-  DownloadIcon,
-} from '../../../assets/svg';
+// import {
+//   ClockIcon,
+//   NotificationIcon,
+//   GoBackIcon,
+//   CalendarIcon,
+//   DownloadIcon,
+// } from '../../../assets/svg';
+import { svgIcon } from '../../../assets/svg';
 import AppCustomSwitch from '../AppSwitch';
-import {useSharedState} from '../../../Hooks';
+import {useSharedState} from '../../../hooks';
 import {useNavigation} from '@react-navigation/native';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
@@ -59,11 +60,14 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 <TouchableOpacity
                   style={{marginRight: 20}}
                   onPress={openBottomSheet}>
-                  <ClockIcon width={24} height={24} />
+                 
+                  {
+                    svgIcon.ClockIcon
+                  }
                 </TouchableOpacity>
               )}
 
-              <NotificationIcon width={25} height={25} />
+             {svgIcon.NotificationIcon}
               <View style={styles.notificationShowwContainer}>
                 <Text style={{color: 'white', textAlign: 'center'}}>
                   {appNotification}
@@ -76,7 +80,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
             <TouchableOpacity
               style={styles.headerBackIcon}
               onPress={() => navigation.goBack()}>
-              {showBackIcon && <GoBackIcon />}
+              {showBackIcon && svgIcon.GoBackIcon}
             </TouchableOpacity>
             <View>
               <Text style={styles.headerTitle}>{title}</Text>
@@ -86,7 +90,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               <TouchableOpacity
                 style={styles.historyView}
                 onPress={onHistoryPress}>
-                <CalendarIcon color={'white'} width={18} height={18} />
+               {svgIcon.CalendarIcon}
               </TouchableOpacity>
             )}
 
@@ -96,7 +100,9 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                   styles.historyView,
                   {right: 58, backgroundColor: GLColors.Red.R6},
                 ]}>
-                <DownloadIcon />
+                {
+                  svgIcon.DownloadIcon
+                }
               </TouchableOpacity>
             )}
           </>

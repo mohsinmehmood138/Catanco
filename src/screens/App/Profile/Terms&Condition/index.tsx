@@ -2,7 +2,7 @@ import React from 'react';
 import {ScrollView} from 'react-native-gesture-handler';
 import AppHeader from '../../../../components/complex/AppHeader';
 import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
-import {Terms_And_Condition,GLFontsFamily} from '../../../../shared/exporter';
+import {TERMS_AND_CONDITION,GLFontsFamily} from '../../../../shared/exporter';
 
 const TermsAndCondition = () => {
   return (
@@ -10,7 +10,7 @@ const TermsAndCondition = () => {
       <AppHeader title="Terms & Condition" showBackIcon={true}/>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.TermsAndConditionContainer}>
-          {Terms_And_Condition.map(item => {
+          {TERMS_AND_CONDITION.map(item => {
             return (
               <>
                 <Text style={styles.TermsAndConditionHeading}>

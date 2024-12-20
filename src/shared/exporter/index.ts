@@ -1,15 +1,12 @@
+export {appIcons, appImages} from '../theme/assets';
 export {
-  appIcons,
-  appImages,
-  } from '../theme/assets';
-export {
-  APP_INTRO_SLIDES,
   RightIcon,
   LeftIcon,
-  Profile_Tab_Content,
-  Terms_And_Condition,
-  FAQS_List_Data,
-  Today_Visitor_Data,
+  FAQS_LIST_DATA,
+  APP_INTRO_SLIDES,
+  TODAY_VISITOR_DATA,
+  PROFILE_TAB_CONTENT,
+  TERMS_AND_CONDITION,
 } from '../utils/constant';
 export {GLColors} from '../theme/colors';
 export {GLFontSize} from '../theme/fontSize';

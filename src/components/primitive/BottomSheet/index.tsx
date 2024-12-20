@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import AppInput from '../AppInput';
 import AppButton from '../AppButton';
 import {CancelIcon} from '../../../assets/svg';

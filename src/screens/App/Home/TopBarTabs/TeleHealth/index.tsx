@@ -1,5 +1,5 @@
 import React  from 'react';
-import { useSharedState } from '../../../../../Hooks';
+import { useSharedState } from '../../../../../hooks';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import { appImages } from '../../../../../shared/exporter';
 import UserBox from '../../../../../components/primitive/UserBox';

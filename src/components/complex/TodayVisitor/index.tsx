@@ -2,7 +2,7 @@ import AppModal from '../AppModal';
 import React, {useState} from 'react';
 import {CalendarIcon} from '../../../assets/svg';
 import {ClockIcon, LocationIcon} from '../../../assets/svg';
-import {Today_Visitor_Data} from '../../../shared/exporter';
+import {TODAY_VISITOR_DATA} from '../../../shared/exporter';
 import {ScrollView, FlatList} from 'react-native-gesture-handler';
 import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
@@ -25,7 +25,7 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}>
         <FlatList
-          data={Today_Visitor_Data}
+          data={TODAY_VISITOR_DATA}
           renderItem={({item}) => (
             <View style={styles.visitContainer}>
               <View style={styles.visitHeader}>

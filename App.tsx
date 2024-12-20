@@ -7,7 +7,7 @@
 
 import React from 'react';
 import AppNavigator from './src/navigation';
-import {SharedStateProvider} from './src/Hooks';
+import {SharedStateProvider} from './src/hooks';
 import {Provider} from 'react-redux';
 import {store} from './src/redux/store';
 
