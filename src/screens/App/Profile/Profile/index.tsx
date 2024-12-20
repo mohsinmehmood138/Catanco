@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Profile_Tab_Content} from '../../../../shared/exporter';
 import {ExpandMoreIcon, UserIcon} from '../../../../assets/svg';
 import AppHeader from '../../../../components/complex/AppHeader';
-import {GLFontsFamily, GLFontSize, HomeTabImages} from '../../../../shared/exporter';
+import {GLFontsFamily, GLFontSize, appImages} from '../../../../shared/exporter';
 import {View, StyleSheet, Image, Text, TouchableOpacity, SafeAreaView} from 'react-native';
 
 const ProfileTab = () => {
@@ -15,7 +15,7 @@ const ProfileTab = () => {
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <AppHeader title="Profile" />
       <View style={styles.ProfileTabContainer}>
-        <Image source={HomeTabImages.profilePic} />
+        <Image source={appImages.profilePic} />
         <View style={{marginLeft: 10}}>
           <Text style={styles.profileTabHeading}>{profileName}</Text>
           <Text

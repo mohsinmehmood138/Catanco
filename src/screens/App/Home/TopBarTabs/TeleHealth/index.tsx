@@ -1,7 +1,7 @@
 import React  from 'react';
 import { useSharedState } from '../../../../../Hooks';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import { HomeTabImages } from '../../../../../shared/exporter';
+import { appImages } from '../../../../../shared/exporter';
 import UserBox from '../../../../../components/primitive/UserBox';
 import TodayVisitor from '../../../../../components/complex/TodayVisitor';
 import {GLFontsFamily, GLFontSize, WP} from "../../../../../shared/exporter";
@@ -23,7 +23,7 @@ const TelehealthScreenTab = () => {
           style={{flex: 1, backgroundColor: 'white', justifyContent: 'center'}}>
           <Image
             style={styles.homeTabImages}
-            source={HomeTabImages.cuateBoxImages}
+            source={appImages.cuateBoxImages}
           />
           <Text style={styles.noVisitorText}>
             No visit done yet. Please start your new visit today.

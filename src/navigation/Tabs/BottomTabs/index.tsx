@@ -1,9 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-
-
-
 import {SafeAreaView} from 'react-native';
 import HomeStack from '../../Stacks/HomeStack';
 import HistoryStack from '../../Stacks/HistoryStack';

@@ -2,8 +2,6 @@ import React from 'react';
 import BottomTabs from './Tabs/BottomTabs';
 import AuthStack from './Stacks/AuthStack';
 import IntroStack from './Stacks/IntroStack';
-import HomeStack from './Stacks/HomeStack';
-import ProfileStack from './Stacks/ProfileStack';
 import SplashScreen from '../screens/Auth/Splash';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';

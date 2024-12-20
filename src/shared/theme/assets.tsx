@@ -1,27 +1,27 @@
 export const appImages = {
-  feature1: require('../../assets/images/appIntro/Feature.png'),
-  feature2: require('../../assets/images/appIntro/Feature2.png'),
-  feature3: require('../../assets/images/appIntro/Feature3.png'),
-  feature4: require('../../assets/images/appIntro/Feature4.png'),
+  feature1: require('../../assets/images/Feature.png'),
+  feature2: require('../../assets/images/Feature2.png'),
+  feature3: require('../../assets/images/Feature3.png'),
+  feature4: require('../../assets/images/Feature4.png'),
+
+  // Splash Images
+
+  splashImage: require('../../assets/images/splash.png'),
+  splashBottomImage: require('../../assets/images/splashBottom.png'),
+
+  // Welcome Screen
+  gettingStartImage: require('../../assets/images/welcomeScreen.png'),
+
+  // App Images
+  homeTabImages: require('../../assets/images/doctor.png'),
+  cuateBoxImages: require('../../assets/images/cuate.png'),
+  profilePic: require('../../assets/images/profilepic.png'),
 };
 
-export const SplashImage = {
-  splashImage: require('../../assets/images/splash/splash.png'),
-  splashBottomImage: require('../../assets/images/splash/splashBottom.png'),
+
+export const appIcons = {
+  checkBoxImages: require('../../assets/icons/Check.png'),
+  vectorBoxImages: require('../../assets/icons/Vector.png'),
+  qrUserBoxImages: require('../../assets/icons/qrUserBoxImage.png'),
 };
 
-
-export const GettingScreenImage={
-  gettingStartImage:require("../../assets/images/welcomeScreen/welcomeScreen.png")
-}
-
-export const HomeTabImages={
-  homeTabImages:require("../../assets/images/homeTabs/doctor.png"),
-  qrUserBoxImages:require("../../assets/images/homeTabs/qrUserBoxImage.png"),
-  cuateBoxImages:require("../../assets/images/homeTabs/cuate.png"),
-  checkBoxImages:require("../../assets/images/homeTabs/Check.png"),
-  vectorBoxImages:require("../../assets/images/homeTabs/Vector.png"),
-  profilePic:require("../../assets/images/homeTabs/profilepic.png"),
-
-
-}

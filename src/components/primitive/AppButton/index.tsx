@@ -1,5 +1,4 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 interface AppButtonpRrops {
@@ -16,9 +15,8 @@ const AppButton: React.FC<AppButtonpRrops> = ({
   width,
   onPress,
 }) => {
-const navigation = useNavigation();
 
-  return (
+ return (
     <View style={styles.container}>
       <TouchableOpacity
         onPress={onPress}

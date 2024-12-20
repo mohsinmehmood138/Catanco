@@ -1,9 +1,7 @@
 export {
-  SplashImage,
+  appIcons,
   appImages,
-  GettingScreenImage,
-  HomeTabImages,
-} from '../theme/assets';
+  } from '../theme/assets';
 export {
   APP_INTRO_SLIDES,
   RightIcon,

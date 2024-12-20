@@ -10,7 +10,7 @@ import {
 import {
   GLFontsFamily,
   GLFontSize,
-  HomeTabImages,
+  appImages,
  } from '../../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import AppHeader from '../../../../components/complex/AppHeader';
@@ -45,7 +45,7 @@ const ManageProfile = () => {
       <View style={styles.manageProfileContainer}>
         <Image
           style={styles.manageProfileImage}
-          source={HomeTabImages.profilePic}
+          source={appImages.profilePic}
         />
         <Text style={styles.profileTabHeading}>{profileName}</Text>
         <Text

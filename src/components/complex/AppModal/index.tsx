@@ -1,8 +1,9 @@
 import React from 'react';
 import Modal from 'react-native-modal';
-import {HomeTabImages} from '../../../shared/exporter';
+import { appIcons} from '../../../shared/exporter';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {GLColors, GLFontsFamily, GLFontSize} from '../../../shared/exporter';
+
 
 interface ModalProps {
   isAppModal: boolean;
@@ -29,7 +30,7 @@ const AppModal: React.FC<ModalProps> = ({
         isVisible={isAppModal}>
         <View style={styles.modalContent}>
           <View style={styles.modalIconContainer}>
-            <Image source={HomeTabImages.checkBoxImages} />
+            <Image source={appIcons.checkBoxImages} />
           </View>
           <Text style={styles.detailText}>
             Do you want to Complete the visit?

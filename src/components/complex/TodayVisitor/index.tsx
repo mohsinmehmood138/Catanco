@@ -2,7 +2,7 @@ import AppModal from '../AppModal';
 import React, {useState} from 'react';
 import {CalendarIcon} from '../../../assets/svg';
 import {ClockIcon, LocationIcon} from '../../../assets/svg';
-import {GLColors, Today_Visitor_Data} from '../../../shared/exporter';
+import {Today_Visitor_Data} from '../../../shared/exporter';
 import {ScrollView, FlatList} from 'react-native-gesture-handler';
 import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';

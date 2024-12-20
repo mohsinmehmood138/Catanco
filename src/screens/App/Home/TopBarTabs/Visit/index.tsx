@@ -3,7 +3,7 @@ import React from 'react';
 import {
   GLFontsFamily,
   GLFontSize,
-  HomeTabImages,
+  appImages,
   WP,
 } from '../../../../../shared/exporter';
 import { useSharedState } from '../../../../../Hooks';
@@ -23,7 +23,7 @@ const VisitsScreenTab = () => {
         <View>
           <Image
             style={styles.homeTabImages}
-            source={HomeTabImages.homeTabImages}
+            source={appImages.homeTabImages}
           />
           <Text style={styles.noVisitorText}>
             No visit done yet. Please start your new visit today.

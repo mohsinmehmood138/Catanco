@@ -7,9 +7,9 @@ import {
   GestureResponderEvent,
 } from 'react-native';
 import styles from './styles';
+import { appImages } from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
-import {GettingScreenImage} from '../../../shared/theme/assets';
 
 type ButtonProps = {
   onPress: (event: GestureResponderEvent) => void;
@@ -38,7 +38,7 @@ const WelcomeScreen: React.FC = () => {
 
   return (
     <ImageBackground
-      source={GettingScreenImage.gettingStartImage}
+      source={appImages.gettingStartImage}
       style={styles.backgroundImage}>
       <View style={styles.overlay}>
         <LinearGradient

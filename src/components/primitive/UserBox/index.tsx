@@ -1,8 +1,8 @@
 import {useSharedState} from '../../../Hooks';
 import React, {useEffect, useState} from 'react';
 import {LeftArrowIcon} from '../../../assets/svg';
+import {appIcons} from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
-import {HomeTabImages} from '../../../shared/exporter';
 import {GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
@@ -17,8 +17,7 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
   const [hours, setHours] = useState(0);
 
   const handleNavigate = () => {
-    
-    navigation.navigate('DynamicScreen');
+     navigation.navigate('DynamicScreen');
   };
 
   const {isEnabled} = useSharedState();
@@ -69,7 +68,7 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
           </TouchableOpacity>
           <Image
             style={styles.imageStyle}
-            source={HomeTabImages.qrUserBoxImages}
+            source={appIcons.qrUserBoxImages}
           />
         </View>
       );
@@ -110,7 +109,7 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
           </TouchableOpacity>
           <Image
             style={styles.imageStyle}
-            source={HomeTabImages.vectorBoxImages}
+            source={appIcons.vectorBoxImages}
           />
         </View>
       );

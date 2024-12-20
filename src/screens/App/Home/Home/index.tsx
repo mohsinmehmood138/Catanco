@@ -1,8 +1,8 @@
 import React, {useRef, useState} from 'react';
 import {View, StyleSheet,} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import HomeTopTabs from '../../../../navigation/Tabs/HomeTopTabs';
 import AppHeader from '../../../../components/complex/AppHeader';
+import HomeTopTabs from '../../../../navigation/Tabs/HomeTopTabs';
 import AppBottomSheet from '../../../../components/primitive/BottomSheet';
 
 const HomeTab = () => {

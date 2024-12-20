@@ -19,7 +19,7 @@ const AppCustomSwitch: React.FC<CustomSwitchProps> = ({
       <View
         style={[
           styles.track,
-          isEnabled ? styles.trackEnabled : styles.trackDisabled,
+           styles.trackEnabled 
         ]}>
         <View
           style={[

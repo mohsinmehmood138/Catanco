@@ -1,7 +1,7 @@
 import {Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {GLColors} from '../../../shared/exporter';
+import {appImages, GLColors} from '../../../shared/exporter';
 import {SplashImage} from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 
@@ -20,10 +20,10 @@ const SplashScreen = () => {
 
   return (
     <View style={[styles.splashContainer, {backgroundColor: GLColors.Blue.B2}]}>
-      <Image source={SplashImage.splashImage} />
+      <Image source={appImages.splashImage} />
       <Image
         style={styles.splashBottomImage}
-        source={SplashImage.splashBottomImage}
+        source={appImages.splashBottomImage}
       />
     </View>
   );
