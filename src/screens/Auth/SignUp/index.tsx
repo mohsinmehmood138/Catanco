@@ -1,6 +1,6 @@
 import {Formik} from 'formik';
 import React, {useRef, useState} from 'react';
-import {Button, View} from 'react-native';
+import {Button, SafeAreaView, View} from 'react-native';
 import {GLColors} from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import Recaptcha from 'react-native-recaptcha-that-works';
@@ -55,7 +55,7 @@ const SignUp = () => {
 
   return (
     <>
-      <View style={{backgroundColor: 'white', flex: 1}}>
+      <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
         <AppHeader title="Signup" showBackIcon={true} />
 
         <View style={{marginTop: 20}}>
@@ -107,7 +107,7 @@ const SignUp = () => {
             )}
           </Formik>
         </View>
-      </View>
+      </SafeAreaView>
     </>
   );
 };

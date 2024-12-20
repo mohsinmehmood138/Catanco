@@ -6,6 +6,7 @@ import AppInput from '../../../components/primitive/AppInput';
 import AppButton from '../../../components/primitive/AppButton';
 import { GLColors, GLFontsFamily } from '../../../shared/exporter';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const LogIn = () => {
   const [changeText, setChangeText] = useState('');
@@ -18,7 +19,7 @@ const LogIn = () => {
 
   return (
     <>
-      <View style={{ backgroundColor: 'white', flex: 1 }}>
+      <SafeAreaView  style={{ backgroundColor: 'white', flex: 1 }}>
         <AppHeader title="Login" showBackIcon={true} />
         <View>
           <View style={{ marginTop: 20 }}>
@@ -49,7 +50,7 @@ const LogIn = () => {
             </View>
           </View>
         </View>
-      </View>
+      </SafeAreaView>
       <AppButton
 
         color={changeText ? GLColors.Red.R6 : '#D7D7FF'}

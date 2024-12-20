@@ -5,10 +5,10 @@ import {
   GLFontSize,
   HomeTabImages,
   WP,
-} from '../../shared/exporter';
-import {useSharedState} from '../../Hooks';
-import UserBox from '../../components/primitive/UserBox';
-import TodayVisitor from '../../components/complex/TodayVisitor';
+} from '../../../../../shared/exporter';
+import { useSharedState } from '../../../../../Hooks';
+import UserBox from '../../../../../components/primitive/UserBox';
+import TodayVisitor from '../../../../../components/complex/TodayVisitor';
 
 const VisitsScreenTab = () => {
   const {isEnabled} = useSharedState();

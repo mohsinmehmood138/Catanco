@@ -1,10 +1,10 @@
 import React, {useRef} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
 import StepIndicator from 'react-native-step-indicator';
-import {ClockIcon, LocationIcon} from '../../assets/svg';
-import AppHeader from '../../components/complex/AppHeader';
-import AppBottomSheet from '../../components/primitive/BottomSheet';
-import {GLColors, GLFontsFamily, GLFontSize} from '../../shared/exporter';
+import {ClockIcon, LocationIcon} from '../../../assets/svg';
+import AppHeader from '../../../components/complex/AppHeader';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import AppBottomSheet from '../../../components/primitive/BottomSheet';
+import {GLColors, GLFontsFamily, GLFontSize} from '../../../shared/exporter';
 
 const Tracking_Place_Time = [
   {visit: 'Visit 1', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
@@ -39,7 +39,7 @@ const TrackingTab = () => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1}}>
       <AppHeader
         title="Tracking"
         showHistoryIcon={true}
@@ -103,7 +103,7 @@ const TrackingTab = () => {
         type="Filter"
         bottomSheetHeader="Filter"
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

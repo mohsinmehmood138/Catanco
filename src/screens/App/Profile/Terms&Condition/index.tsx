@@ -1,14 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {GLFontsFamily} from '../../shared/exporter';
 import {ScrollView} from 'react-native-gesture-handler';
-import {Terms_And_Condition} from '../../shared/exporter';
-import AppHeader from '../../components/complex/AppHeader';
+import AppHeader from '../../../../components/complex/AppHeader';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {Terms_And_Condition,GLFontsFamily} from '../../../../shared/exporter';
 
-const PrivacyProfile = () => {
+const TermsAndCondition = () => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
-      <AppHeader title="Privacy Policy" showBackIcon={true}/>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+      <AppHeader title="Terms & Condition" showBackIcon={true}/>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.TermsAndConditionContainer}>
           {Terms_And_Condition.map(item => {
@@ -23,7 +22,7 @@ const PrivacyProfile = () => {
           })}
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -43,4 +42,5 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
 });
-export default PrivacyProfile;
+
+export default TermsAndCondition;

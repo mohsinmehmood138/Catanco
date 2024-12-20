@@ -1,11 +1,11 @@
 import React from 'react';
-import {ClockIcon} from '../../assets/svg';
-import {StyleSheet, Text, View} from 'react-native';
-import AppHeader from '../../components/complex/AppHeader';
+import {ClockIcon} from '../../../../../assets/svg';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import AppHeader from '../../../../../components/complex/AppHeader';
 
 const AllNotificationScree = () => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <AppHeader title="Notifications" showBackIcon={true}/>
       <View style={styles.allNotificationContainer}>
         <View style={styles.listContainer}>
@@ -21,7 +21,7 @@ const AllNotificationScree = () => {
           </View>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

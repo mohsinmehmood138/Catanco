@@ -1,13 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import VisitsScreenTab from '../TopBarTabs/visitsScreenTab';
-import {GLFontsFamily, GLFontSize} from '../../shared/exporter';
-import TelehealthScreenTab from '../TopBarTabs/telehealthScreenTab';
+import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
+import VisitsScreenTab from '../../../screens/App/Home/TopBarTabs/Visit';
+import TelehealthScreenTab from '../../../screens/App/Home/TopBarTabs/TeleHealth';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
 
-const TopBarStack = () => {
+const HomeTopTabs = () => {
   return (
     <View style={styles.container}>
       <Tab.Navigator
@@ -101,4 +101,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TopBarStack;
+export default HomeTopTabs;

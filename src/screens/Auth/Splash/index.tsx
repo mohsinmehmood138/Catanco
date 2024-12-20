@@ -14,7 +14,7 @@ const SplashScreen = () => {
   const navigation = useNavigation<SplashProps>();
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('AuthStack');
+      navigation.replace('BottomTabs');
     }, 2000);
   }, []);
 

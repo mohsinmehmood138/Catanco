@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView, SafeAreaView} from 'react-native';
 import {GLColors} from '../../../shared/exporter';
 import AppHeader from '../../../components/complex/AppHeader';
 import AppInput from '../../../components/primitive/AppInput';
@@ -16,7 +16,7 @@ const UserSignUpDetails = () => {
 
   return (
     <>
-      <View style={{backgroundColor: 'white', flex: 1}}>
+      <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
         <AppHeader title="Signup" showBackIcon={true} />
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -49,7 +49,7 @@ const UserSignUpDetails = () => {
           width="90%"
           onPress={userSignUpData}
         />
-      </View>
+      </SafeAreaView>
     </>
   );
 };

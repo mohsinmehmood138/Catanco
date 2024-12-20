@@ -1,14 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {GLFontsFamily} from '../../shared/exporter';
 import {ScrollView} from 'react-native-gesture-handler';
-import AppHeader from '../../components/complex/AppHeader';
-import {Terms_And_Condition} from '../../shared/exporter';
+import {GLFontsFamily} from '../../../../shared/exporter';
+import {Terms_And_Condition} from '../../../../shared/exporter';
+import AppHeader from '../../../../components/complex/AppHeader';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 
-const TermsAndCondition = () => {
+const PrivacyProfile = () => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
-      <AppHeader title="Terms & Condition" showBackIcon={true}/>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+      <AppHeader title="Privacy Policy" showBackIcon={true}/>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.TermsAndConditionContainer}>
           {Terms_And_Condition.map(item => {
@@ -23,7 +23,7 @@ const TermsAndCondition = () => {
           })}
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -43,5 +43,4 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
 });
-
-export default TermsAndCondition;
+export default PrivacyProfile;

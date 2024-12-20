@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, { useState} from 'react';
 import {
   GLColors,
   GLFontsFamily,
@@ -36,7 +36,6 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   onHistoryPress,
   openBottomSheet,
 }) => {
-  const refRBSheet = useRef();
   const navigation = useNavigation();
   const {isEnabled, toggleSwitch} = useSharedState();
   const [appNotification, setAppNotification] = useState(3);
@@ -114,8 +113,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
     justifyContent: 'center',
     elevation: 1,
     position: 'relative',

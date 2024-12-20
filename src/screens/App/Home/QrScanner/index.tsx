@@ -1,14 +1,8 @@
 
-
-
-
-
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { 
   Camera, 
-  useCameraDevices,
-  CameraDevice, 
   useCameraDevice,
   useCameraPermission
 } from 'react-native-vision-camera';

@@ -41,6 +41,7 @@ const AppIntro: React.FC = () => {
   };
 
   return (
+  
     <AppIntroSlider
       renderItem={renderItem}
       data={APP_INTRO_SLIDES}

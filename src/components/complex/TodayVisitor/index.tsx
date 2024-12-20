@@ -8,7 +8,7 @@ import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 interface VisitorProps {
-  topHeading: string;
+  topHeading?: string;
 }
 const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
   const [isAppModal, setIsAppModal] = useState(false);

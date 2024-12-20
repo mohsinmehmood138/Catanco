@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {ExpandMoreIcon, UserIcon} from '../../assets/svg';
-import AppHeader from '../../components/complex/AppHeader';
-import {Profile_Tab_Content} from '../../shared/exporter';
-import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
-import {GLFontsFamily, GLFontSize, HomeTabImages} from '../../shared/exporter';
+import {Profile_Tab_Content} from '../../../../shared/exporter';
+import {ExpandMoreIcon, UserIcon} from '../../../../assets/svg';
+import AppHeader from '../../../../components/complex/AppHeader';
+import {GLFontsFamily, GLFontSize, HomeTabImages} from '../../../../shared/exporter';
+import {View, StyleSheet, Image, Text, TouchableOpacity, SafeAreaView} from 'react-native';
 
 const ProfileTab = () => {
   const navigation = useNavigation();
@@ -12,7 +12,7 @@ const ProfileTab = () => {
   const [organisationName, setorganisationName] = useState('Organisation Name');
 
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <AppHeader title="Profile" />
       <View style={styles.ProfileTabContainer}>
         <Image source={HomeTabImages.profilePic} />
@@ -44,7 +44,7 @@ const ProfileTab = () => {
           );
         })}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({

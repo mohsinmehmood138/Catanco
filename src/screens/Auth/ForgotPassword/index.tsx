@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import AppHeader from '../../../components/complex/AppHeader';
 import {GLColors, GLFontsFamily} from '../../../shared/exporter';
 import AppInput from '../../../components/primitive/AppInput';
@@ -16,7 +16,7 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <View style={styles.forgotPasswordContainer}>
+      <SafeAreaView style={styles.forgotPasswordContainer}>
         <AppHeader title="Forgot Password" showBackIcon={true} />
         <View style={styles.forgotPasswordText}>
           <Text>
@@ -29,7 +29,7 @@ const ForgotPassword = () => {
           placeholder="Enter Email"
           onChangeText={setChangeText}
         />
-      </View>
+      </SafeAreaView>
       <AppButton
         onPress={OtpVerification}
         color={changeText ? GLColors.Red.R6 : '#D7D7FF'}

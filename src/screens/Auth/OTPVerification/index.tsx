@@ -8,7 +8,7 @@ import {
 import {OtpInput} from 'react-native-otp-entry';
 import {useNavigation} from '@react-navigation/native';
 import AppHeader from '../../../components/complex/AppHeader';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const OtpVerification = () => {
   const [countTimer, setCountTimer] = useState(30);
@@ -31,7 +31,7 @@ const OtpVerification = () => {
 
   return (
     <>
-      <View style={styles.verficationOTPContainer}>
+      <SafeAreaView style={styles.verficationOTPContainer}>
         <AppHeader title="Verify Email" showBackIcon={true} />
 
         <Text style={styles.verficationOTPContainerText}>
@@ -66,7 +66,7 @@ const OtpVerification = () => {
             }}
           />
         </View>
-      </View>
+      </SafeAreaView>
 
       <View style={styles.codeNotReceivedContainer}>
         <Text style={styles.codeNotReceivedText}>Haven’t received code?</Text>

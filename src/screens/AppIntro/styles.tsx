@@ -1,5 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
-import {GLColors, WP, GLFontsFamily} from '../../shared/exporter';
+import {GLColors, WP, GLFontsFamily, HP} from '../../shared/exporter';
 const {height} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
@@ -9,10 +9,13 @@ export const styles = StyleSheet.create({
     position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
+    width:WP('100%'),
+    
+   
   },
   image: {
     width: WP('100%'),
-    height: '100%',
+    height: HP('100%'),
     position: 'absolute',
     top: 0,
   },
@@ -75,11 +78,13 @@ export const styles = StyleSheet.create({
     height: height * 0.7,
     position: 'absolute',
     bottom: 0,
+    
+  
   },
   gradient: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: WP('5%'),
+   
   },
 });

@@ -5,30 +5,21 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  Alert,
-} from 'react-native';
+  } from 'react-native';
 import {
   GLColors,
   GLFontsFamily,
   GLFontSize,
   WP,
 } from '../../../shared/exporter';
+import { useRoute} from '@react-navigation/native';
 import AppBottomSheet from '../../primitive/BottomSheet';
-import {useNavigation, useRoute} from '@react-navigation/native';
 import {DynamicCallIcon, TimerIcon, PhoneIcon} from '../../../assets/svg';
 
-interface DynamicProps {
-  SvgIcon: any;
-  inputVlaue: string;
-  titleText: string;
-}
+const formatTime = (value:any) => String(value).padStart(2, '0');
 
-const formatTime = value => String(value).padStart(2, '0');
-
-const DynamicScreen: React.FC<DynamicProps> = ({
-  inputVlaue,
-  titleText,
-  SvgIcon,
+const DynamicScreen = ({
+  
 }) => {
   const [hours, setHours] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -124,9 +115,7 @@ const styles = StyleSheet.create({
     fontFamily: GLFontsFamily.InterExtraBold,
     fontSize: GLFontSize.FONT_SIZE_26,
     maxWidth: '80%',
-    // borderColor: 'black',
-    // borderWidth: 1,
-  },
+   },
   dynamicScreenButton: {
     width: WP('45%'),
     height: 44,

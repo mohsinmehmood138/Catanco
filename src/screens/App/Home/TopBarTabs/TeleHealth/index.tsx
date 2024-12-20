@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
-import {useSharedState} from '../../Hooks';
-import {HomeTabImages} from '../../shared/exporter';
-import UserBox from '../../components/primitive/UserBox';
+import React  from 'react';
+import { useSharedState } from '../../../../../Hooks';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import TodayVisitor from '../../components/complex/TodayVisitor';
-import {GLFontsFamily, GLFontSize, WP} from '../../shared/exporter';
+import { HomeTabImages } from '../../../../../shared/exporter';
+import UserBox from '../../../../../components/primitive/UserBox';
+import TodayVisitor from '../../../../../components/complex/TodayVisitor';
+import {GLFontsFamily, GLFontSize, WP} from "../../../../../shared/exporter";
+
 
 const TelehealthScreenTab = () => {
   const {isEnabled} = useSharedState();

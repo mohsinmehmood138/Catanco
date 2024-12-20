@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import {SearchIcon} from '../../assets/svg';
-import {ExpandMoreIcon} from '../../assets/svg';
-import {FAQS_List_Data} from '../../shared/exporter';
 import Accordion from 'react-native-collapsible/Accordion';
-import AppHeader from '../../components/complex/AppHeader';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
-import {GLFontsFamily, GLFontSize} from '../../shared/exporter';
+import { FAQS_List_Data } from '../../../../shared/exporter';
+import AppHeader from '../../../../components/complex/AppHeader';
+import { SearchIcon,ExpandMoreIcon } from '../../../../assets/svg';
+import {GLFontsFamily, GLFontSize} from '../../../../shared/exporter';
+import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 
 const AccordionView = () => {
   const [activeSections, setActiveSections] = useState([]);
@@ -57,7 +56,7 @@ const AccordionView = () => {
 
 const FAQS = () => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <AppHeader title="FAQ’s" showBackIcon={true}/>
       <View style={styles.FAQsContainer}>
         <View style={styles.searchContainer}>
@@ -68,7 +67,7 @@ const FAQS = () => {
           <AccordionView />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

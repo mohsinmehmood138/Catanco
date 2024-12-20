@@ -1,15 +1,26 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import AppHeader from '../../components/complex/AppHeader';
-import AppCustomSwitch from '../../components/complex/AppSwitch';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {GLColors, GLFontsFamily, GLFontSize} from '../../shared/exporter';
+import {useNavigation} from '@react-navigation/native';
+import AppHeader from '../../../../../components/complex/AppHeader';
+import AppCustomSwitch from '../../../../../components/complex/AppSwitch';
+import {
+  GLColors,
+  GLFontsFamily,
+  GLFontSize,
+} from '../../../../../shared/exporter';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-const NotificationScreen = () => {
-  const naviagtion=useNavigation()
+const Notification = () => {
+  const naviagtion = useNavigation();
+
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
-      <AppHeader title="Notifications" showBackIcon={true}/>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+      <AppHeader title="Notifications" showBackIcon={true} />
       <View style={styles.notificationContainer}>
         <View style={styles.notifcationList}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -34,14 +45,15 @@ const NotificationScreen = () => {
       <View style={styles.disablingNotification}>
         <View style={styles.disablingNotificationIcon}></View>
 
-        <TouchableOpacity onPress={()=>naviagtion.navigate('AllNotificationScree')}>
-        <Text style={styles.disableNotificationText}>
-          Disabling notifications will prevent you from receiving updates on
-          product price changes.
-        </Text>
+        <TouchableOpacity
+          onPress={() => naviagtion.navigate('AllNotificationScreen')}>
+          <Text style={styles.disableNotificationText}>
+            Disabling notifications will prevent you from receiving updates on
+            product price changes.
+          </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -108,4 +120,4 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 });
-export default NotificationScreen;
+export default Notification;

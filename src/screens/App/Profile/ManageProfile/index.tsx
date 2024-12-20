@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {
-  Button,
   Image,
+  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,12 +11,10 @@ import {
   GLFontsFamily,
   GLFontSize,
   HomeTabImages,
-  Profile_Tab_Content,
-} from '../../shared/exporter';
+ } from '../../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
-import {ProfileIcon, PhoneIcon} from '../../assets/svg';
-import {ExpandMoreIcon, UserIcon} from '../../assets/svg';
-import AppHeader from '../../components/complex/AppHeader';
+import AppHeader from '../../../../components/complex/AppHeader';
+import { PhoneIcon ,ExpandMoreIcon, UserIcon} from '../../../../assets/svg';
 
 const Manage_Profile_Data = [
   {
@@ -42,7 +40,7 @@ const ManageProfile = () => {
   const [organisationName, setorganisationName] = useState('Organisation Name');
 
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <AppHeader title="Manage Profile" showBackIcon={true} />
       <View style={styles.manageProfileContainer}>
         <Image
@@ -89,7 +87,7 @@ const ManageProfile = () => {
       <TouchableOpacity style={styles.logOutButton}>
         <Text style={styles.logOutButtonText}>Log Out</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 

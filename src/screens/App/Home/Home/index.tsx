@@ -1,8 +1,9 @@
 import React, {useRef, useState} from 'react';
-import {View, StyleSheet} from 'react-native';
-import TobBarStack from '../Stacks/TobBarStack';
-import AppHeader from '../../components/complex/AppHeader';
-import AppBottomSheet from '../../components/primitive/BottomSheet';
+import {View, StyleSheet,} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import HomeTopTabs from '../../../../navigation/Tabs/HomeTopTabs';
+import AppHeader from '../../../../components/complex/AppHeader';
+import AppBottomSheet from '../../../../components/primitive/BottomSheet';
 
 const HomeTab = () => {
   const bottomSheetRef = useRef<any>();
@@ -21,7 +22,7 @@ const HomeTab = () => {
   };
 
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
         backgroundColor: 'white',
@@ -30,7 +31,7 @@ const HomeTab = () => {
       }}>
       <AppHeader type="homeHeader" openBottomSheet={openBottomSheet} />
       <View style={styles.tobBarContainer}>
-        <TobBarStack />
+        <HomeTopTabs />
       </View>
       <AppBottomSheet
         type="break"
@@ -40,7 +41,7 @@ const HomeTab = () => {
         bottomSheetHeight={130}
         onPress={breakText == 'Take a Break' ? startBreak : stopBreak}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

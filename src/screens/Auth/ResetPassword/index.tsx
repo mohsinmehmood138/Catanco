@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import React, {useState} from 'react';
 import {GLColors} from '../../../shared/exporter';
 import AppHeader from '../../../components/complex/AppHeader';
@@ -16,7 +16,7 @@ const ResetPassword = () => {
 
   return (
     <>
-      <View style={{flex: 1, backgroundColor: 'white'}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
         <AppHeader title="Set New Password" showBackIcon={true} />
         <View style={{marginTop: 20}}>
           <AppInput
@@ -31,7 +31,7 @@ const ResetPassword = () => {
             secureTextEntry={true}
           />
         </View>
-      </View>
+      </SafeAreaView>
       <AppButton
         onPress={handleResetPassword}
         color={changeText ? GLColors.Red.R6 : '#D7D7FF'}
