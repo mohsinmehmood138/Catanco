@@ -1,7 +1,7 @@
 import React from 'react';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {useSharedState} from '../../../../../hooks';
 import {ScrollView} from 'react-native-gesture-handler';
-import {View, Text, StyleSheet, Image} from 'react-native';
 import {appImages} from '../../../../../shared/exporter';
 import UserBox from '../../../../../components/primitive/UserBox';
 import TodayVisitor from '../../../../../components/complex/TodayVisitor';
@@ -19,8 +19,7 @@ const TelehealthScreenTab = () => {
           <TodayVisitor />
         </>
       ) : (
-        <View
-          style={{flex: 1, backgroundColor: 'white', justifyContent: 'center'}}>
+        <>
           <Image
             style={styles.homeTabImages}
             source={appImages.cuateBoxImages}
@@ -28,7 +27,7 @@ const TelehealthScreenTab = () => {
           <Text style={styles.noVisitorText}>
             No visit done yet. Please start your new visit today.
           </Text>
-        </View>
+        </>
       )}
     </ScrollView>
   );
@@ -41,21 +40,21 @@ const styles = StyleSheet.create({
   },
 
   telehealthText: {
-    fontFamily: GLFontsFamily.InterExtraBold,
-    fontSize: GLFontSize.FONT_SIZE_16,
     marginTop: 14,
     marginLeft: 10,
+    fontSize: GLFontSize.FONT_SIZE_16,
+    fontFamily: GLFontsFamily.InterExtraBold,
   },
   homeTabImages: {
+    marginTop: 100,
     alignSelf: 'center',
-    marginTop: 40,
   },
   noVisitorText: {
-    fontFamily: GLFontsFamily.InterMedium,
+    marginTop: 10,
     width: WP('60%'),
     alignSelf: 'center',
     textAlign: 'center',
-    marginTop: 10,
+    fontFamily: GLFontsFamily.InterMedium,
   },
 });
 

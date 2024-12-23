@@ -22,13 +22,7 @@ const HomeTab = () => {
   };
 
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: 'white',
-        height: '100%',
-        width: '100%',
-      }}>
+    <SafeAreaView style={styles.homeTabContainer}>
       <AppHeader type="homeHeader" openBottomSheet={openBottomSheet} />
       <View style={styles.tobBarContainer}>
         <HomeTopTabs />
@@ -46,6 +40,9 @@ const HomeTab = () => {
 };
 
 const styles = StyleSheet.create({
+  homeTabContainer: {
+    flex: 1,
+  },
   tobBarContainer: {
     flex: 1,
     justifyContent: 'center',

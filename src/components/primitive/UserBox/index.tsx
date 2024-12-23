@@ -1,10 +1,10 @@
-import { svgIcon } from '../../../assets/svg';
+import {svgIcon} from '../../../assets/svg';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {useSharedState} from '../../../hooks';
 import React, {useEffect, useState} from 'react';
 import {appIcons} from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import {GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 interface BoxProps {
   type: string;
@@ -17,7 +17,7 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
   const [hours, setHours] = useState(0);
 
   const handleNavigate = () => {
-     navigation.navigate('DynamicScreen');
+    navigation.navigate('DynamicScreen');
   };
 
   const {isEnabled} = useSharedState();
@@ -61,18 +61,12 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
             New Visit
           </Text>
           <TouchableOpacity style={styles.scanQrBoxButton}>
-            <Text style={[styles.scanQrBoxButtonText, {marginRight: 10}]} >
+            <Text style={[styles.scanQrBoxButtonText, {marginRight: 10}]}>
               Click to Scan
             </Text>
-            {
-              svgIcon.ArrowLeftIcon
-            }
-        
+            {svgIcon.ArrowLeftIcon}
           </TouchableOpacity>
-          <Image
-            style={styles.imageStyle}
-            source={appIcons.qrUserBoxImages}
-          />
+          <Image style={styles.imageStyle} source={appIcons.qrUserBoxImages} />
         </View>
       );
       break;
@@ -83,10 +77,7 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
             New Visit
           </Text>
           <TouchableOpacity
-            style={[
-              styles.scanQrBoxButton,
-              {width: '90%', alignSelf: 'center', flexDirection: 'column'},
-            ]}>
+            style={[styles.scanQrBoxButton, styles.timeContainer]}>
             <Text style={styles.scanQrBoxButtonSmallText}>
               {formatTime(hours)}:{formatTime(minutes)}:{formatTime(seconds)}{' '}
               Hrs
@@ -108,12 +99,9 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
             <Text style={[styles.scanQrBoxButtonText, {marginRight: 10}]}>
               Click for Call
             </Text>
-           {svgIcon.ArrowLeftIcon}
+            {svgIcon.ArrowLeftIcon}
           </TouchableOpacity>
-          <Image
-            style={styles.imageStyle}
-            source={appIcons.vectorBoxImages}
-          />
+          <Image style={styles.imageStyle} source={appIcons.vectorBoxImages} />
         </View>
       );
       break;
@@ -131,41 +119,41 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
 
 const styles = StyleSheet.create({
   telehealthScannerContainer: {
-    width: '100%',
     height: 116,
+    padding: 10,
+    marginTop: 20,
+    width: '100%',
     borderRadius: 20,
     backgroundColor: '#D7D7FF',
-    marginTop: 20,
-    padding: 10,
   },
   telehealthText: {
-    fontFamily: GLFontsFamily.InterExtraBold,
-    fontSize: GLFontSize.FONT_SIZE_18,
     marginTop: 10,
+    fontSize: GLFontSize.FONT_SIZE_18,
+    fontFamily: GLFontsFamily.InterExtraBold,
   },
   scanQrBoxButton: {
-    width: WP('50%'),
-    backgroundColor: '#247BA0',
     height: 45,
-    borderRadius: 40,
     marginTop: 10,
+    borderWidth: 1,
+    borderRadius: 40,
+    width: WP('50%'),
     alignItems: 'center',
     flexDirection: 'row',
-    borderWidth: 1,
     justifyContent: 'center',
+    backgroundColor: '#247BA0',
     borderColor: 'transparent',
   },
   scanQrBoxButtonText: {
-    fontFamily: GLFontsFamily.InterBold,
-    fontSize: GLFontSize.FONT_SIZE_16,
     color: 'white',
     textAlign: 'center',
+    fontSize: GLFontSize.FONT_SIZE_16,
+    fontFamily: GLFontsFamily.InterBold,
   },
   scanQrBoxButtonSmallText: {
-    fontFamily: GLFontsFamily.InterMedium,
-    fontSize: GLFontSize.FONT_SIZE_12,
     color: 'white',
     textAlign: 'center',
+    fontSize: GLFontSize.FONT_SIZE_12,
+    fontFamily: GLFontsFamily.InterMedium,
   },
   imageStyle: {
     position: 'absolute',
@@ -174,6 +162,11 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     resizeMode: 'contain',
+  },
+  timeContainer: {
+    width: '90%',
+    alignSelf: 'center',
+    flexDirection: 'column',
   },
 });
 

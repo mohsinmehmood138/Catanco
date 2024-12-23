@@ -1,17 +1,17 @@
- import React from 'react';
+import React from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import AppInput from '../AppInput';
 import AppButton from '../AppButton';
-import { svgIcon } from '../../../assets/svg';
-import RBSheet from 'react-native-raw-bottom-sheet';
-import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
+import {svgIcon} from '../../../assets/svg';
 import {GLColors, GLFontsFamily, GLFontSize} from '../../../shared/exporter';
+import RBSheet from 'react-native-raw-bottom-sheet';
 
 interface BottomSheetProps {
   type?: String;
   refRBSheet: any;
+  appBottonText?: string;
   bottomSheetHeight: any;
   bottomSheetHeader: string;
-  appBottonText?: string;
   onPress?: () => void | any;
 }
 
@@ -36,7 +36,7 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
             />
             <View style={{paddingHorizontal: 20}}>
               <AppButton
-                onPress={()=>Alert.alert('input Data')}
+                onPress={() => ''}
                 color={GLColors.Red.R6}
                 label="Add"
                 width="100%"
@@ -67,9 +67,9 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
   return (
     <RBSheet
       ref={refRBSheet}
-      height={bottomSheetHeight}
       openDuration={250}
       useNativeDriver={false}
+      height={bottomSheetHeight}
       customStyles={{
         container: {
           borderTopLeftRadius: 20,
@@ -85,7 +85,7 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
         <TouchableOpacity
           onPress={() => refRBSheet.current.close()}
           style={styles.cancelButton}>
-         {svgIcon.CancelIcon}
+          {svgIcon.CancelIcon}
         </TouchableOpacity>
       </View>
 
@@ -96,14 +96,14 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
 
 const styles = StyleSheet.create({
   header: {
+    padding: 20,
+    alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 20,
   },
   bottomSheetHeading: {
-    fontFamily: GLFontsFamily.InterExtraBold,
     fontSize: GLFontSize.FONT_SIZE_18,
+    fontFamily: GLFontsFamily.InterExtraBold,
   },
   cancelButton: {
     position: 'absolute',

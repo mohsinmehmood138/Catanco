@@ -7,8 +7,8 @@ import {
   GLFontSize,
   WP,
 } from '../../../shared/exporter';
-import {svgIcon} from '../../../assets/svg';
 import AppCustomSwitch from '../AppSwitch';
+import {svgIcon} from '../../../assets/svg';
 import {useSharedState} from '../../../hooks';
 
 interface AppHeaderProps {
@@ -39,29 +39,24 @@ const AppHeader: React.FC<AppHeaderProps> = ({
       <View style={styles.headerContainer}>
         {type === 'homeHeader' ? (
           <View style={styles.homeHeaderContainer}>
-            <View>
-              <Text style={styles.homeHeaderText}>
-                {isEnabled ? 'End Your Day' : 'Start Your Day'}
-              </Text>
-            </View>
+            <Text style={styles.homeHeaderText}>
+              {isEnabled ? 'End Your Day' : 'Start Your Day'}
+            </Text>
 
             <AppCustomSwitch isEnabled={isEnabled} onToggle={toggleSwitch} />
 
-            <View
-              style={{position: 'absolute', right: -10, flexDirection: 'row'}}>
+            <View style={styles.timeSheet}>
               {isEnabled && (
                 <TouchableOpacity
-                  style={{marginRight: 20}}
+                  style={styles.clockIcon}
                   onPress={openBottomSheet}>
                   {svgIcon.ClockIcon1}
                 </TouchableOpacity>
               )}
 
               {svgIcon.NotificationIcon1}
-              <View style={styles.notificationShowwContainer}>
-                <Text style={{color: 'white', textAlign: 'center'}}>
-                  {appNotification}
-                </Text>
+              <View style={styles.notificationShowContainer}>
+                <Text style={styles.notificationText}>{appNotification}</Text>
               </View>
             </View>
           </View>
@@ -86,10 +81,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
 
             {showDownloadIcon && (
               <TouchableOpacity
-                style={[
-                  styles.historyView,
-                  {right: 58, backgroundColor: GLColors.Red.R6},
-                ]}>
+                style={[styles.historyView, styles.historyDownlaodIcon]}>
                 {svgIcon.DownloadIcon}
               </TouchableOpacity>
             )}
@@ -137,7 +129,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     transform: [{scale: 1.2}],
   },
-  notificationShowwContainer: {
+  notificationShowContainer: {
     width: 20,
     height: 20,
     backgroundColor: GLColors.Red.R6,
@@ -155,6 +147,22 @@ const styles = StyleSheet.create({
     right: 20,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  timeSheet: {
+    position: 'absolute',
+    right: -10,
+    flexDirection: 'row',
+  },
+  notificationText: {
+    color: 'white',
+    textAlign: 'center',
+  },
+  historyDownlaodIcon: {
+    right: 58,
+    backgroundColor: GLColors.Red.R6,
+  },
+  clockIcon: {
+    marginRight: 20,
   },
 });
 

@@ -1,22 +1,23 @@
-import AppModal from '../AppModal';
 import React, {useState} from 'react';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import AppModal from '../AppModal';
 import {svgIcon} from '../../../assets/svg';
 import {TODAY_VISITOR_DATA} from '../../../shared/exporter';
 import {ScrollView, FlatList} from 'react-native-gesture-handler';
 import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 interface VisitorProps {
   topHeading?: string;
 }
 const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
   const [isAppModal, setIsAppModal] = useState(false);
+
   const openAppModal = () => {
     setIsAppModal(!isAppModal);
   };
 
   return (
-    <View>
+    <>
       <Text style={styles.telehealthText}>
         {topHeading ? topHeading : 'Today’s Visits'}
       </Text>
@@ -37,8 +38,7 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
                   <Text style={{color: '#247BA0'}}>Visit</Text>
                 </TouchableOpacity>
               </View>
-              <View
-                style={{flexDirection: 'row', width: '90%', marginVertical: 5}}>
+              <View style={styles.visitorDateContainer}>
                 <View style={styles.visitorDateAndTime}>
                   {svgIcon.CalendarIcon}
                   <Text style={styles.visitDateTime}>{item.date}</Text>
@@ -48,11 +48,9 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
                   <Text style={[styles.visitDateTime]}>{item.time}</Text>
                 </View>
               </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={styles.visitorLocation}>
                 {svgIcon.LocationIcon}
-                <Text style={[styles.visitLocation, {marginLeft: 5}]}>
-                  {item.location}
-                </Text>
+                <Text style={styles.visitLocation}>{item.location}</Text>
               </View>
             </View>
           )}
@@ -66,60 +64,70 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
         onCancel={openAppModal}
         onConfirm={() => ''}
       />
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   telehealthText: {
-    fontFamily: GLFontsFamily.InterExtraBold,
-    fontSize: GLFontSize.FONT_SIZE_16,
     marginTop: 14,
     marginLeft: 10,
+    fontSize: GLFontSize.FONT_SIZE_16,
+    fontFamily: GLFontsFamily.InterExtraBold,
   },
   visitorDateAndTime: {
-    justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 
   viewButton: {
-    backgroundColor: '#B2DBBF',
+    borderRadius: 20,
     paddingVertical: 5,
     paddingHorizontal: 18,
-    borderRadius: 20,
+    backgroundColor: '#B2DBBF',
   },
   scrollContent: {
     paddingBottom: 230,
   },
   visitContainer: {
     height: 100,
-    backgroundColor: '#F8F8F8',
-    marginTop: 15,
     padding: 10,
-    borderRadius: 12,
     elevation: 1,
+    marginTop: 15,
+    borderRadius: 12,
+    backgroundColor: '#F8F8F8',
   },
   visitHeader: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   visitHeaderText: {
-    fontFamily: GLFontsFamily.InterExtraBold,
     fontSize: GLFontSize.FONT_SIZE_16,
+    fontFamily: GLFontsFamily.InterExtraBold,
   },
   visitDateTime: {
-    fontFamily: GLFontsFamily.InterMedium,
-    fontSize: GLFontSize.FONT_SIZE_14,
-    alignItems: 'center',
     marginLeft: 5,
+    alignItems: 'center',
+    fontSize: GLFontSize.FONT_SIZE_14,
+    fontFamily: GLFontsFamily.InterMedium,
   },
   visitLocation: {
-    fontFamily: GLFontsFamily.InterMedium,
-    fontSize: GLFontSize.FONT_SIZE_14,
     marginTop: 5,
+    marginLeft: 5,
     color: '#666',
+    fontSize: GLFontSize.FONT_SIZE_14,
+    fontFamily: GLFontsFamily.InterMedium,
+  },
+  visitorDateContainer: {
+    width: '90%',
+    marginVertical: 5,
+    flexDirection: 'row',
+  },
+  visitorLocation: {
+    alignItems: 'center',
+    flexDirection: 'row',
   },
 });
 export default TodayVisitor;

@@ -1,26 +1,21 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity,Platform} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Platform, GestureResponderEvent } from 'react-native';
 
-interface AppButtonpRrops {
+interface AppButtonProps {
   color: string;
-  label: string | any;
-  width: string | number;
+  label: string;
+  width: number | string;
+  onPress: (event: GestureResponderEvent) => void;
 
-  onPress: () => any | any;
 }
 
-const AppButton: React.FC<AppButtonpRrops> = ({
-  color,
-  label,
-  width,
-  onPress,
-}) => {
-
- return (
+const AppButton: React.FC<AppButtonProps> = ({ color, label, width, onPress }) => {
+  return (
     <View style={styles.container}>
       <TouchableOpacity
         onPress={onPress}
-        style={[styles.button, {backgroundColor: color, width: width}]}>
+        style={[styles.button, { backgroundColor: color, width }]}
+      >
         <Text style={styles.buttonText}>{label}</Text>
       </TouchableOpacity>
     </View>
@@ -29,21 +24,18 @@ const AppButton: React.FC<AppButtonpRrops> = ({
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    borderColor: 'white',
-    borderWidth: 1,
-    zIndex: 1,
-    height: 70,
+    justifyContent: 'center',
     backgroundColor: 'white',
+    alignItems: 'center',
+    height: 70,
   },
   button: {
     position: 'absolute',
-    bottom:Platform.OS==="ios"?30: 20,
     height: 44,
-    justifyContent: 'center',
-    alignItems: 'center',
     borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    bottom: Platform.OS === 'ios' ? 30 : 20,
   },
   buttonText: {
     color: 'white',

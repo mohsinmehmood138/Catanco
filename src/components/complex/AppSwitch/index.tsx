@@ -16,12 +16,7 @@ const AppCustomSwitch: React.FC<CustomSwitchProps> = ({
       onPress={onToggle}
       activeOpacity={0.8}
       style={styles.switchContainer}>
-      <View
-        style={[
-          styles.track,
-
-          isEnabled ? styles.trackEnabled : styles.trackDisabled,
-        ]}>
+      <View style={[styles.track, isEnabled && styles.trackEnabled]}>
         <View
           style={[
             styles.thumb,
@@ -37,28 +32,28 @@ const styles = StyleSheet.create({
   switchContainer: {
     width: 42,
     height: 26,
-    justifyContent: 'center',
-    alignItems: 'center',
     marginLeft: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   track: {
-    width: '100%',
     height: 22,
+    width: '100%',
     borderRadius: 15,
-    backgroundColor: '#D7D7FF',
     position: 'relative',
+    backgroundColor: '#D7D7FF',
   },
-  trackDisabled: {},
+
   trackEnabled: {
     backgroundColor: GLColors.Red.R6,
   },
   thumb: {
+    top: 1,
     width: 20,
     height: 20,
     borderRadius: 10,
-    backgroundColor: '#fff',
     position: 'absolute',
-    top: 1,
+    backgroundColor: '#fff',
   },
   thumbEnabled: {
     left: 22,

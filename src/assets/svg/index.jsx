@@ -56,8 +56,8 @@ export const svgIcon = {
   ExpandMoreIcon: <ExpandMoreIcon />,
   StatisticsIcon: <StatisticsIcon />,
   StatisticsIcon1: <StatisticsIcon1 />,
-  CalendarWhiteIcon:<CalendarWhiteIcon/>,
   NotificationIcon: <NotificationIcon />,
+  CalendarWhiteIcon:<CalendarWhiteIcon/>,
   NotificationIcon1: <NotificationIcon1 />,
 
 };

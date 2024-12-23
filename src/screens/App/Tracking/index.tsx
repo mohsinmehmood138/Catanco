@@ -1,11 +1,11 @@
 import React, {useRef} from 'react';
-import StepIndicator from 'react-native-step-indicator';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import {svgIcon} from '../../../assets/svg';
 import AppHeader from '../../../components/complex/AppHeader';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import AppBottomSheet from '../../../components/primitive/BottomSheet';
 import {GLColors, GLFontsFamily, GLFontSize} from '../../../shared/exporter';
 import {ScrollView} from 'react-native-gesture-handler';
+import StepIndicator from 'react-native-step-indicator';
 
 const Tracking_Place_Time = [
   {visit: 'Visit 1', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},

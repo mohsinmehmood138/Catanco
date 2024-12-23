@@ -1,27 +1,19 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import { svgIcon } from '../../../assets/svg';
-import { BottomTabBarOptions, Route } from '@react-navigation/bottom-tabs';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import {svgIcon} from '../../../assets/svg';
+import {BottomTabBarOptions, Route} from '@react-navigation/bottom-tabs';
 
 type TabIconProps = {
   icon: React.ReactNode;
   focused: boolean;
 };
 
-const TabIcon: React.FC<TabIconProps> = ({ icon, focused }) => (
+const TabIcon: React.FC<TabIconProps> = ({icon, focused}) => (
   <SafeAreaView
-    style={{
-      backgroundColor: focused ? '#FF1654' : 'transparent',
-      borderRadius: 50,
-      padding: 10,
-      marginTop: 10,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: 45,
-      height: 45,
-    }}
-  >
+    style={[
+      styles.bottomTabsContainer,
+      {backgroundColor: focused ? '#FF1654' : 'transparent'},
+    ]}>
     {icon}
   </SafeAreaView>
 );
@@ -30,8 +22,8 @@ type BottomTabProps = {
   route: Route<string>;
 };
 
-export const BottomTab = ({ route }: BottomTabProps): BottomTabBarOptions => ({
-  tabBarIcon: ({ focused }: { focused: boolean }) => {
+export const BottomTab = ({route}: BottomTabProps): BottomTabBarOptions => ({
+  tabBarIcon: ({focused}: {focused: boolean}) => {
     let IconComponent;
 
     switch (route.name) {
@@ -57,15 +49,28 @@ export const BottomTab = ({ route }: BottomTabProps): BottomTabBarOptions => ({
 
     return <TabIcon icon={IconComponent} focused={focused} />;
   },
-  tabBarActiveTintColor: 'transparent',
-  tabBarInactiveTintColor: 'transparent',
-  tabBarPressColor: 'transparent',
   headerShown: false,
   tabBarShowLabel: false,
+  tabBarPressColor: 'transparent',
+  tabBarActiveTintColor: 'transparent',
+  tabBarInactiveTintColor: 'transparent',
   tabBarStyle: {
     height: 70,
     paddingTop: 10,
     backgroundColor: '#EFEFEF',
+  },
+});
+
+const styles = StyleSheet.create({
+  bottomTabsContainer: {
+    width: 45,
+    height: 45,
+    padding: 10,
+    marginTop: 10,
+    display: 'flex',
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

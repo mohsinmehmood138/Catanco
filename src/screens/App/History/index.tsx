@@ -2,7 +2,6 @@ import React, {useRef} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import AppHeader from '../../../components/complex/AppHeader';
-import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
 import TodayVisitor from '../../../components/complex/TodayVisitor';
 import AppBottomSheet from '../../../components/primitive/BottomSheet';
 
@@ -14,7 +13,7 @@ const HistoryTab = () => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+    <SafeAreaView style={styles.historyContainer}>
       <AppHeader
         title="History"
         showHistoryIcon={true}
@@ -34,9 +33,9 @@ const HistoryTab = () => {
 };
 
 const styles = StyleSheet.create({
-  dayText: {
-    fontFamily: GLFontsFamily.InterBold,
-    fontSize: GLFontSize.FONT_SIZE_18,
+  historyContainer: {
+    flex: 1,
+    backgroundColor: 'white',
   },
 });
 
