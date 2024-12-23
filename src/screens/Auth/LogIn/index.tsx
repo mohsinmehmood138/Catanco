@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import CheckBox from '@react-native-community/checkbox';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import AppHeader from '../../../components/complex/AppHeader';
 import AppInput from '../../../components/primitive/AppInput';
 import AppButton from '../../../components/primitive/AppButton';
 import { GLColors, GLFontsFamily } from '../../../shared/exporter';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const LogIn = () => {
   const [changeText, setChangeText] = useState('');
@@ -14,7 +14,7 @@ const LogIn = () => {
   const navigation = useNavigation();
 
   const handleHomeStack = () => {
-    navigation.navigate('HomeStack');
+    navigation.navigate('BottomTabs');
   };
 
   return (

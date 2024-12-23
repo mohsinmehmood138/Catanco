@@ -5,7 +5,6 @@ export const appImages = {
   feature4: require('../../assets/images/feature4.png'),
 
   // Splash Images
-
   splashImage: require('../../assets/images/splash.png'),
   splashBottomImage: require('../../assets/images/splash_bottom.png'),
 

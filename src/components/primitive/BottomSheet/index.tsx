@@ -1,7 +1,7 @@
  import React from 'react';
 import AppInput from '../AppInput';
 import AppButton from '../AppButton';
-import {CancelIcon} from '../../../assets/svg';
+import { svgIcon } from '../../../assets/svg';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import {GLColors, GLFontsFamily, GLFontSize} from '../../../shared/exporter';
@@ -85,7 +85,7 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
         <TouchableOpacity
           onPress={() => refRBSheet.current.close()}
           style={styles.cancelButton}>
-          <CancelIcon />
+         {svgIcon.CancelIcon}
         </TouchableOpacity>
       </View>
 

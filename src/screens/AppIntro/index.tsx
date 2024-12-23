@@ -1,10 +1,11 @@
 import React from 'react';
 import {styles} from './styles.tsx';
 import {View, Text, Image} from 'react-native';
+import { svgIcon } from '../../assets/svg/index.jsx';
+import {APP_INTRO_SLIDES} from '../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {APP_INTRO_SLIDES, RightIcon} from '../../shared/exporter';
 
 const AppIntro: React.FC = () => {
   const navigation: any = useNavigation();
@@ -52,12 +53,12 @@ const AppIntro: React.FC = () => {
       activeDotStyle={styles.activeDot}
       renderNextButton={() => (
         <View style={styles.nextButton}>
-          <RightIcon color="white" width="30" height="30" />
+          {svgIcon.ArrowRightIcon}
         </View>
       )}
       renderDoneButton={() => (
         <View style={styles.nextButton}>
-          <RightIcon color="white" width="30" height="30" />
+          {svgIcon.ArrowRightIcon}
         </View>
       )}
       renderSkipButton={() => <Text style={styles.skipButton}>Skip</Text>}

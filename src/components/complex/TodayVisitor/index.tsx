@@ -1,7 +1,6 @@
 import AppModal from '../AppModal';
 import React, {useState} from 'react';
-import {CalendarIcon} from '../../../assets/svg';
-import {ClockIcon, LocationIcon} from '../../../assets/svg';
+import {svgIcon} from '../../../assets/svg';
 import {TODAY_VISITOR_DATA} from '../../../shared/exporter';
 import {ScrollView, FlatList} from 'react-native-gesture-handler';
 import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
@@ -45,16 +44,16 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
                   width: '90%',
                 }}>
                 <View style={styles.visitorDateAndTime}>
-                  <CalendarIcon color={'#247BA0'} width={16} height={16} />
+                  {svgIcon.CalendarIcon}
                   <Text style={styles.visitDateTime}>{item.date}</Text>
                 </View>
                 <View style={[styles.visitorDateAndTime, {marginLeft: 10}]}>
-                  <ClockIcon width={16} height={16} color={'#247BA0'} />
+                  {svgIcon.ClockIcon}
                   <Text style={[styles.visitDateTime]}>{item.time}</Text>
                 </View>
               </View>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <LocationIcon />
+                {svgIcon.LocationIcon}
                 <Text style={[styles.visitLocation, {marginLeft: 5}]}>
                   {item.location}
                 </Text>

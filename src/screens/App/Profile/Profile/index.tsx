@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
+import { svgIcon } from '../../../../assets/svg';
 import {useNavigation} from '@react-navigation/native';
 import {PROFILE_TAB_CONTENT} from '../../../../shared/exporter';
-import {ExpandMoreIcon, UserIcon} from '../../../../assets/svg';
 import AppHeader from '../../../../components/complex/AppHeader';
 import {GLFontsFamily, GLFontSize, appImages} from '../../../../shared/exporter';
 import {View, StyleSheet, Image, Text, TouchableOpacity, SafeAreaView} from 'react-native';
@@ -34,11 +34,11 @@ const ProfileTab = () => {
               style={styles.listContainer}
               onPress={() => navigation.navigate(item.tabsRoute)}>
               <View style={styles.profileIconBackgroundContainer}>
-                <UserIcon />
+                {svgIcon.UserIcon}
               </View>
               <Text style={styles.profileTabHeading}>{item.tabsname}</Text>
               <View style={{position: 'absolute', right: 20}}>
-                <ExpandMoreIcon />
+                {svgIcon.ExpandMoreIcon}
               </View>
             </TouchableOpacity>
           );

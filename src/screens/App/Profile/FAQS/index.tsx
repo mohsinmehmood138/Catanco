@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
+import {svgIcon} from '../../../../assets/svg';
 import Accordion from 'react-native-collapsible/Accordion';
-import { FAQS_LIST_DATA } from '../../../../shared/exporter';
+import {FAQS_LIST_DATA} from '../../../../shared/exporter';
 import AppHeader from '../../../../components/complex/AppHeader';
-import { SearchIcon,ExpandMoreIcon } from '../../../../assets/svg';
 import {GLFontsFamily, GLFontSize} from '../../../../shared/exporter';
 import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 
@@ -23,7 +23,7 @@ const AccordionView = () => {
           : {borderRadius: 8},
       ]}>
       <Text style={styles.headerText}>{section.title}</Text>
-      <ExpandMoreIcon />
+      {svgIcon.ExpandMoreIcon}
     </View>
   );
 
@@ -57,10 +57,10 @@ const AccordionView = () => {
 const FAQS = () => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <AppHeader title="FAQ’s" showBackIcon={true}/>
+      <AppHeader title="FAQ’s" showBackIcon={true} />
       <View style={styles.FAQsContainer}>
         <View style={styles.searchContainer}>
-          <SearchIcon />
+         {svgIcon.UserIcon}
           <TextInput style={styles.faqsSearchInput} placeholder="Search" />
         </View>
         <View style={styles.accordionContainer}>
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 15,
     marginTop: 5,
-
   },
   headerText: {
     color: 'black',

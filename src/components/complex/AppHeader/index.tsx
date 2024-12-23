@@ -1,18 +1,11 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import {
   GLColors,
   GLFontsFamily,
   GLFontSize,
   WP,
 } from '../../../shared/exporter';
-// import {
-//   ClockIcon,
-//   NotificationIcon,
-//   GoBackIcon,
-//   CalendarIcon,
-//   DownloadIcon,
-// } from '../../../assets/svg';
-import { svgIcon } from '../../../assets/svg';
+import {svgIcon} from '../../../assets/svg';
 import AppCustomSwitch from '../AppSwitch';
 import {useSharedState} from '../../../hooks';
 import {useNavigation} from '@react-navigation/native';
@@ -60,14 +53,11 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 <TouchableOpacity
                   style={{marginRight: 20}}
                   onPress={openBottomSheet}>
-                 
-                  {
-                    svgIcon.ClockIcon
-                  }
+                  {svgIcon.ClockIcon1}
                 </TouchableOpacity>
               )}
 
-             {svgIcon.NotificationIcon}
+              {svgIcon.NotificationIcon1}
               <View style={styles.notificationShowwContainer}>
                 <Text style={{color: 'white', textAlign: 'center'}}>
                   {appNotification}
@@ -90,7 +80,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               <TouchableOpacity
                 style={styles.historyView}
                 onPress={onHistoryPress}>
-               {svgIcon.CalendarIcon}
+                {svgIcon.CalendarWhiteIcon}
               </TouchableOpacity>
             )}
 
@@ -100,9 +90,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                   styles.historyView,
                   {right: 58, backgroundColor: GLColors.Red.R6},
                 ]}>
-                {
-                  svgIcon.DownloadIcon
-                }
+                {svgIcon.DownloadIcon}
               </TouchableOpacity>
             )}
           </>

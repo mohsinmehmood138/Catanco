@@ -13,7 +13,7 @@ const SplashScreen = () => {
   const navigation = useNavigation<SplashProps>();
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('AuthStack');
+      navigation.replace('IntroStack');
     }, 2000);
   }, []);
 

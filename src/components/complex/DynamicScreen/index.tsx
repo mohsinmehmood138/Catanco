@@ -12,9 +12,11 @@ import {
   GLFontSize,
   WP,
 } from '../../../shared/exporter';
+import { svgIcon } from '../../../assets/svg';
 import { useRoute} from '@react-navigation/native';
 import AppBottomSheet from '../../primitive/BottomSheet';
-import {DynamicCallIcon, TimerIcon, PhoneIcon} from '../../../assets/svg';
+
+
 
 const formatTime = (value:any) => String(value).padStart(2, '0');
 
@@ -66,7 +68,7 @@ const DynamicScreen = ({
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <>
-        {callTimer ? <TimerIcon /> : <DynamicCallIcon />}
+        {callTimer ?svgIcon.TimerIcon : svgIcon.CallPhoneIcon}
         <Text style={styles.dynamicScreenText}>
           {callTimer ? 'Time' : 'Phone Number'}
         </Text>
@@ -87,7 +89,9 @@ const DynamicScreen = ({
         <TouchableOpacity
           style={styles.dynamicScreenButton}
           onPress={callTimer ? handleAddCallLogs : startCall}>
-          <PhoneIcon color="white" />
+          {
+            svgIcon.WhitePhoneIcon
+          }
           <Text style={styles.dynamicScreenButtonText}>Call</Text>
         </TouchableOpacity>
       </>

@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import StepIndicator from 'react-native-step-indicator';
-import {ClockIcon, LocationIcon} from '../../../assets/svg';
+import { svgIcon } from '../../../assets/svg';
 import AppHeader from '../../../components/complex/AppHeader';
 import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import AppBottomSheet from '../../../components/primitive/BottomSheet';
@@ -76,7 +76,7 @@ const TrackingTab = () => {
           <View style={styles.milesAndTime}>
             <View style={styles.milesContainer}>
               <View style={styles.iconContainer}>
-                <LocationIcon color="white" height={18} width={18} />
+              {svgIcon.LocationIcon1}
               </View>
               <View>
                 <Text style={styles.milesHeadingText}>344 miles</Text>
@@ -87,7 +87,7 @@ const TrackingTab = () => {
             </View>
             <View style={styles.milesContainer}>
               <View style={styles.iconContainer}>
-                <ClockIcon color="white" height={18} width={18} />
+              {svgIcon.ClockIcon2}
               </View>
               <View>
                 <Text style={styles.milesHeadingText}>2 Hr 30 min</Text>

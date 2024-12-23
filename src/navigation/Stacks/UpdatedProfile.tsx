@@ -1,6 +1,5 @@
 import React from 'react';
 import FAQS from '../../screens/App/Profile/FAQS';
-import Profile from '../../screens/App/Profile/Profile';
 import {createStackNavigator} from '@react-navigation/stack';
 import ManageProfile from '../../screens/App/Profile/ManageProfile';
 import PrivacyProfile from '../../screens/App/Profile/PrivacyPolicy';
@@ -13,16 +12,15 @@ type ProfileStackProps = {
   PrivacyProfile: undefined;
   TermsAndCondition: undefined;
   Notification: undefined;
-  Profile: undefined;
+ 
 };
 
 const Stack = createStackNavigator<ProfileStackProps>();
 
-const ProfileStack: React.FC = () => {
+const   UpdatedProifleStack: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Profile" component={Profile}  />
-      <Stack.Screen name="FAQS" component={FAQS}  options={{ tabBarStyle: { display: 'none' } }}/>
+    <Stack.Screen name="FAQS" component={FAQS} />
       <Stack.Screen name="ManageProfile" component={ManageProfile} />
       <Stack.Screen name="PrivacyProfile" component={PrivacyProfile} />
       <Stack.Screen name="TermsAndCondition" component={TermsAndCondition} />
@@ -31,4 +29,4 @@ const ProfileStack: React.FC = () => {
   );
 };
 
-export default ProfileStack;
+export default UpdatedProifleStack;

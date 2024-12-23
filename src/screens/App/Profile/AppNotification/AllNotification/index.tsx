@@ -1,7 +1,7 @@
 import React from 'react';
-import {ClockIcon} from '../../../../../assets/svg';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import AppHeader from '../../../../../components/complex/AppHeader';
+import { svgIcon } from '../../../../../assets/svg';
 
 const AllNotificationScree = () => {
   return (
@@ -10,7 +10,7 @@ const AllNotificationScree = () => {
       <View style={styles.allNotificationContainer}>
         <View style={styles.listContainer}>
           <View>
-            <ClockIcon width={25} height={35} color={'#247BA0'} />
+           {svgIcon.ClockIcon2}
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.notificationText}>

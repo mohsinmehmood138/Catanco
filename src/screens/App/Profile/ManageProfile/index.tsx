@@ -12,23 +12,24 @@ import {
   GLFontSize,
   appImages,
  } from '../../../../shared/exporter';
+ import { svgIcon } from '../../../../assets/svg';
 import {useNavigation} from '@react-navigation/native';
 import AppHeader from '../../../../components/complex/AppHeader';
-import { PhoneIcon ,ExpandMoreIcon, UserIcon} from '../../../../assets/svg';
+
 
 const Manage_Profile_Data = [
   {
-    iconName: <UserIcon />,
+    iconName: svgIcon.UserIcon,
     name: 'Name',
     headingName: 'Sarah Tom',
   },
   {
-    iconName: <UserIcon />,
+    iconName: svgIcon.UserIcon,
     name: 'Email',
     headingName: 'abc@gmail.com',
   },
   {
-    iconName: <PhoneIcon />,
+    iconName: svgIcon.PhoneIcon,
     name: 'Phone number',
     headingName: '0315 7010004',
   },
@@ -78,7 +79,7 @@ const ManageProfile = () => {
                 </Text>
               </View>
               <View style={{position: 'absolute', right: 20}}>
-                <ExpandMoreIcon />
+                {svgIcon.ExpandMoreIcon}
               </View>
             </TouchableOpacity>
           );

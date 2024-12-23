@@ -1,6 +1,6 @@
+import { svgIcon } from '../../../assets/svg';
 import {useSharedState} from '../../../hooks';
 import React, {useEffect, useState} from 'react';
-import {LeftArrowIcon} from '../../../assets/svg';
 import {appIcons} from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import {GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
@@ -64,7 +64,10 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
             <Text style={[styles.scanQrBoxButtonText, {marginRight: 10}]} >
               Click to Scan
             </Text>
-            <LeftArrowIcon />
+            {
+              svgIcon.ArrowLeftIcon
+            }
+        
           </TouchableOpacity>
           <Image
             style={styles.imageStyle}
@@ -105,7 +108,7 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
             <Text style={[styles.scanQrBoxButtonText, {marginRight: 10}]}>
               Click for Call
             </Text>
-            <LeftArrowIcon />
+           {svgIcon.ArrowLeftIcon}
           </TouchableOpacity>
           <Image
             style={styles.imageStyle}
