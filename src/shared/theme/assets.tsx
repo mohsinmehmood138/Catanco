@@ -1,4 +1,5 @@
 export const appImages = {
+  // Onboarding Images
   feature1: require('../../assets/images/feature.png'),
   feature2: require('../../assets/images/feature2.png'),
   feature3: require('../../assets/images/feature3.png'),
@@ -17,10 +18,9 @@ export const appImages = {
   profilePic: require('../../assets/images/profile_pic.png'),
 };
 
-
 export const appIcons = {
   checkBoxImages: require('../../assets/icons/check.png'),
   vectorBoxImages: require('../../assets/icons/vector.png'),
   qrUserBoxImages: require('../../assets/icons/qr_code.png'),
+  showPasswordIcon: require('../../assets/icons/password_show.png'),
 };
-

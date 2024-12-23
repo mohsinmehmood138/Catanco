@@ -9,12 +9,13 @@ import {
 import { useSharedState } from '../../../../../hooks';
 import UserBox from '../../../../../components/primitive/UserBox';
 import TodayVisitor from '../../../../../components/complex/TodayVisitor';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const VisitsScreenTab = () => {
   const {isEnabled} = useSharedState();
 
   return (
-    <View style={styles.telehealthContainer}>
+    <ScrollView style={styles.telehealthContainer} showsVerticalScrollIndicator={false}>
       <Text style={styles.telehealthText}>Start Your Visit</Text>
       <UserBox type={isEnabled?"completeVisit":"scanQr"} />
       {isEnabled ? (
@@ -31,7 +32,7 @@ const VisitsScreenTab = () => {
         </View>
       )}
       
-    </View>
+    </ScrollView>
   );
 };
 

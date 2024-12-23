@@ -1,59 +1,63 @@
 import React, {useState} from 'react';
 import {
-  StyleSheet,
   Text,
-  TextInput,
   View,
-  TextInputProps,
+  Image,
+  Platform,
+  TextInput,
   ViewStyle,
   TextStyle,
+  StyleSheet,
+  TextInputProps,
   TouchableOpacity,
-  Platform,
 } from 'react-native';
+import {appIcons} from '../../../shared/exporter';
 import Icon from 'react-native-vector-icons/Ionicons';
 import CountryPicker from 'react-native-country-picker-modal';
 import {GLColors, GLFontsFamily} from '../../../shared/exporter';
 import DateTimePicker from '@react-native-community/datetimepicker';
+
 
 interface AppInputProps extends TextInputProps {
   label: string;
   placeholder: string;
   keyboardType?:
     | 'default'
-    | 'email-address'
     | 'numeric'
     | 'phone-pad'
     | 'decimal-pad'
     | 'ascii-capable'
+    | 'email-address'
     | 'visible-password';
-  secureTextEntry?: boolean;
-  customStyle?: ViewStyle;
-  labelStyle?: TextStyle;
-  isRequired?: boolean;
-  isDatePicker?: boolean;
-  date?: Date | string;
-  errors?: any;
-  setCountryCode?: any;
-  countryCode?: any;
-  selectCountry?: boolean;
-}
+    errors?: any;
+    countryCode?: any;
+    setCountryCode?: any;
+    isRequired?: boolean;
+    date?: Date | string;
+    isDatePicker?: boolean;
+    labelStyle?: TextStyle;
+    selectCountry?: boolean;
+    customStyle?: ViewStyle;
+    secureTextEntry?: boolean;
+  }
 
 const AppInput: React.FC<AppInputProps> = ({
   label,
+  errors,
+  labelStyle,
+  customStyle,
+  countryCode,
   placeholder,
+  selectCountry,
+  setCountryCode,
+  isRequired = false,
+  date = 'Enter Date',
+  isDatePicker = false,
   keyboardType = 'default',
   secureTextEntry = false,
-  customStyle,
-  labelStyle,
-  isRequired = false,
-  isDatePicker = false,
-  date = 'Enter Date',
-  errors,
-  setCountryCode,
-  countryCode,
-  selectCountry,
   ...rest
 }) => {
+
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | string>(date);
   const [isPasswordVisible, setIsPasswordVisible] = useState(!secureTextEntry);
@@ -107,11 +111,9 @@ const AppInput: React.FC<AppInputProps> = ({
             <TouchableOpacity
               style={styles.icon}
               onPress={togglePasswordVisibility}>
-              <Icon
-                name={isPasswordVisible ? 'eye-off' : 'eye'}
-                size={24}
-                color="#A1A1A1"
-              />
+              {!isPasswordVisible && (
+                <Image source={appIcons.showPasswordIcon} />
+              )}
             </TouchableOpacity>
           )}
         </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity,Platform} from 'react-native';
 
 interface AppButtonpRrops {
   color: string;
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   button: {
     position: 'absolute',
-    bottom: 20,
+    bottom:Platform.OS==="ios"?30: 20,
     height: 44,
     justifyContent: 'center',
     alignItems: 'center',

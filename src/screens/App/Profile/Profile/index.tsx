@@ -5,6 +5,7 @@ import {PROFILE_TAB_CONTENT} from '../../../../shared/exporter';
 import AppHeader from '../../../../components/complex/AppHeader';
 import {GLFontsFamily, GLFontSize, appImages} from '../../../../shared/exporter';
 import {View, StyleSheet, Image, Text, TouchableOpacity, SafeAreaView} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const ProfileTab = () => {
   const navigation = useNavigation();
@@ -27,7 +28,7 @@ const ProfileTab = () => {
           </Text>
         </View>
       </View>
-      <View>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {PROFILE_TAB_CONTENT.map(item => {
           return (
             <TouchableOpacity
@@ -43,7 +44,7 @@ const ProfileTab = () => {
             </TouchableOpacity>
           );
         })}
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

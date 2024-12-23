@@ -1,17 +1,15 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import AppHeader from '../../../../../components/complex/AppHeader';
-import { svgIcon } from '../../../../../assets/svg';
+import {svgIcon} from '../../../../../assets/svg';
 
 const AllNotificationScree = () => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <AppHeader title="Notifications" showBackIcon={true}/>
+      <AppHeader title="Notifications" showBackIcon={true} />
       <View style={styles.allNotificationContainer}>
         <View style={styles.listContainer}>
-          <View>
-           {svgIcon.ClockIcon2}
-          </View>
+          <View>{svgIcon.ClockIcon2}</View>
           <View style={styles.textContainer}>
             <Text style={styles.notificationText}>
               Lorem ipsum dolor sit amet consectetur. At lectus diam a sit

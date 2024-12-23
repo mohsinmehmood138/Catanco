@@ -1,9 +1,8 @@
 import React from 'react';
 import Modal from 'react-native-modal';
-import { appIcons} from '../../../shared/exporter';
+import {appIcons} from '../../../shared/exporter';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {GLColors, GLFontsFamily, GLFontSize} from '../../../shared/exporter';
-
 
 interface ModalProps {
   isAppModal: boolean;

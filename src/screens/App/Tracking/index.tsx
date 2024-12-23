@@ -1,10 +1,11 @@
 import React, {useRef} from 'react';
 import StepIndicator from 'react-native-step-indicator';
-import { svgIcon } from '../../../assets/svg';
+import {svgIcon} from '../../../assets/svg';
 import AppHeader from '../../../components/complex/AppHeader';
 import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import AppBottomSheet from '../../../components/primitive/BottomSheet';
 import {GLColors, GLFontsFamily, GLFontSize} from '../../../shared/exporter';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const Tracking_Place_Time = [
   {visit: 'Visit 1', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
@@ -46,7 +47,7 @@ const TrackingTab = () => {
         showDownloadIcon={true}
         onHistoryPress={openBottomSheet}
       />
-      <View style={{padding: 20}}>
+      <ScrollView showsVerticalScrollIndicator={false} style={{padding: 20}}>
         <Text style={styles.trackingHeading}>Monday</Text>
         <View style={styles.trackingParentContainer}>
           <View style={styles.trackingContainer}>
@@ -75,9 +76,7 @@ const TrackingTab = () => {
           </View>
           <View style={styles.milesAndTime}>
             <View style={styles.milesContainer}>
-              <View style={styles.iconContainer}>
-              {svgIcon.LocationIcon1}
-              </View>
+              <View style={styles.iconContainer}>{svgIcon.LocationIcon1}</View>
               <View>
                 <Text style={styles.milesHeadingText}>344 miles</Text>
                 <Text style={{fontFamily: GLFontsFamily.InterLight}}>
@@ -86,9 +85,7 @@ const TrackingTab = () => {
               </View>
             </View>
             <View style={styles.milesContainer}>
-              <View style={styles.iconContainer}>
-              {svgIcon.ClockIcon2}
-              </View>
+              <View style={styles.iconContainer}>{svgIcon.ClockIcon2}</View>
               <View>
                 <Text style={styles.milesHeadingText}>2 Hr 30 min</Text>
                 <Text style={{fontFamily: GLFontsFamily.InterLight}}>Time</Text>
@@ -96,7 +93,7 @@ const TrackingTab = () => {
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
       <AppBottomSheet
         bottomSheetHeight={450}
         refRBSheet={bottomSheetRef}

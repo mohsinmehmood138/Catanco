@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Platform} from 'react-native';
 import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
 import VisitsScreenTab from '../../../screens/App/Home/TopBarTabs/Visit';
 import TelehealthScreenTab from '../../../screens/App/Home/TopBarTabs/TeleHealth';
@@ -12,7 +12,8 @@ const HomeTopTabs = () => {
     <View style={styles.container}>
       <Tab.Navigator
         screenOptions={{
-          tabBarActiveTintColor: 'black',
+          tabBarActiveTintColor: 'white',
+          tabBarInactiveTintColor: 'black',
           tabBarStyle: {
             backgroundColor: '#F8F8F8',
             borderRadius: 40,
@@ -22,32 +23,26 @@ const HomeTopTabs = () => {
             shadowColor: 'transparent',
           },
           tabBarIndicatorStyle: {
-            backgroundColor: 'transparent',
-            height: 0,
+            backgroundColor: '#247BA0',
+            height: '80%',
+            borderRadius: 40,
+            marginBottom: 6,
+            width: '48%',
           },
           tabBarPressColor: 'transparent',
-        }}>
+          lazy: false,
+          animationEnabled: false,
+          swipeEnabled: true,
+          tabBarScrollEnabled: false,
+          tabBarBounces: false,
+        }}
+        tabBarPosition="top">
         <Tab.Screen
           name="Visits"
           component={VisitsScreenTab}
           options={{
-            tabBarLabel: ({focused}) => (
-              <View
-                style={[
-                  styles.tabBarItem,
-                  {
-                    backgroundColor: focused ? '#247BA0' : '#F8F8F8',
-                    borderRadius: 40,
-                  },
-                ]}>
-                <Text
-                  style={[
-                    styles.tabBarItemText,
-                    {color: focused ? 'white' : 'black'},
-                  ]}>
-                  Visits
-                </Text>
-              </View>
+            tabBarLabel: ({focused,color}) => (
+              <Text style={[styles.tabBarItemText,{color:focused?color:"black"}]}>Visit</Text>
             ),
           }}
         />
@@ -55,23 +50,10 @@ const HomeTopTabs = () => {
           name="TelehealthScreen"
           component={TelehealthScreenTab}
           options={{
-            tabBarLabel: ({focused}) => (
-              <View
-                style={[
-                  styles.tabBarItem,
-                  {
-                    backgroundColor: focused ? '#247BA0' : '#F8F8F8',
-                    borderRadius: 40,
-                  },
-                ]}>
-                <Text
-                  style={[
-                    styles.tabBarItemText,
-                    {color: focused ? 'white' : 'black'},
-                  ]}>
-                  Telehealth
-                </Text>
-              </View>
+            tabBarLabel: ({focused,color}) => (
+              
+                <Text style={[styles.tabBarItemText,{color:focused?color:"black"}]}>Telehealth</Text>
+             
             ),
           }}
         />
@@ -98,6 +80,7 @@ const styles = StyleSheet.create({
     fontFamily: GLFontsFamily.InterMedium,
     alignSelf: 'center',
     fontSize: GLFontSize.FONT_SIZE_16,
+    paddingVertical:12
   },
 });
 

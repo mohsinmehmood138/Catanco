@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import CheckBox from '@react-native-community/checkbox';
+import AppInput from '../../../components/primitive/AppInput';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppHeader from '../../../components/complex/AppHeader';
-import AppInput from '../../../components/primitive/AppInput';
 import AppButton from '../../../components/primitive/AppButton';
 import { GLColors, GLFontsFamily } from '../../../shared/exporter';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const LogIn = () => {
+
+  const navigation = useNavigation();
+
   const [changeText, setChangeText] = useState('');
   const [isSelected, setSelection] = useState(false);
-  const navigation = useNavigation();
 
   const handleHomeStack = () => {
     navigation.navigate('BottomTabs');
@@ -19,7 +20,7 @@ const LogIn = () => {
 
   return (
     <>
-      <SafeAreaView  style={{ backgroundColor: 'white', flex: 1 }}>
+      <SafeAreaView style={{ flex: 1 }}>
         <AppHeader title="Login" showBackIcon={true} />
         <View>
           <View style={{ marginTop: 20 }}>
@@ -40,19 +41,17 @@ const LogIn = () => {
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </TouchableOpacity>
             <View style={styles.checkboxContainer}>
-              <CheckBox
-                disabled={false}
-                value={isSelected}
-                onValueChange={setSelection}
-                style={{ borderRadius: 50 }}
-              />
+              <TouchableOpacity
+                onPress={() => setSelection(!isSelected)}
+                style={[styles.customCheckbox ]}>
+                {isSelected && <View style={styles.checkboxTick} />}
+              </TouchableOpacity>
               <Text style={styles.label}>Keep me logged-in</Text>
             </View>
           </View>
         </View>
       </SafeAreaView>
       <AppButton
-
         color={changeText ? GLColors.Red.R6 : '#D7D7FF'}
         label="Continue"
         width="90%"
@@ -61,6 +60,7 @@ const LogIn = () => {
     </>
   );
 };
+
 const styles = StyleSheet.create({
   forgotPassword: {
     alignSelf: 'flex-end',
@@ -72,23 +72,34 @@ const styles = StyleSheet.create({
   forgotPasswordText: {
     fontFamily: GLFontsFamily.InterMedium,
   },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   checkboxContainer: {
     flexDirection: 'row',
     marginVertical: 20,
     marginLeft: 20,
     alignItems: 'center',
   },
-  checkbox: {
-    alignSelf: 'center',
+  customCheckbox: {
+    width: 20,
+    height: 20,
+    borderWidth: 2,
+    
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 8,
+  },
+ 
+  checkboxTick: {
+    width: 10,
+    height: 10,
+    backgroundColor: 'white',
+    borderRadius: 2,
   },
   label: {
-    margin: 8,
     fontFamily: GLFontsFamily.InterBold,
+    fontSize: 14,
+    
   },
 });
+
 export default LogIn;

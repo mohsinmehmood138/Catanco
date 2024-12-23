@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {
   GLColors,
   GLFontsFamily,
@@ -8,8 +10,6 @@ import {
 import {svgIcon} from '../../../assets/svg';
 import AppCustomSwitch from '../AppSwitch';
 import {useSharedState} from '../../../hooks';
-import {useNavigation} from '@react-navigation/native';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 interface AppHeaderProps {
   title?: string;
@@ -32,7 +32,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
 }) => {
   const navigation = useNavigation();
   const {isEnabled, toggleSwitch} = useSharedState();
-  const [appNotification, setAppNotification] = useState(3);
+  const [appNotification] = useState(3);
 
   return (
     <>

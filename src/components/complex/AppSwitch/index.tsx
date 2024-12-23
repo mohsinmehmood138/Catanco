@@ -19,7 +19,8 @@ const AppCustomSwitch: React.FC<CustomSwitchProps> = ({
       <View
         style={[
           styles.track,
-           styles.trackEnabled 
+
+          isEnabled ? styles.trackEnabled : styles.trackDisabled,
         ]}>
         <View
           style={[
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#D7D7FF',
     position: 'relative',
   },
+  trackDisabled: {},
   trackEnabled: {
     backgroundColor: GLColors.Red.R6,
   },

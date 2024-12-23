@@ -1,6 +1,5 @@
 import {appImages} from '../theme/assets';
-import { svgIcon } from '../../assets/svg';
-
+import {svgIcon} from '../../assets/svg';
 
 export const PROFILE_TAB_CONTENT = [
   {
@@ -15,7 +14,7 @@ export const PROFILE_TAB_CONTENT = [
   },
   {
     tabsname: 'Terms & Condition',
-    tabsIcon:svgIcon.UserIcon,
+    tabsIcon: svgIcon.UserIcon,
     tabsRoute: 'TermsAndCondition',
   },
   {
@@ -73,7 +72,6 @@ export const APP_INTRO_SLIDES: IntroSlidesTypes[] = [
     gradientSecondColor: 'rgba(178, 219, 191, .8)',
   },
 ];
-
 
 export const TERMS_AND_CONDITION = [
   {

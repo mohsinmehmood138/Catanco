@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
 const authSlice = createApi({
   reducerPath: 'api',
@@ -10,16 +10,19 @@ const authSlice = createApi({
   endpoints: builder => ({
     fetchData: builder.query<any, string>({
       query: endpoint => endpoint,
-      providesTags: result => (result ? [{ type: 'Users', id: 'LIST' }] : []),
+      providesTags: result => (result ? [{type: 'Users', id: 'LIST'}] : []),
     }),
 
-    createUser: builder.mutation<void, { name: string; password: string; email: string }>({
+    createUser: builder.mutation<
+      void,
+      {name: string; password: string; email: string}
+    >({
       query: newUser => ({
         url: 'users',
         method: 'POST',
         body: newUser,
       }),
-      invalidatesTags: [{ type: 'Users', id: 'LIST' }],
+      invalidatesTags: [{type: 'Users', id: 'LIST'}],
     }),
 
     deleteUser: builder.mutation<void, string>({
@@ -27,7 +30,7 @@ const authSlice = createApi({
         url: `users/${userId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: [{ type: 'Users', id: 'LIST' }],
+      invalidatesTags: [{type: 'Users', id: 'LIST'}],
     }),
 
     getUser: builder.query<any, void>({
@@ -35,7 +38,7 @@ const authSlice = createApi({
         url: 'users',
         method: 'GET',
       }),
-      providesTags: result => (result ? [{ type: 'Users', id: 'LIST' }] : []),
+      providesTags: result => (result ? [{type: 'Users', id: 'LIST'}] : []),
     }),
   }),
 });

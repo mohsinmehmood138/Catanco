@@ -8,7 +8,7 @@ import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 const PrivacyProfile = () => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <AppHeader title="Privacy Policy" showBackIcon={true}/>
+      <AppHeader title="Privacy Policy" showBackIcon={true} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.TermsAndConditionContainer}>
           {TERMS_AND_CONDITION.map(item => {

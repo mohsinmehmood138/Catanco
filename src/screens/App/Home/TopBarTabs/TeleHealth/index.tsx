@@ -1,17 +1,17 @@
-import React  from 'react';
-import { useSharedState } from '../../../../../hooks';
+import React from 'react';
+import {useSharedState} from '../../../../../hooks';
+import {ScrollView} from 'react-native-gesture-handler';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import { appImages } from '../../../../../shared/exporter';
+import {appImages} from '../../../../../shared/exporter';
 import UserBox from '../../../../../components/primitive/UserBox';
 import TodayVisitor from '../../../../../components/complex/TodayVisitor';
-import {GLFontsFamily, GLFontSize, WP} from "../../../../../shared/exporter";
-
+import {GLFontsFamily, GLFontSize, WP} from '../../../../../shared/exporter';
 
 const TelehealthScreenTab = () => {
   const {isEnabled} = useSharedState();
 
   return (
-    <View style={styles.telehealthContainer}>
+    <ScrollView style={styles.telehealthContainer}>
       {isEnabled ? (
         <>
           <Text style={styles.telehealthText}>Start Your Call</Text>
@@ -30,7 +30,7 @@ const TelehealthScreenTab = () => {
           </Text>
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
 

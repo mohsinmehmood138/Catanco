@@ -38,11 +38,7 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
                 </TouchableOpacity>
               </View>
               <View
-                style={{
-                  flexDirection: 'row',
-
-                  width: '90%',
-                }}>
+                style={{flexDirection: 'row', width: '90%', marginVertical: 5}}>
                 <View style={styles.visitorDateAndTime}>
                   {svgIcon.CalendarIcon}
                   <Text style={styles.visitDateTime}>{item.date}</Text>
@@ -116,7 +112,6 @@ const styles = StyleSheet.create({
   visitDateTime: {
     fontFamily: GLFontsFamily.InterMedium,
     fontSize: GLFontSize.FONT_SIZE_14,
-    marginTop: 5,
     alignItems: 'center',
     marginLeft: 5,
   },

@@ -11,11 +11,10 @@ import {
   GLFontsFamily,
   GLFontSize,
   appImages,
- } from '../../../../shared/exporter';
- import { svgIcon } from '../../../../assets/svg';
+} from '../../../../shared/exporter';
+import {svgIcon} from '../../../../assets/svg';
 import {useNavigation} from '@react-navigation/native';
 import AppHeader from '../../../../components/complex/AppHeader';
-
 
 const Manage_Profile_Data = [
   {
@@ -140,6 +139,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     alignSelf: 'center',
     justifyContent: 'center',
+    marginBottom: 20,
   },
   logOutButtonText: {
     fontFamily: GLFontsFamily.InterMedium,

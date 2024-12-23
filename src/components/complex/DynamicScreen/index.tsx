@@ -5,24 +5,20 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  } from 'react-native';
+} from 'react-native';
 import {
   GLColors,
   GLFontsFamily,
   GLFontSize,
   WP,
 } from '../../../shared/exporter';
-import { svgIcon } from '../../../assets/svg';
-import { useRoute} from '@react-navigation/native';
+import {svgIcon} from '../../../assets/svg';
+import {useRoute} from '@react-navigation/native';
 import AppBottomSheet from '../../primitive/BottomSheet';
 
+const formatTime = (value: any) => String(value).padStart(2, '0');
 
-
-const formatTime = (value:any) => String(value).padStart(2, '0');
-
-const DynamicScreen = ({
-  
-}) => {
+const DynamicScreen = ({}) => {
   const [hours, setHours] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -68,7 +64,7 @@ const DynamicScreen = ({
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <>
-        {callTimer ?svgIcon.TimerIcon : svgIcon.CallPhoneIcon}
+        {callTimer ? svgIcon.TimerIcon : svgIcon.CallPhoneIcon}
         <Text style={styles.dynamicScreenText}>
           {callTimer ? 'Time' : 'Phone Number'}
         </Text>
@@ -89,9 +85,7 @@ const DynamicScreen = ({
         <TouchableOpacity
           style={styles.dynamicScreenButton}
           onPress={callTimer ? handleAddCallLogs : startCall}>
-          {
-            svgIcon.WhitePhoneIcon
-          }
+          {svgIcon.WhitePhoneIcon}
           <Text style={styles.dynamicScreenButtonText}>Call</Text>
         </TouchableOpacity>
       </>
@@ -119,7 +113,7 @@ const styles = StyleSheet.create({
     fontFamily: GLFontsFamily.InterExtraBold,
     fontSize: GLFontSize.FONT_SIZE_26,
     maxWidth: '80%',
-   },
+  },
   dynamicScreenButton: {
     width: WP('45%'),
     height: 44,

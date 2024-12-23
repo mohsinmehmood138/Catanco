@@ -60,7 +60,7 @@ const FAQS = () => {
       <AppHeader title="FAQ’s" showBackIcon={true} />
       <View style={styles.FAQsContainer}>
         <View style={styles.searchContainer}>
-         {svgIcon.UserIcon}
+          {svgIcon.UserIcon}
           <TextInput style={styles.faqsSearchInput} placeholder="Search" />
         </View>
         <View style={styles.accordionContainer}>

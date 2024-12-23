@@ -6,6 +6,6 @@ export const GLColors = {
 
   Blue: {
     B1: ' #D7D7FF',
-    B2:"#247BA0"
+    B2: '#247BA0',
   },
 };

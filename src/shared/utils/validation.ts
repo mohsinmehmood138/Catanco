@@ -1,8 +1,7 @@
 import * as Yup from 'yup';
 
-
 export const isValidPhoneNumber = (phoneNumber: string) => {
-  const phoneRegex = /^[0-9]{9,14}$/; 
+  const phoneRegex = /^[0-9]{9,14}$/;
   return phoneRegex.test(phoneNumber);
 };
 
@@ -10,24 +9,21 @@ interface SignUpProps {
   phoneNumber: string;
   code: string;
 }
-interface phoneNumberProps{
-    phoneNumber:string
+interface phoneNumberProps {
+  phoneNumber: string;
 }
 
-const phoneNumberValue :phoneNumberProps={
-phoneNumber:""
-}
-
-
-
+const phoneNumberValue: phoneNumberProps = {
+  phoneNumber: '',
+};
 const signUpValue: SignUpProps = {
   phoneNumber: '',
   code: '',
 };
 
-const signUpValidationSchema = Yup.object({
+const signUpFormSchema = Yup.object({
   phoneNumber: Yup.string()
-    .matches(/^[0-9]{9,14}$/, 'Phone number must be between 9 and 14 digits') 
+    .matches(/^[0-9]{9,14}$/, 'Phone number must be between 9 and 14 digits')
     .required('Phone number is required'),
 
   code: Yup.string()
@@ -36,11 +32,9 @@ const signUpValidationSchema = Yup.object({
 });
 
 const phoneNumberSchema = Yup.object({
-    phoneNumber: Yup.string()
-      .matches(/^[0-9]{9,14}$/, 'Phone number must be between 9 and 14 digits') 
-      .required('Phone number is required'),
-  
-  
-  });
+  phoneNumber: Yup.string()
+    .matches(/^[0-9]{9,14}$/, 'Phone number must be between 9 and 14 digits')
+    .required('Phone number is required'),
+});
 
-export { signUpValidationSchema, signUpValue ,phoneNumberSchema };
+export {signUpFormSchema, signUpValue, phoneNumberSchema};

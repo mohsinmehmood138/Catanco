@@ -1,25 +1,23 @@
-
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Alert } from 'react-native';
-import { 
-  Camera, 
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, Alert} from 'react-native';
+import {
+  Camera,
   useCameraDevice,
-  useCameraPermission
+  useCameraPermission,
 } from 'react-native-vision-camera';
 
 const QRCodeScanner = () => {
   const [permission, setPermission] = useState<boolean | null>(null);
-  
-  
-const device = useCameraDevice('back')
-const { hasPermission } = useCameraPermission()
+
+  const device = useCameraDevice('back');
+  const {hasPermission} = useCameraPermission();
 
   useEffect(() => {
     const requestPermission = async () => {
       try {
         const status = await Camera.requestCameraPermission();
         console.log('Camera Permission Status:', status);
-        
+
         setPermission(status === 'authorized');
       } catch (error) {
         console.error('Permission Request Error:', error);
@@ -30,11 +28,9 @@ const { hasPermission } = useCameraPermission()
     requestPermission();
   }, []);
 
+  if (!hasPermission) return console.log('hsuhsh');
 
-  if (!hasPermission) return console.log("hsuhsh");
-  
-  if (device == null) return console.log("hsuhsh");
- 
+  if (device == null) return console.log('hsuhsh');
 
   // Render camera
   return (
@@ -42,7 +38,7 @@ const { hasPermission } = useCameraPermission()
       style={styles.camera}
       device={device}
       isActive={true}
-      onError={(error) => {
+      onError={error => {
         console.error('Camera Error:', error);
         Alert.alert('Camera Error', error.message);
       }}

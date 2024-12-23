@@ -1,17 +1,15 @@
+import {Platform} from 'react-native';
+const {height} = Dimensions.get('window');
 import {StyleSheet, Dimensions} from 'react-native';
 import {GLColors, WP, GLFontsFamily, HP} from '../../shared/exporter';
-const {height} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
-
   slide: {
     flex: 1,
     position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
-    width:WP('100%'),
-    
-   
+    width: WP('100%'),
   },
   image: {
     width: WP('100%'),
@@ -38,7 +36,7 @@ export const styles = StyleSheet.create({
     textAlign: 'left',
     fontFamily: GLFontsFamily.InterRegular,
   },
- 
+
   nextButton: {
     backgroundColor: GLColors.Red.R6,
     borderColor: 'white',
@@ -60,12 +58,13 @@ export const styles = StyleSheet.create({
     fontFamily: 'Inter_18pt-Bold',
     color: GLColors.Red.R6,
     backgroundColor: 'white',
-    height: WP('10%'),
+    height: HP('4.5%'),
     borderRadius: WP('5%'),
     width: WP('17.5%'),
     textAlign: 'center',
     marginTop: WP('2%'),
-    paddingTop: WP('2%'),
+    textAlignVertical: 'center',
+    paddingTop: Platform.OS === 'ios' ? 10 : 0,
   },
   activeDot: {
     backgroundColor: GLColors.Red.R6,
@@ -78,13 +77,10 @@ export const styles = StyleSheet.create({
     height: height * 0.7,
     position: 'absolute',
     bottom: 0,
-    
-  
   },
   gradient: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-   
   },
 });

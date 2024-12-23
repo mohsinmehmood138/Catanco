@@ -1,6 +1,6 @@
 import {Formik} from 'formik';
 import React, {useRef, useState} from 'react';
-import {Button, SafeAreaView, View} from 'react-native';
+import { SafeAreaView, View} from 'react-native';
 import {GLColors} from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import Recaptcha from 'react-native-recaptcha-that-works';
@@ -11,7 +11,7 @@ import AppButton from '../../../components/primitive/AppButton';
 import {
   signUpValue,
   phoneNumberSchema,
-  signUpValidationSchema,
+  signUpFormSchema,
 } from '../../../shared/utils/validation';
 
 import {isValidPhoneNumber} from 'libphonenumber-js';
@@ -31,22 +31,13 @@ const SignUp = () => {
 
     if (isValid) {
       console.log('Phone number is valid.');
-      recaptcha.current?.open(); // Trigger Recaptcha verification
+      
     } else {
       console.warn('Invalid phone number.');
     }
   };
 
-  const onVerify = (token: string) => {
-    console.log('reCAPTCHA verified successfully! Token:', token);
-    alert('CAPTCHA Verified');
-    // Proceed to the next step, such as sending OTP
-  };
-
-  const onExpire = () => {
-    console.warn('reCAPTCHA expired!');
-    alert('CAPTCHA Expired! Please retry.');
-  };
+  
 
   const handleChangeCountryCode = (country: any) => {
     setCountryCode(country.cca2);
@@ -86,15 +77,6 @@ const SignUp = () => {
                   onChangeText={handleChange('code')}
                   value={values.code}
                   errors={errors.code}
-                />
-
-                <Recaptcha
-                  ref={recaptcha}
-                  siteKey="6LeUb54qAAAAAFG55PhZ6RNO5aenLL7BuotbpqKS"
-                  baseUrl="http://localhost" // Or your local development URL
-                  onVerify={onVerify}
-                  onExpire={onExpire}
-                  size="invisible"
                 />
 
                 <AppButton
