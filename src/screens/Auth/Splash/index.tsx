@@ -2,7 +2,7 @@ import {Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {appImages, GLColors, WP} from '../../../shared/exporter';
+import {appImages, GLColors, Routes, WP} from '../../../shared/exporter';
 
 interface SplashProps {
   navigation: any;
@@ -12,7 +12,7 @@ const SplashScreen = () => {
   const navigation = useNavigation<SplashProps>();
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('IntroStack');
+      navigation.replace(Routes.IntroStack);
     }, 2000);
   }, []);
 

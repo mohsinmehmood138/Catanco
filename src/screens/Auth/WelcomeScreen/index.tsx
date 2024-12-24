@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
-import {appImages} from '../../../shared/exporter';
+import {appImages, Routes} from '../../../shared/exporter';
 import styles from './styles';
 
 type ButtonProps = {
@@ -29,11 +29,11 @@ const Button: React.FC<ButtonProps> = ({onPress, text}) => (
 const WelcomeScreen: React.FC = () => {
   const navigation = useNavigation();
   const handleSignupPress = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate(Routes.SignUp);
   };
 
   const handleLoginPress = () => {
-    navigation.navigate('LogIn');
+    navigation.navigate(Routes.LogIn);
   };
 
   return (

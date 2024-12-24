@@ -18,6 +18,7 @@ import {
 import {svgIcon} from '../../../../assets/svg';
 import {useNavigation} from '@react-navigation/native';
 import AppHeader from '../../../../components/complex/AppHeader';
+import {Routes} from '../../../../shared/exporter';
 
 const Manage_Profile_Data = [
   {
@@ -58,7 +59,7 @@ const ManageProfile = () => {
           return (
             <TouchableOpacity
               style={styles.listContainer}
-              onPress={() => navigation.navigate('DynamicScreen', {item})}>
+              onPress={() => navigation.navigate(Routes.DynamicScreen, {item})}>
               <View style={styles.profileIconBackgroundContainer}>
                 {item.iconName}
               </View>

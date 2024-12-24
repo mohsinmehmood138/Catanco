@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, SafeAreaView, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {GLColors, WP} from '../../../shared/exporter';
+import {GLColors, Routes, WP} from '../../../shared/exporter';
 import AppHeader from '../../../components/complex/AppHeader';
 import AppInput from '../../../components/primitive/AppInput';
 import AppButton from '../../../components/primitive/AppButton';
@@ -11,7 +11,7 @@ const ResetPassword = () => {
   const navigation = useNavigation();
 
   const handleResetPassword = () => {
-    navigation.navigate('WelcomeScreen');
+    navigation.navigate(Routes.WelcomeScreen);
   };
 
   return (

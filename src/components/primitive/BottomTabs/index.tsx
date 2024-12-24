@@ -41,7 +41,7 @@ export const BottomTab = ({route}: BottomTabProps): BottomTabBarOptions => ({
           ? svgIcon.StatisticsIcon
           : svgIcon.StatisticsIcon1;
         break;
-      case 'ProfileStack':
+      case 'Profile':
         IconComponent = focused ? svgIcon.ProfileIcon : svgIcon.ProfileIcon1;
         break;
       default:

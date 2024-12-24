@@ -11,6 +11,7 @@ import {
   GLColors,
   GLFontsFamily,
   GLFontSize,
+  Routes,
   WP,
 } from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
@@ -59,7 +60,7 @@ const OtpVerification = () => {
             onFocus={() => console.log('Focused')}
             onBlur={() => console.log('Blurred')}
             onTextChange={text => console.log(text)}
-            onFilled={() => navigation.navigate('ResetPassword')}
+            onFilled={() => navigation.navigate(Routes.ResetPassword)}
             textInputProps={{
               accessibilityLabel: 'One-Time Password',
             }}

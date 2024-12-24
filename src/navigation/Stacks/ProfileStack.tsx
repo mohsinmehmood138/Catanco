@@ -21,8 +21,11 @@ const Stack = createStackNavigator<ProfileStackProps>();
 const ProfileStack: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Profile" component={Profile}  />
-      <Stack.Screen name="FAQS" component={FAQS}  options={{ tabBarStyle: { display: 'none' } }}/>
+      <Stack.Screen
+        name="FAQS"
+        component={FAQS}
+        options={{tabBarStyle: {display: 'none'}}}
+      />
       <Stack.Screen name="ManageProfile" component={ManageProfile} />
       <Stack.Screen name="PrivacyProfile" component={PrivacyProfile} />
       <Stack.Screen name="TermsAndCondition" component={TermsAndCondition} />

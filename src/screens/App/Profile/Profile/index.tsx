@@ -38,7 +38,11 @@ const ProfileTab = () => {
           return (
             <TouchableOpacity
               style={styles.listContainer}
-              onPress={() => navigation.navigate(item.tabsRoute)}>
+              onPress={() => {
+                navigation.navigate('ProfileStack', {
+                  screen: item.tabsRoute,
+                });
+              }}>
               <View style={styles.profileIconBackgroundContainer}>
                 {svgIcon.UserIcon}
               </View>

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Platform} from 'react-native';
 import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
 import VisitsScreenTab from '../../../screens/App/Home/TopBarTabs/Visit';
-import TelehealthScreenTab from '../../../screens/App/Home/TopBarTabs/TeleHealth';
+import TeleHealthScreenTab from '../../../screens/App/Home/TopBarTabs/TeleHealth';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
@@ -41,19 +41,29 @@ const HomeTopTabs = () => {
           name="Visits"
           component={VisitsScreenTab}
           options={{
-            tabBarLabel: ({focused,color}) => (
-              <Text style={[styles.tabBarItemText,{color:focused?color:"black"}]}>Visit</Text>
+            tabBarLabel: ({focused, color}) => (
+              <Text
+                style={[
+                  styles.tabBarItemText,
+                  {color: focused ? color : 'black'},
+                ]}>
+                Visit
+              </Text>
             ),
           }}
         />
         <Tab.Screen
-          name="TelehealthScreen"
-          component={TelehealthScreenTab}
+          name="TeleHealthScreen"
+          component={TeleHealthScreenTab}
           options={{
-            tabBarLabel: ({focused,color}) => (
-              
-                <Text style={[styles.tabBarItemText,{color:focused?color:"black"}]}>Telehealth</Text>
-             
+            tabBarLabel: ({focused, color}) => (
+              <Text
+                style={[
+                  styles.tabBarItemText,
+                  {color: focused ? color : 'black'},
+                ]}>
+                TeleHealth
+              </Text>
             ),
           }}
         />
@@ -80,7 +90,7 @@ const styles = StyleSheet.create({
     fontFamily: GLFontsFamily.InterMedium,
     alignSelf: 'center',
     fontSize: GLFontSize.FONT_SIZE_16,
-    paddingVertical:12
+    paddingVertical: 12,
   },
 });
 

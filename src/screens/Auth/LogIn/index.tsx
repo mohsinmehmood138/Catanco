@@ -9,6 +9,7 @@ import {
   GLColors,
   GLFontsFamily,
   GLFontSize,
+  Routes,
   WP,
 } from '../../../shared/exporter';
 
@@ -19,7 +20,7 @@ const LogIn = () => {
   const [isSelected, setSelection] = useState(false);
 
   const handleHomeStack = () => {
-    navigation.navigate('BottomTabs');
+    navigation.navigate(Routes.BottomTabs);
   };
 
   return (

@@ -11,6 +11,7 @@ import {
 } from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import {GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
+import {Routes} from '../../../shared/exporter';
 
 interface BoxProps {
   type: string;
@@ -23,7 +24,7 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
   const [hours, setHours] = useState(0);
 
   const handleNavigate = () => {
-    navigation.navigate('DynamicScreen');
+    navigation.navigate(Routes.DynamicScreen);
   };
 
   const {isEnabled} = useSharedState();

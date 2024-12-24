@@ -2,6 +2,7 @@ import React from 'react';
 import BottomTabs from './Tabs/BottomTabs';
 import AuthStack from './Stacks/AuthStack';
 import IntroStack from './Stacks/IntroStack';
+import ProfileStack from './Stacks/ProfileStack';
 import SplashScreen from '../screens/Auth/Splash';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -14,7 +15,7 @@ const AppNavigator: React.FC = () => {
       theme={{
         colors: {
           background: 'white',
-          border:"transparent"
+          border: 'transparent',
         },
       }}>
       <Stack.Navigator
@@ -24,7 +25,8 @@ const AppNavigator: React.FC = () => {
         <Stack.Screen name="IntroStack" component={IntroStack} />
         <Stack.Screen name="AuthStack" component={AuthStack} />
         <Stack.Screen name="BottomTabs" component={BottomTabs} />
-         </Stack.Navigator>
+        <Stack.Screen name="ProfileStack" component={ProfileStack} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };

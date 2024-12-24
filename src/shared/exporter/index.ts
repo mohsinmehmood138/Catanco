@@ -15,6 +15,7 @@ export {
   CLICK_FOR_CALL,
 } from '../utils/enums';
 export {GLColors} from '../theme/colors';
+export {Routes} from '../utils/routes';
 export {GLFontSize} from '../theme/fontSize';
 export {GLFontsFamily} from '../theme/fontFamily';
 export {WP, HP, scrWidth, scrHeight} from '../theme/responsive';

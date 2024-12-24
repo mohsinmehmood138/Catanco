@@ -23,7 +23,7 @@ const Stack = createStackNavigator<AuthStackParamList>();
 
 const AuthStack: React.FC = () => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}} >
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="userSignUpDetails" component={UserSignUpDetails} />

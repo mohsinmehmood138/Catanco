@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {svgIcon} from '../../assets/svg/index.jsx';
-import {APP_INTRO_SLIDES} from '../../shared/exporter';
+import {APP_INTRO_SLIDES, Routes} from '../../shared/exporter';
 import {styles} from './styles.tsx';
 
 const AppIntro: React.FC = () => {
@@ -34,11 +34,11 @@ const AppIntro: React.FC = () => {
   );
 
   const onDone = () => {
-    navigation.replace('AuthStack');
+    navigation.replace(Routes.AuthStack);
   };
 
   const onSkip = () => {
-    navigation.replace('AuthStack');
+    navigation.replace(Routes.AuthStack);
   };
 
   return (
