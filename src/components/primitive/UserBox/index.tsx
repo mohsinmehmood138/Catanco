@@ -2,7 +2,13 @@ import {svgIcon} from '../../../assets/svg';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {useSharedState} from '../../../hooks';
 import React, {useEffect, useState} from 'react';
-import {appIcons} from '../../../shared/exporter';
+import {
+  appIcons,
+  CLICK_FOR_CALL,
+  COMPLETE_VISIT,
+  GLColors,
+  Scan_QR,
+} from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import {GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
 
@@ -54,28 +60,22 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
 
   let content;
   switch (type) {
-    case 'scanQr':
+    case Scan_QR:
       content = (
-        <View style={styles.telehealthScannerContainer}>
-          <Text style={[styles.telehealthText, {marginLeft: 20}]}>
-            New Visit
-          </Text>
+        <View style={styles.teleHealthScannerContainer}>
+          <Text style={styles.teleHealthText}>New Visit</Text>
           <TouchableOpacity style={styles.scanQrBoxButton}>
-            <Text style={[styles.scanQrBoxButtonText, {marginRight: 10}]}>
-              Click to Scan
-            </Text>
+            <Text style={styles.scanQrBoxButtonText}>Click to Scan</Text>
             {svgIcon.ArrowLeftIcon}
           </TouchableOpacity>
           <Image style={styles.imageStyle} source={appIcons.qrUserBoxImages} />
         </View>
       );
       break;
-    case 'completeVisit':
+    case COMPLETE_VISIT:
       content = (
-        <View style={styles.telehealthScannerContainer}>
-          <Text style={[styles.telehealthText, {marginLeft: 20}]}>
-            New Visit
-          </Text>
+        <View style={styles.teleHealthScannerContainer}>
+          <Text style={styles.teleHealthText}>New Visit</Text>
           <TouchableOpacity
             style={[styles.scanQrBoxButton, styles.timeContainer]}>
             <Text style={styles.scanQrBoxButtonSmallText}>
@@ -87,18 +87,14 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
         </View>
       );
       break;
-    case 'clickForCall':
+    case CLICK_FOR_CALL:
       content = (
-        <View style={styles.telehealthScannerContainer}>
-          <Text style={[styles.telehealthText, {marginLeft: 20}]}>
-            New Call
-          </Text>
+        <View style={styles.teleHealthScannerContainer}>
+          <Text style={styles.teleHealthText}>New Call</Text>
           <TouchableOpacity
             style={styles.scanQrBoxButton}
             onPress={handleNavigate}>
-            <Text style={[styles.scanQrBoxButtonText, {marginRight: 10}]}>
-              Click for Call
-            </Text>
+            <Text style={styles.scanQrBoxButtonText}>Click for Call</Text>
             {svgIcon.ArrowLeftIcon}
           </TouchableOpacity>
           <Image style={styles.imageStyle} source={appIcons.vectorBoxImages} />
@@ -107,8 +103,8 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
       break;
     default:
       content = (
-        <View style={styles.telehealthScannerContainer}>
-          <Text style={styles.telehealthText}>Default Case</Text>
+        <View style={styles.teleHealthScannerContainer}>
+          <Text style={styles.teleHealthText}>Default Case</Text>
         </View>
       );
       break;
@@ -118,50 +114,47 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
 };
 
 const styles = StyleSheet.create({
-  telehealthScannerContainer: {
-    height: 116,
-    padding: 10,
-    marginTop: 20,
+  teleHealthScannerContainer: {
+    height: WP('30'),
+    padding: WP('3'),
+    marginTop: WP('5'),
     width: '100%',
-    borderRadius: 20,
-    backgroundColor: '#D7D7FF',
+    borderRadius: WP('5'),
+    backgroundColor: GLColors.Primary.Pale,
   },
-  telehealthText: {
-    marginTop: 10,
+  teleHealthText: {
+    marginTop: WP('2'),
+    marginLeft: WP('4'),
     fontSize: GLFontSize.FONT_SIZE_18,
     fontFamily: GLFontsFamily.InterExtraBold,
   },
   scanQrBoxButton: {
-    height: 45,
-    marginTop: 10,
-    borderWidth: 1,
+    height: WP('12'),
+    marginTop: WP('3'),
     borderRadius: 40,
-    width: WP('50%'),
+    width: WP('50'),
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: '#247BA0',
-    borderColor: 'transparent',
+    backgroundColor: GLColors.Primary.DarkBlue,
   },
   scanQrBoxButtonText: {
-    color: 'white',
+    color: GLColors.Natural.White,
+    marginRight: WP('2'),
     textAlign: 'center',
     fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterBold,
   },
   scanQrBoxButtonSmallText: {
-    color: 'white',
+    color: GLColors.Natural.White,
     textAlign: 'center',
     fontSize: GLFontSize.FONT_SIZE_12,
     fontFamily: GLFontsFamily.InterMedium,
   },
   imageStyle: {
     position: 'absolute',
-    right: 20,
-    top: 20,
-    width: 40,
-    height: 40,
-    resizeMode: 'contain',
+    right: WP('5'),
+    top: WP('5'),
   },
   timeContainer: {
     width: '90%',

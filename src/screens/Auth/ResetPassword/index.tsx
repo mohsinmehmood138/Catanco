@@ -1,10 +1,10 @@
-import {View, Text, SafeAreaView} from 'react-native';
 import React, {useState} from 'react';
-import {GLColors} from '../../../shared/exporter';
+import {View, SafeAreaView, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {GLColors, WP} from '../../../shared/exporter';
 import AppHeader from '../../../components/complex/AppHeader';
 import AppInput from '../../../components/primitive/AppInput';
 import AppButton from '../../../components/primitive/AppButton';
-import {useNavigation} from '@react-navigation/native';
 
 const ResetPassword = () => {
   const [changeText, setChangeText] = useState('');
@@ -16,9 +16,9 @@ const ResetPassword = () => {
 
   return (
     <>
-      <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+      <SafeAreaView style={styles.resetPasswordContainer}>
         <AppHeader title="Set New Password" showBackIcon={true} />
-        <View style={{marginTop: 20}}>
+        <View style={styles.inputContainer}>
           <AppInput
             label="Password"
             placeholder="Enter Password"
@@ -34,11 +34,20 @@ const ResetPassword = () => {
       </SafeAreaView>
       <AppButton
         onPress={handleResetPassword}
-        color={changeText ? GLColors.Red.R6 : '#D7D7FF'}
+        color={changeText ? GLColors.Primary.PinkishRed : GLColors.Primary.Pale}
         width="80%"
         label="Continue"
       />
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  resetPasswordContainer: {
+    flex: 1,
+  },
+  inputContainer: {
+    marginTop: WP('5'),
+  },
+});
 export default ResetPassword;

@@ -11,6 +11,9 @@ import {
   GLFontsFamily,
   GLFontSize,
   appImages,
+  HP,
+  GLColors,
+  WP,
 } from '../../../../shared/exporter';
 import {svgIcon} from '../../../../assets/svg';
 import {useNavigation} from '@react-navigation/native';
@@ -36,11 +39,11 @@ const Manage_Profile_Data = [
 
 const ManageProfile = () => {
   const navigation = useNavigation();
-  const [profileName, setProfilName] = useState('Sara Doe');
-  const [organisationName, setorganisationName] = useState('Organisation Name');
+  const [profileName] = useState('Sara Doe');
+  const [organizationName] = useState('organization Name');
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+    <SafeAreaView style={styles.profileContainer}>
       <AppHeader title="Manage Profile" showBackIcon={true} />
       <View style={styles.manageProfileContainer}>
         <Image
@@ -48,13 +51,7 @@ const ManageProfile = () => {
           source={appImages.profilePic}
         />
         <Text style={styles.profileTabHeading}>{profileName}</Text>
-        <Text
-          style={[
-            styles.profileTabHeading,
-            {fontSize: GLFontSize.FONT_SIZE_16},
-          ]}>
-          {organisationName}
-        </Text>
+        <Text style={styles.organizationNameHeading}>{organizationName}</Text>
       </View>
       <View>
         {Manage_Profile_Data.map(item => {
@@ -66,18 +63,12 @@ const ManageProfile = () => {
                 {item.iconName}
               </View>
               <View>
-                <Text style={{fontFamily: GLFontsFamily.InterLight}}>
-                  {item.name}
-                </Text>
-                <Text
-                  style={[
-                    styles.profileTabHeading,
-                    {fontSize: GLFontSize.FONT_SIZE_16},
-                  ]}>
+                <Text style={styles.profileNameHeading}>{item.name}</Text>
+                <Text style={styles.organizationNameHeading}>
                   {item.headingName}
                 </Text>
               </View>
-              <View style={{position: 'absolute', right: 20}}>
+              <View style={styles.expandMoreIcon}>
                 {svgIcon.ExpandMoreIcon}
               </View>
             </TouchableOpacity>
@@ -94,56 +85,69 @@ const ManageProfile = () => {
 const styles = StyleSheet.create({
   manageProfileContainer: {
     width: '100%',
-    height: 176,
+    height: HP('20'),
     borderBottomRightRadius: 24,
     borderBottomLeftRadius: 24,
-    backgroundColor: '#E8F4EC',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: GLColors.Natural.LightGreen,
   },
   profileTabHeading: {
-    fontFamily: GLFontsFamily.InterExtraBold,
     fontSize: GLFontSize.FONT_SIZE_26,
+    fontFamily: GLFontsFamily.InterExtraBold,
   },
   manageProfileImage: {
-    width: 80,
-    height: 80,
+    width: WP('20'),
+    height: WP('20'),
   },
   listContainer: {
     width: '90%',
-    height: 70,
-    backgroundColor: '#F8F8F8',
+    height: WP('18'),
     borderRadius: 12,
     alignSelf: 'center',
-    marginTop: 20,
-
+    marginTop: WP('4'),
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: GLColors.Natural.LightGrey,
   },
   profileIconBackgroundContainer: {
-    width: 36,
-    height: 36,
-    backgroundColor: 'transparent',
+    width: WP('10'),
+    height: WP('10'),
     borderRadius: 12,
-    marginHorizontal: 10,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: WP('2'),
+    backgroundColor: 'transparent',
   },
   logOutButton: {
-    width: 130,
-    alignItems: 'center',
-    backgroundColor: '#FFD7DB',
-    height: 48,
-    borderRadius: 100,
     position: 'absolute',
-    bottom: 0,
+    bottom: WP('0'),
+    width: WP('35'),
+    height: WP('12'),
+    borderRadius: 100,
     alignSelf: 'center',
+    alignItems: 'center',
+    marginBottom: WP('5'),
+    backgroundColor: GLColors.Natural.LightRed,
     justifyContent: 'center',
-    marginBottom: 20,
   },
   logOutButtonText: {
     fontFamily: GLFontsFamily.InterMedium,
     fontSize: GLFontSize.FONT_SIZE_16,
+  },
+  profileContainer: {
+    flex: 1,
+  },
+  expandMoreIcon: {
+    position: 'absolute',
+    right: WP('5'),
+  },
+  organizationNameHeading: {
+    fontSize: GLFontSize.FONT_SIZE_16,
+    fontFamily: GLFontsFamily.InterExtraBold,
+  },
+  profileNameHeading: {
+    fontFamily: GLFontsFamily.InterRegular,
   },
 });
 

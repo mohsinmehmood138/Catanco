@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
-import {useSharedState} from '../../../../../hooks';
+import {Text, StyleSheet, Image} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import {appImages} from '../../../../../shared/exporter';
+import {useSharedState} from '../../../../../hooks';
+import {appImages, GLColors} from '../../../../../shared/exporter';
 import UserBox from '../../../../../components/primitive/UserBox';
 import TodayVisitor from '../../../../../components/complex/TodayVisitor';
 import {GLFontsFamily, GLFontSize, WP} from '../../../../../shared/exporter';
@@ -11,10 +11,10 @@ const TelehealthScreenTab = () => {
   const {isEnabled} = useSharedState();
 
   return (
-    <ScrollView style={styles.telehealthContainer}>
+    <ScrollView style={styles.teleHealthContainer}>
       {isEnabled ? (
         <>
-          <Text style={styles.telehealthText}>Start Your Call</Text>
+          <Text style={styles.teleHealthText}>Start Your Call</Text>
           <UserBox type="clickForCall" />
           <TodayVisitor />
         </>
@@ -34,19 +34,19 @@ const TelehealthScreenTab = () => {
 };
 
 const styles = StyleSheet.create({
-  telehealthContainer: {
+  teleHealthContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: GLColors.Natural.White,
   },
 
-  telehealthText: {
-    marginTop: 14,
+  teleHealthText: {
+    marginTop: WP('3'),
     marginLeft: 10,
     fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterExtraBold,
   },
   homeTabImages: {
-    marginTop: 100,
+    marginTop: WP('30'),
     alignSelf: 'center',
   },
   noVisitorText: {

@@ -2,8 +2,7 @@ import {Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {appImages, GLColors} from '../../../shared/exporter';
-
+import {appImages, GLColors, WP} from '../../../shared/exporter';
 
 interface SplashProps {
   navigation: any;
@@ -18,7 +17,11 @@ const SplashScreen = () => {
   }, []);
 
   return (
-    <View style={[styles.splashContainer, {backgroundColor: GLColors.Blue.B2}]}>
+    <View
+      style={[
+        styles.splashContainer,
+        {backgroundColor: GLColors.Primary.DarkBlue},
+      ]}>
       <Image source={appImages.splashImage} />
       <Image
         style={styles.splashBottomImage}
@@ -36,8 +39,8 @@ const styles = StyleSheet.create({
   },
   splashBottomImage: {
     position: 'absolute',
-    bottom: 0,
-    right: 0,
+    bottom: WP('0'),
+    right: WP('0'),
   },
 });
 

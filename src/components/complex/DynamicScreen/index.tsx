@@ -92,7 +92,7 @@ const DynamicScreen = () => {
 };
 const styles = StyleSheet.create({
   dynamicScreenText: {
-    marginVertical: 20,
+    marginVertical: WP('4'),
     fontSize: GLFontSize.FONT_SIZE_14,
     fontFamily: GLFontsFamily.InterMedium,
   },
@@ -106,19 +106,19 @@ const styles = StyleSheet.create({
     fontFamily: GLFontsFamily.InterExtraBold,
   },
   dynamicScreenButton: {
-    height: 44,
-    bottom: 20,
+    height: WP('13'),
+    bottom: WP('5'),
     width: WP('45%'),
     borderRadius: 50,
     alignItems: 'center',
     position: 'absolute',
     flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: GLColors.Red.R6,
+    backgroundColor: GLColors.Primary.PinkishRed,
   },
   dynamicScreenButtonText: {
-    color: 'white',
-    marginLeft: 10,
+    color: GLColors.Natural.White,
+    marginLeft: WP('2'),
     textAlign: 'center',
     fontSize: GLFontSize.FONT_SIZE_18,
     fontFamily: GLFontsFamily.InterMedium,

@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {GLColors, WP} from '../../../shared/exporter';
 import AppHeader from '../../../components/complex/AppHeader';
 import TodayVisitor from '../../../components/complex/TodayVisitor';
 import AppBottomSheet from '../../../components/primitive/BottomSheet';
@@ -19,12 +20,12 @@ const HistoryTab = () => {
         showHistoryIcon={true}
         onHistoryPress={onHistoryPress}
       />
-      <View style={{padding: 10}}>
+      <View style={styles.todayVisitor}>
         <TodayVisitor topHeading="Monday" />
       </View>
       <AppBottomSheet
         type="filter"
-        bottomSheetHeight={450}
+        bottomSheetHeight={WP('100')}
         refRBSheet={refRBSheet}
         bottomSheetHeader="Filter"
       />
@@ -35,7 +36,10 @@ const HistoryTab = () => {
 const styles = StyleSheet.create({
   historyContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: GLColors.Natural.White,
+  },
+  todayVisitor: {
+    padding: WP('2'),
   },
 });
 

@@ -6,10 +6,10 @@ import {
   TouchableOpacity,
   GestureResponderEvent,
 } from 'react-native';
-import styles from './styles';
-import { appImages } from '../../../shared/exporter';
 import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
+import {appImages} from '../../../shared/exporter';
+import styles from './styles';
 
 type ButtonProps = {
   onPress: (event: GestureResponderEvent) => void;

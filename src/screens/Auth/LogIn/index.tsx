@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import AppInput from '../../../components/primitive/AppInput';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import AppHeader from '../../../components/complex/AppHeader';
 import AppButton from '../../../components/primitive/AppButton';
-import { GLColors, GLFontsFamily } from '../../../shared/exporter';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  GLColors,
+  GLFontsFamily,
+  GLFontSize,
+  WP,
+} from '../../../shared/exporter';
 
 const LogIn = () => {
-
   const navigation = useNavigation();
 
   const [changeText, setChangeText] = useState('');
@@ -20,10 +24,10 @@ const LogIn = () => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.loginContainer}>
         <AppHeader title="Login" showBackIcon={true} />
         <View>
-          <View style={{ marginTop: 20 }}>
+          <View style={styles.inputContainer}>
             <AppInput
               label="Email"
               placeholder="Enter Email"
@@ -43,7 +47,7 @@ const LogIn = () => {
             <View style={styles.checkboxContainer}>
               <TouchableOpacity
                 onPress={() => setSelection(!isSelected)}
-                style={[styles.customCheckbox ]}>
+                style={styles.customCheckbox}>
                 {isSelected && <View style={styles.checkboxTick} />}
               </TouchableOpacity>
               <Text style={styles.label}>Keep me logged-in</Text>
@@ -52,7 +56,7 @@ const LogIn = () => {
         </View>
       </SafeAreaView>
       <AppButton
-        color={changeText ? GLColors.Red.R6 : '#D7D7FF'}
+        color={changeText ? GLColors.Primary.PinkishRed : GLColors.Primary.Pale}
         label="Continue"
         width="90%"
         onPress={handleHomeStack}
@@ -62,43 +66,48 @@ const LogIn = () => {
 };
 
 const styles = StyleSheet.create({
+  loginContainer: {
+    flex: 1,
+  },
   forgotPassword: {
     alignSelf: 'flex-end',
-    marginRight: 20,
-    borderColor: 'white',
+    marginRight: WP('5'),
+    borderColor: GLColors.Natural.White,
     borderWidth: 1,
-    marginTop: 10,
+    marginTop: WP('2'),
   },
   forgotPasswordText: {
     fontFamily: GLFontsFamily.InterMedium,
   },
   checkboxContainer: {
     flexDirection: 'row',
-    marginVertical: 20,
-    marginLeft: 20,
+    marginVertical: WP('5'),
+    marginLeft: WP('5'),
     alignItems: 'center',
   },
   customCheckbox: {
-    width: 20,
-    height: 20,
+    width: WP('5'),
+    height: WP('5'),
     borderWidth: 2,
-    
+
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 8,
+    marginRight: WP('2'),
   },
- 
+
   checkboxTick: {
-    width: 10,
-    height: 10,
-    backgroundColor: 'white',
+    width: WP('2'),
+    height: WP('2'),
+    backgroundColor: GLColors.Natural.White,
     borderRadius: 2,
   },
   label: {
     fontFamily: GLFontsFamily.InterBold,
-    fontSize: 14,
-    
+    fontSize: GLFontSize.FONT_SIZE_16,
+  },
+  inputContainer: {
+    marginTop: WP('5'),
   },
 });
 

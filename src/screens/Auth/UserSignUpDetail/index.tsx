@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {View, ScrollView, SafeAreaView} from 'react-native';
-import {GLColors} from '../../../shared/exporter';
+import {ScrollView, SafeAreaView, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {GLColors, WP} from '../../../shared/exporter';
 import AppHeader from '../../../components/complex/AppHeader';
 import AppInput from '../../../components/primitive/AppInput';
 import AppButton from '../../../components/primitive/AppButton';
-import {useNavigation} from '@react-navigation/native';
 
 const UserSignUpDetails = () => {
   const [changeText, setChangeText] = useState('');
@@ -16,11 +16,11 @@ const UserSignUpDetails = () => {
 
   return (
     <>
-      <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
+      <SafeAreaView style={styles.userDetailsContainer}>
         <AppHeader title="Signup" showBackIcon={true} />
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{flexGrow: 1, paddingTop: 20}}>
+          contentContainerStyle={styles.inputContainer}>
           <AppInput
             label="First Name"
             placeholder="Enter First Name"
@@ -44,7 +44,9 @@ const UserSignUpDetails = () => {
           />
         </ScrollView>
         <AppButton
-          color={changeText ? GLColors.Red.R6 : '#D7D7FF'}
+          color={
+            changeText ? GLColors.Primary.PinkishRed : GLColors.Primary.Pale
+          }
           label="Continue"
           width="90%"
           onPress={userSignUpData}
@@ -53,5 +55,16 @@ const UserSignUpDetails = () => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  userDetailsContainer: {
+    flex: 1,
+  },
+
+  inputContainer: {
+    flexGrow: 1,
+    paddingTop: WP('5'),
+  },
+});
 
 export default UserSignUpDetails;

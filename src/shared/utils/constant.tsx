@@ -25,7 +25,7 @@ export const PROFILE_TAB_CONTENT = [
   {
     tabsname: 'Notification',
     tabsIcon: svgIcon.NotificationIcon,
-    tabsRoute: 'NotificationScreen',
+    tabsRoute: 'Notification',
   },
 ];
 

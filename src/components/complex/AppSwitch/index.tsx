@@ -1,6 +1,6 @@
 import React from 'react';
-import {GLColors} from '../../../shared/exporter';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import {GLColors, WP} from '../../../shared/exporter';
 
 interface CustomSwitchProps {
   isEnabled: boolean;
@@ -30,33 +30,32 @@ const AppCustomSwitch: React.FC<CustomSwitchProps> = ({
 
 const styles = StyleSheet.create({
   switchContainer: {
-    width: 42,
-    height: 26,
-    marginLeft: 20,
+    width: WP('10.5'),
+    marginLeft: WP('5'),
     alignItems: 'center',
     justifyContent: 'center',
   },
   track: {
-    height: 22,
+    height: WP('5.5'),
     width: '100%',
     borderRadius: 15,
     position: 'relative',
-    backgroundColor: '#D7D7FF',
+    backgroundColor: GLColors.Primary.Pale,
   },
 
   trackEnabled: {
-    backgroundColor: GLColors.Red.R6,
+    backgroundColor: GLColors.Primary.PinkishRed,
   },
   thumb: {
     top: 1,
-    width: 20,
-    height: 20,
+    width: WP('5'),
+    height: WP('5'),
     borderRadius: 10,
     position: 'absolute',
-    backgroundColor: '#fff',
+    backgroundColor: GLColors.Natural.White,
   },
   thumbEnabled: {
-    left: 22,
+    left: WP('5'),
   },
   thumbDisabled: {
     left: 1.4,

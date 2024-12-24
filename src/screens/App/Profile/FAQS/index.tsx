@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
+import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 import {svgIcon} from '../../../../assets/svg';
 import Accordion from 'react-native-collapsible/Accordion';
-import {FAQS_LIST_DATA} from '../../../../shared/exporter';
+import {FAQS_LIST_DATA, GLColors, WP} from '../../../../shared/exporter';
 import AppHeader from '../../../../components/complex/AppHeader';
 import {GLFontsFamily, GLFontSize} from '../../../../shared/exporter';
-import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 
 const AccordionView = () => {
   const [activeSections, setActiveSections] = useState([]);
 
-  const renderHeader = (section: any, index: number, isActive: boolean) => (
+  const renderHeader = (section: any, isActive: boolean) => (
     <View
       style={[
         styles.header,
@@ -28,11 +28,7 @@ const AccordionView = () => {
   );
 
   const renderContent = (section: any) => (
-    <View
-      style={[
-        styles.content,
-        {borderBottomLeftRadius: 8, borderBottomRightRadius: 8},
-      ]}>
+    <View style={styles.content}>
       <Text style={styles.contentText}>{section.content}</Text>
     </View>
   );
@@ -44,7 +40,7 @@ const AccordionView = () => {
     <Accordion
       sections={FAQS_LIST_DATA}
       activeSections={activeSections}
-      renderHeader={(section, index, isActive) =>
+      renderHeader={(section: any, index: number, isActive: boolean) =>
         renderHeader(section, index, isActive)
       }
       renderContent={renderContent}
@@ -56,9 +52,9 @@ const AccordionView = () => {
 
 const FAQS = () => {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+    <SafeAreaView>
       <AppHeader title="FAQ’s" showBackIcon={true} />
-      <View style={styles.FAQsContainer}>
+      <View style={styles.faqsContainer}>
         <View style={styles.searchContainer}>
           {svgIcon.UserIcon}
           <TextInput style={styles.faqsSearchInput} placeholder="Search" />
@@ -72,55 +68,56 @@ const FAQS = () => {
 };
 
 const styles = StyleSheet.create({
-  FAQsContainer: {
-    paddingTop: 20,
+  faqsContainer: {
+    paddingTop: WP('5'),
   },
   searchContainer: {
-    backgroundColor: '#F8F8F8',
-    height: 56,
+    backgroundColor: GLColors.Natural.LightGrey,
+    height: WP('14'),
     width: '90%',
     alignSelf: 'center',
     borderRadius: 12,
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: WP('5'),
     flexDirection: 'row',
   },
   faqsSearchInput: {
     width: '80%',
     fontFamily: GLFontsFamily.InterMedium,
     fontSize: GLFontSize.FONT_SIZE_15,
-    marginLeft: 15,
+    marginLeft: WP('4'),
   },
   accordionContainer: {
-    marginTop: 20,
+    marginTop: WP('5'),
     width: '90%',
     alignSelf: 'center',
   },
   header: {
-    backgroundColor: '#F8F8F8',
+    backgroundColor: GLColors.Natural.LightGrey,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 15,
+    padding: WP('4'),
     marginTop: 5,
   },
   headerText: {
-    color: 'black',
-    fontSize: 16,
+    color: GLColors.Natural.Black,
+    fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterBold,
     textAlign: 'left',
   },
   content: {
-    backgroundColor: '#F8F8F8',
-    padding: 10,
+    backgroundColor: GLColors.Natural.LightGrey,
+    padding: WP('2'),
+    paddingHorizontal: WP('4'),
     height: '100%',
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
   contentText: {
     color: 'black',
-    fontSize: 16,
+    fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterRegular,
-
-    height: 'auto',
   },
 });
 

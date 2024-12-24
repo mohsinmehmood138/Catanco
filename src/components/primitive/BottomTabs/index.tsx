@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {svgIcon} from '../../../assets/svg';
 import {BottomTabBarOptions, Route} from '@react-navigation/bottom-tabs';
+import {GLColors, WP} from '../../../shared/exporter';
 
 type TabIconProps = {
   icon: React.ReactNode;
@@ -12,7 +13,7 @@ const TabIcon: React.FC<TabIconProps> = ({icon, focused}) => (
   <SafeAreaView
     style={[
       styles.bottomTabsContainer,
-      {backgroundColor: focused ? '#FF1654' : 'transparent'},
+      {backgroundColor: focused ? GLColors.Primary.PinkishRed : 'transparent'},
     ]}>
     {icon}
   </SafeAreaView>
@@ -55,18 +56,18 @@ export const BottomTab = ({route}: BottomTabProps): BottomTabBarOptions => ({
   tabBarActiveTintColor: 'transparent',
   tabBarInactiveTintColor: 'transparent',
   tabBarStyle: {
-    height: 70,
-    paddingTop: 10,
-    backgroundColor: '#EFEFEF',
+    height: WP('17'),
+    paddingTop: WP('2'),
+    backgroundColor: GLColors.Natural.LightGrey,
   },
 });
 
 const styles = StyleSheet.create({
   bottomTabsContainer: {
-    width: 45,
-    height: 45,
-    padding: 10,
-    marginTop: 10,
+    width: WP('12'),
+    height: WP('12'),
+    padding: WP('2'),
+    marginTop: WP('2'),
     display: 'flex',
     borderRadius: 50,
     alignItems: 'center',

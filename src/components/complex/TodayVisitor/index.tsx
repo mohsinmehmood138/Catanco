@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {ScrollView, FlatList} from 'react-native-gesture-handler';
 import AppModal from '../AppModal';
 import {svgIcon} from '../../../assets/svg';
-import {TODAY_VISITOR_DATA} from '../../../shared/exporter';
-import {ScrollView, FlatList} from 'react-native-gesture-handler';
-import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
+import {TODAY_VISITOR_DATA, WP} from '../../../shared/exporter';
+import {GLFontsFamily, GLFontSize, GLColors} from '../../../shared/exporter';
 
 interface VisitorProps {
   topHeading?: string;
@@ -18,12 +18,10 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
 
   return (
     <>
-      <Text style={styles.telehealthText}>
+      <Text style={styles.teleHealthText}>
         {topHeading ? topHeading : 'Today’s Visits'}
       </Text>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <FlatList
           data={TODAY_VISITOR_DATA}
           renderItem={({item}) => (
@@ -35,7 +33,7 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
                 <TouchableOpacity
                   style={styles.viewButton}
                   onPress={openAppModal}>
-                  <Text style={{color: '#247BA0'}}>Visit</Text>
+                  <Text style={styles.visitViewText}>Visit</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.visitorDateContainer}>
@@ -43,9 +41,9 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
                   {svgIcon.CalendarIcon}
                   <Text style={styles.visitDateTime}>{item.date}</Text>
                 </View>
-                <View style={[styles.visitorDateAndTime, {marginLeft: 10}]}>
+                <View style={[styles.visitorDateAndTime, styles.clockIcon]}>
                   {svgIcon.ClockIcon}
-                  <Text style={[styles.visitDateTime]}>{item.time}</Text>
+                  <Text style={styles.visitDateTime}>{item.time}</Text>
                 </View>
               </View>
               <View style={styles.visitorLocation}>
@@ -69,12 +67,6 @@ const TodayVisitor: React.FC<VisitorProps> = ({topHeading}) => {
 };
 
 const styles = StyleSheet.create({
-  telehealthText: {
-    marginTop: 14,
-    marginLeft: 10,
-    fontSize: GLFontSize.FONT_SIZE_16,
-    fontFamily: GLFontsFamily.InterExtraBold,
-  },
   visitorDateAndTime: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -83,20 +75,18 @@ const styles = StyleSheet.create({
 
   viewButton: {
     borderRadius: 20,
-    paddingVertical: 5,
-    paddingHorizontal: 18,
-    backgroundColor: '#B2DBBF',
+    paddingVertical: WP('1.5'),
+    paddingHorizontal: WP('5'),
+    backgroundColor: GLColors.Natural.LightGreen,
   },
-  scrollContent: {
-    paddingBottom: 230,
-  },
+
   visitContainer: {
-    height: 100,
-    padding: 10,
+    height: WP('27'),
+    padding: WP('3'),
     elevation: 1,
-    marginTop: 15,
+    marginTop: WP('4'),
     borderRadius: 12,
-    backgroundColor: '#F8F8F8',
+    backgroundColor: GLColors.Natural.LightGrey,
   },
   visitHeader: {
     flexDirection: 'row',
@@ -108,26 +98,37 @@ const styles = StyleSheet.create({
     fontFamily: GLFontsFamily.InterExtraBold,
   },
   visitDateTime: {
-    marginLeft: 5,
+    marginLeft: WP('2'),
     alignItems: 'center',
     fontSize: GLFontSize.FONT_SIZE_14,
     fontFamily: GLFontsFamily.InterMedium,
   },
   visitLocation: {
-    marginTop: 5,
-    marginLeft: 5,
-    color: '#666',
+    marginTop: WP('1'),
+    marginLeft: WP('2'),
     fontSize: GLFontSize.FONT_SIZE_14,
     fontFamily: GLFontsFamily.InterMedium,
   },
   visitorDateContainer: {
     width: '90%',
-    marginVertical: 5,
+    marginVertical: WP('1'),
     flexDirection: 'row',
+  },
+  teleHealthText: {
+    marginTop: WP('3'),
+    marginLeft: WP('2'),
+    fontSize: GLFontSize.FONT_SIZE_16,
+    fontFamily: GLFontsFamily.InterExtraBold,
   },
   visitorLocation: {
     alignItems: 'center',
     flexDirection: 'row',
+  },
+  visitViewText: {
+    color: GLColors.Primary.DarkBlue,
+  },
+  clockIcon: {
+    marginLeft: WP('2'),
   },
 });
 export default TodayVisitor;

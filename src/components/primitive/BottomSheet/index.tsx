@@ -1,31 +1,38 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import RBSheet from 'react-native-raw-bottom-sheet';
 import AppInput from '../AppInput';
 import AppButton from '../AppButton';
 import {svgIcon} from '../../../assets/svg';
-import {GLColors, GLFontsFamily, GLFontSize} from '../../../shared/exporter';
-import RBSheet from 'react-native-raw-bottom-sheet';
+import {
+  GLColors,
+  GLFontsFamily,
+  GLFontSize,
+  CALL_LOGS,
+  BREAK,
+  WP,
+} from '../../../shared/exporter';
 
 interface BottomSheetProps {
   type?: String;
   refRBSheet: any;
-  appBottonText?: string;
+  appBottomText?: string;
   bottomSheetHeight: any;
   bottomSheetHeader: string;
   onPress?: () => void | any;
 }
 
 const AppBottomSheet: React.FC<BottomSheetProps> = ({
-  refRBSheet,
-  bottomSheetHeight,
   type,
+  refRBSheet,
+  appBottomText,
   bottomSheetHeader,
-  appBottonText,
+  bottomSheetHeight,
   onPress,
 }) => {
   const renderContent = () => {
     switch (type) {
-      case 'callLogs':
+      case CALL_LOGS:
         return (
           <>
             <AppInput label="Person Name" placeholder="Enter Person Name" />
@@ -34,26 +41,20 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
               placeholder="Enter Date"
               isDatePicker={true}
             />
-            <View style={{paddingHorizontal: 20}}>
-              <AppButton
-                onPress={() => ''}
-                color={GLColors.Red.R6}
-                label="Add"
-                width="100%"
-              />
-            </View>
           </>
         );
-      case 'break':
+      case BREAK:
         return (
           <>
-            <View style={{paddingHorizontal: 20}}>
+            <View style={styles.bottomSheetButton}>
               <AppButton
                 onPress={onPress}
                 color={
-                  appBottonText == 'Take a Break' ? GLColors.Red.R6 : '#70C1B3'
+                  appBottomText == 'Take a Break'
+                    ? GLColors.Primary.PinkishRed
+                    : GLColors.Natural.LightGreen
                 }
-                label={appBottonText}
+                label={appBottomText}
                 width="100%"
               />
             </View>
@@ -72,12 +73,14 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
       height={bottomSheetHeight}
       customStyles={{
         container: {
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-          backgroundColor: 'white',
+          borderTopLeftRadius: WP('4'),
+          borderTopRightRadius: WP('4'),
+          backgroundColor: GLColors.Natural.White,
+          position: 'relative',
+          justifyContent: 'space-between',
         },
         draggableIcon: {
-          backgroundColor: '#000',
+          backgroundColor: GLColors.Natural.Black,
         },
       }}>
       <View style={styles.header}>
@@ -96,7 +99,7 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
 
 const styles = StyleSheet.create({
   header: {
-    padding: 20,
+    padding: WP('5'),
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -107,7 +110,13 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     position: 'absolute',
-    right: 20,
+    right: WP('4'),
+  },
+  bottomSheetButton: {
+    position: 'absolute',
+    bottom: WP('-2'),
+    left: WP('4'),
+    right: WP('4'),
   },
 });
 

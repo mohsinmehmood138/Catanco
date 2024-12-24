@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import AppHeader from '../../../components/complex/AppHeader';
-import {GLColors, GLFontsFamily} from '../../../shared/exporter';
+import {GLColors, GLFontsFamily, WP} from '../../../shared/exporter';
 import AppInput from '../../../components/primitive/AppInput';
 import AppButton from '../../../components/primitive/AppButton';
-import {useNavigation} from '@react-navigation/native';
 
 const ForgotPassword = () => {
   const [changeText, setChangeText] = useState('');
@@ -32,7 +32,7 @@ const ForgotPassword = () => {
       </SafeAreaView>
       <AppButton
         onPress={OtpVerification}
-        color={changeText ? GLColors.Red.R6 : '#D7D7FF'}
+        color={changeText ? GLColors.Primary.PinkishRed : GLColors.Primary.Pale}
         label="Continue"
         width="90%"
       />
@@ -43,11 +43,11 @@ const ForgotPassword = () => {
 const styles = StyleSheet.create({
   forgotPasswordContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: GLColors.Natural.White,
   },
   forgotPasswordText: {
     fontFamily: GLFontsFamily.InterRegular,
-    margin: 20,
+    margin: WP('5'),
   },
 });
 export default ForgotPassword;

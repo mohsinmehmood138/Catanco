@@ -1,11 +1,16 @@
 import React, {useRef} from 'react';
 import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
+import StepIndicator from 'react-native-step-indicator';
 import {svgIcon} from '../../../assets/svg';
 import AppHeader from '../../../components/complex/AppHeader';
 import AppBottomSheet from '../../../components/primitive/BottomSheet';
-import {GLColors, GLFontsFamily, GLFontSize} from '../../../shared/exporter';
-import {ScrollView} from 'react-native-gesture-handler';
-import StepIndicator from 'react-native-step-indicator';
+import {
+  GLColors,
+  GLFontsFamily,
+  GLFontSize,
+  WP,
+} from '../../../shared/exporter';
 
 const Tracking_Place_Time = [
   {visit: 'Visit 1', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
@@ -15,20 +20,23 @@ const Tracking_Place_Time = [
   {visit: 'Visit 5', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
 ];
 
+const customWhiteColor = GLColors.Natural.White;
+const customPinkishColor = GLColors.Primary.PinkishRed;
+
 const customStyles = {
-  stepIndicatorSize: 20,
-  currentStepIndicatorSize: 20,
-  currentStepStrokeWidth: 5,
-  stepStrokeCurrentColor: GLColors.Red.R6,
   stepStrokeWidth: 5,
-  stepStrokeFinishedColor: GLColors.Red.R6,
-  stepStrokeUnFinishedColor: '#aaaaaa',
-  separatorFinishedColor: GLColors.Red.R6,
-  separatorUnFinishedColor: '#aaaaaa',
-  stepIndicatorFinishedColor: 'white',
-  stepIndicatorUnFinishedColor: 'white',
-  stepIndicatorCurrentColor: 'white',
+  stepIndicatorSize: 20,
+  currentStepStrokeWidth: 5,
+  currentStepIndicatorSize: 20,
   stepIndicatorLabelFontSize: 0,
+  stepStrokeUnFinishedColor: '#aaaaaa',
+  separatorUnFinishedColor: '#aaaaaa',
+  stepStrokeCurrentColor: customPinkishColor,
+  separatorFinishedColor: customPinkishColor,
+  stepStrokeFinishedColor: customPinkishColor,
+  stepIndicatorCurrentColor: customWhiteColor,
+  stepIndicatorFinishedColor: customWhiteColor,
+  stepIndicatorUnFinishedColor: customWhiteColor,
   separator: () => <DashedSeparator />,
 };
 
@@ -40,14 +48,16 @@ const TrackingTab = () => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView>
       <AppHeader
         title="Tracking"
         showHistoryIcon={true}
         showDownloadIcon={true}
         onHistoryPress={openBottomSheet}
       />
-      <ScrollView showsVerticalScrollIndicator={false} style={{padding: 20}}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.trackingScrollView}>
         <Text style={styles.trackingHeading}>Monday</Text>
         <View style={styles.trackingParentContainer}>
           <View style={styles.trackingContainer}>
@@ -95,7 +105,7 @@ const TrackingTab = () => {
         </View>
       </ScrollView>
       <AppBottomSheet
-        bottomSheetHeight={450}
+        bottomSheetHeight={WP('100')}
         refRBSheet={bottomSheetRef}
         type="Filter"
         bottomSheetHeader="Filter"
@@ -122,11 +132,11 @@ const styles = StyleSheet.create({
   },
   milesAndTime: {
     width: '100%',
-    backgroundColor: 'white',
-    height: 56,
+    backgroundColor: GLColors.Natural.White,
+    height: WP('14'),
     borderRadius: 12,
-    marginTop: 10,
-    paddingHorizontal: 10,
+    marginTop: WP('2'),
+    paddingHorizontal: WP('2'),
     flexDirection: 'row',
     alignSelf: 'center',
     justifyContent: 'space-between',
@@ -136,21 +146,21 @@ const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
   },
-  timeContainer: {},
+
   iconContainer: {
-    width: 32,
-    height: 32,
+    width: WP('8'),
+    height: WP('8'),
     borderRadius: 100,
-    backgroundColor: GLColors.Blue.B2,
+    backgroundColor: GLColors.Primary.DarkBlue,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 10,
+    marginRight: WP('2'),
   },
   trackingParentContainer: {
     backgroundColor: '#F8F8F8',
     borderRadius: 12,
-    padding: 10,
-    marginTop: 20,
+    padding: WP('2'),
+    marginTop: WP('5'),
   },
   separatorView: {
     flexDirection: 'row',
@@ -174,24 +184,27 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     width: '90%',
-    marginLeft: 10,
+    marginLeft: WP('2'),
   },
   stepItem: {
-    padding: 10,
+    padding: WP('2'),
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     width: '100%',
   },
   visitText: {
-    fontSize: 16,
+    fontSize: GLFontSize.FONT_SIZE_16,
     fontWeight: 'bold',
   },
   locationText: {
-    fontSize: 14,
+    fontSize: GLFontSize.FONT_SIZE_14,
   },
   timeText: {
-    fontSize: 14,
+    fontSize: GLFontSize.FONT_SIZE_14,
+  },
+  trackingScrollView: {
+    padding: WP('5'),
   },
 });
 

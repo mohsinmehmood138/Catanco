@@ -4,6 +4,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import AppHeader from '../../../../components/complex/AppHeader';
 import HomeTopTabs from '../../../../navigation/Tabs/HomeTopTabs';
 import AppBottomSheet from '../../../../components/primitive/BottomSheet';
+import {WP} from '../../../../shared/exporter';
 
 const HomeTab = () => {
   const bottomSheetRef = useRef<any>();
@@ -29,10 +30,10 @@ const HomeTab = () => {
       </View>
       <AppBottomSheet
         type="break"
-        appBottonText={breakText}
+        appBottomText={breakText}
         bottomSheetHeader="Break"
         refRBSheet={bottomSheetRef}
-        bottomSheetHeight={130}
+        bottomSheetHeight={WP('35')}
         onPress={breakText == 'Take a Break' ? startBreak : stopBreak}
       />
     </SafeAreaView>
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 20,
+    paddingTop: WP('5'),
   },
 });
 

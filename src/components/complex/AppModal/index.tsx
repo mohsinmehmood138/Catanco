@@ -1,12 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import Modal from 'react-native-modal';
 import {
   GLColors,
   appIcons,
   GLFontSize,
   GLFontsFamily,
+  WP,
 } from '../../../shared/exporter';
-import Modal from 'react-native-modal';
 
 interface ModalProps {
   isAppModal: boolean;
@@ -16,78 +17,69 @@ interface ModalProps {
 }
 
 const AppModal: React.FC<ModalProps> = ({
-  isAppModal,
   onCancel,
   onConfirm,
+  isAppModal,
   position = 'top',
 }) => {
   return (
-    <View style={{flex: 1}}>
-      <Modal
-        style={[
-          styles.appModal,
-          position === 'top'
-            ? styles.modalTopPosition
-            : styles.modalCenterPosition,
-        ]}
-        isVisible={isAppModal}>
-        <View style={styles.modalContent}>
-          <View style={styles.modalIconContainer}>
-            <Image source={appIcons.checkBoxImages} />
-          </View>
-          <Text style={styles.detailText}>
-            Do you want to Complete the visit?
-          </Text>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.cancelButton} onPress={onCancel}>
-              <Text style={[styles.buttonText, styles.cancelModalText]}>
-                No
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.okButton} onPress={onConfirm}>
-              <Text style={styles.buttonText}>Yes</Text>
-            </TouchableOpacity>
-          </View>
+    <Modal
+      style={[
+        position === 'top'
+          ? styles.modalTopPosition
+          : styles.modalCenterPosition,
+      ]}
+      isVisible={isAppModal}>
+      <View style={styles.modalContent}>
+        <View style={styles.modalIconContainer}>
+          <Image source={appIcons.checkBoxImages} />
         </View>
-      </Modal>
-    </View>
+        <Text style={styles.detailText}>
+          Do you want to Complete the visit?
+        </Text>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.cancelButton} onPress={onCancel}>
+            <Text style={[styles.buttonText, styles.cancelModalText]}>No</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.okButton} onPress={onConfirm}>
+            <Text style={styles.buttonText}>Yes</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
   );
 };
 
 const styles = StyleSheet.create({
-  appModal: {
-    margin: 0,
-  },
   modalCenterPosition: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   modalTopPosition: {
-    marginTop: '20%',
+    marginTop: WP('5'),
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
   modalContent: {
-    height: 234,
-    padding: 20,
-    width: '90%',
-    elevation: 5,
+    padding: WP('5'),
+    width: WP('80'),
+    elevation: WP('1'),
     borderRadius: 15,
     shadowRadius: 3.84,
-    shadowColor: '#000',
     shadowOpacity: 0.25,
     alignItems: 'center',
-    backgroundColor: 'white',
     shadowOffset: {width: 0, height: 2},
+    shadowColor: GLColors.Natural.DarkGrey,
+    backgroundColor: GLColors.Natural.White,
   },
   icon: {
-    marginBottom: 15,
+    marginBottom: WP('3'),
   },
   detailText: {
     width: '80%',
-    color: '#333',
-    marginBottom: 20,
     textAlign: 'center',
+    marginBottom: WP('4'),
+    color: GLColors.Natural.DarkGrey,
     fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterMedium,
   },
@@ -98,36 +90,36 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     flex: 1,
-    padding: 10,
     borderWidth: 1,
+    padding: WP('2'),
     borderRadius: 20,
-    borderColor: 'black',
     alignItems: 'center',
+    borderColor: GLColors.Natural.Black,
   },
   okButton: {
     flex: 1,
-    padding: 10,
-    marginLeft: 10,
-    borderRadius: 20,
+    padding: WP('2'),
+    marginLeft: WP('2'),
     alignItems: 'center',
-    backgroundColor: GLColors.Red.R6,
+    borderRadius: WP('4'),
+    backgroundColor: GLColors.Primary.PinkishRed,
   },
   buttonText: {
-    fontSize: 16,
-    color: 'white',
+    fontSize: GLFontSize.FONT_SIZE_16,
+    color: GLColors.Natural.White,
     fontWeight: 'bold',
   },
   modalIconContainer: {
-    width: 70,
-    height: 70,
+    width: WP('17'),
+    height: WP('17'),
     borderRadius: 50,
-    marginBottom: 20,
     alignItems: 'center',
+    marginBottom: WP('4'),
     justifyContent: 'center',
-    backgroundColor: '#247BA0',
+    backgroundColor: GLColors.Primary.DarkBlue,
   },
   cancelModalText: {
-    color: 'black',
+    color: GLColors.Natural.Black,
   },
 });
 

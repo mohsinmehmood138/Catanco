@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {
-  GLColors,
-  GLFontsFamily,
-  GLFontSize,
   WP,
+  GLColors,
+  GLFontSize,
+  HOME_HEADER,
+  GLFontsFamily,
 } from '../../../shared/exporter';
 import AppCustomSwitch from '../AppSwitch';
 import {svgIcon} from '../../../assets/svg';
@@ -22,8 +23,8 @@ interface AppHeaderProps {
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({
-  title,
   type,
+  title,
   showBackIcon,
   showHistoryIcon,
   showDownloadIcon,
@@ -35,69 +36,66 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   const [appNotification] = useState(3);
 
   return (
-    <>
-      <View style={styles.headerContainer}>
-        {type === 'homeHeader' ? (
-          <View style={styles.homeHeaderContainer}>
-            <Text style={styles.homeHeaderText}>
-              {isEnabled ? 'End Your Day' : 'Start Your Day'}
-            </Text>
+    <View style={styles.headerContainer}>
+      {type === HOME_HEADER ? (
+        <View style={styles.homeHeaderContainer}>
+          <Text style={styles.homeHeaderText}>
+            {isEnabled ? 'End Your Day' : 'Start Your Day'}
+          </Text>
 
-            <AppCustomSwitch isEnabled={isEnabled} onToggle={toggleSwitch} />
+          <AppCustomSwitch isEnabled={isEnabled} onToggle={toggleSwitch} />
 
-            <View style={styles.timeSheet}>
-              {isEnabled && (
-                <TouchableOpacity
-                  style={styles.clockIcon}
-                  onPress={openBottomSheet}>
-                  {svgIcon.ClockIcon1}
-                </TouchableOpacity>
-              )}
+          <View style={styles.timeSheet}>
+            {isEnabled && (
+              <TouchableOpacity
+                style={styles.clockIcon}
+                onPress={openBottomSheet}>
+                {svgIcon.ClockIcon1}
+              </TouchableOpacity>
+            )}
 
-              {svgIcon.NotificationIcon1}
-              <View style={styles.notificationShowContainer}>
-                <Text style={styles.notificationText}>{appNotification}</Text>
-              </View>
+            {svgIcon.NotificationIcon1}
+            <View style={styles.notificationShowContainer}>
+              <Text style={styles.notificationText}>{appNotification}</Text>
             </View>
           </View>
-        ) : (
-          <>
+        </View>
+      ) : (
+        <>
+          <TouchableOpacity
+            style={styles.headerBackIcon}
+            onPress={() => navigation.goBack()}>
+            {showBackIcon && svgIcon.GoBackIcon}
+          </TouchableOpacity>
+
+          <Text style={styles.headerTitle}>{title}</Text>
+
+          {showHistoryIcon && (
             <TouchableOpacity
-              style={styles.headerBackIcon}
-              onPress={() => navigation.goBack()}>
-              {showBackIcon && svgIcon.GoBackIcon}
+              style={styles.historyView}
+              onPress={onHistoryPress}>
+              {svgIcon.CalendarWhiteIcon}
             </TouchableOpacity>
-            <View>
-              <Text style={styles.headerTitle}>{title}</Text>
-            </View>
+          )}
 
-            {showHistoryIcon && (
-              <TouchableOpacity
-                style={styles.historyView}
-                onPress={onHistoryPress}>
-                {svgIcon.CalendarWhiteIcon}
-              </TouchableOpacity>
-            )}
-
-            {showDownloadIcon && (
-              <TouchableOpacity
-                style={[styles.historyView, styles.historyDownlaodIcon]}>
-                {svgIcon.DownloadIcon}
-              </TouchableOpacity>
-            )}
-          </>
-        )}
-      </View>
-    </>
+          {showDownloadIcon && (
+            <TouchableOpacity
+              style={[styles.historyView, styles.historyDownloadIcon]}>
+              {svgIcon.DownloadIcon}
+            </TouchableOpacity>
+          )}
+        </>
+      )}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   headerContainer: {
     width: '100%',
-    height: WP('19%'),
-    backgroundColor: '#fff',
-    shadowColor: '#000',
+    height: WP('19'),
+    backgroundColor: GLColors.Natural.White,
+    shadowColor: GLColors.Natural.Black,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 1,
@@ -112,10 +110,10 @@ const styles = StyleSheet.create({
   },
   headerBackIcon: {
     position: 'absolute',
-    left: 20,
+    left: WP('5'),
   },
   homeHeaderContainer: {
-    marginHorizontal: 20,
+    marginHorizontal: WP('5'),
     alignItems: 'center',
     justifyContent: 'flex-start',
     flex: 1,
@@ -126,43 +124,43 @@ const styles = StyleSheet.create({
     fontSize: GLFontSize.FONT_SIZE_18,
   },
   switchContainer: {
-    marginLeft: 20,
+    marginLeft: WP('5'),
     transform: [{scale: 1.2}],
   },
   notificationShowContainer: {
-    width: 20,
-    height: 20,
-    backgroundColor: GLColors.Red.R6,
+    width: WP('5'),
+    height: WP('5'),
+    backgroundColor: GLColors.Primary.PinkishRed,
     position: 'relative',
-    right: 15,
-    top: -10,
+    right: WP('3'),
+    top: WP('-3'),
     borderRadius: 20,
   },
   historyView: {
-    width: 32,
-    height: 32,
-    backgroundColor: GLColors.Blue.B2,
+    width: WP('8'),
+    height: WP('8'),
+    backgroundColor: GLColors.Primary.DarkBlue,
     borderRadius: 100,
     position: 'absolute',
-    right: 20,
+    right: WP('5'),
     justifyContent: 'center',
     alignItems: 'center',
   },
   timeSheet: {
     position: 'absolute',
-    right: -10,
+    right: WP('-2'),
     flexDirection: 'row',
   },
   notificationText: {
-    color: 'white',
+    color: GLColors.Natural.White,
     textAlign: 'center',
   },
-  historyDownlaodIcon: {
-    right: 58,
-    backgroundColor: GLColors.Red.R6,
+  historyDownloadIcon: {
+    right: WP('15'),
+    backgroundColor: GLColors.Primary.PinkishRed,
   },
   clockIcon: {
-    marginRight: 20,
+    marginRight: WP('5'),
   },
 });
 

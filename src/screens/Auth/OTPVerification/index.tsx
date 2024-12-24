@@ -1,14 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {OtpInput} from 'react-native-otp-entry';
+import {
   GLColors,
   GLFontsFamily,
   GLFontSize,
   WP,
 } from '../../../shared/exporter';
-import {OtpInput} from 'react-native-otp-entry';
 import {useNavigation} from '@react-navigation/native';
 import AppHeader from '../../../components/complex/AppHeader';
-import {SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const OtpVerification = () => {
   const [countTimer, setCountTimer] = useState(30);
@@ -31,15 +37,15 @@ const OtpVerification = () => {
 
   return (
     <>
-      <SafeAreaView style={styles.verficationOTPContainer}>
+      <SafeAreaView style={styles.verificationOTPContainer}>
         <AppHeader title="Verify Email" showBackIcon={true} />
 
-        <Text style={styles.verficationOTPContainerText}>
+        <Text style={styles.verificationOTPContainerText}>
           Please check your email Tom@example.com. We sent you the verification
           code.
         </Text>
 
-        <View style={{margin: 20}}>
+        <View style={styles.inputContainer}>
           <OtpInput
             numberOfDigits={6}
             focusColor="transparent"
@@ -61,7 +67,6 @@ const OtpVerification = () => {
               pinCodeTextStyle: styles.pinCodeText,
               focusStickStyle: styles.focusStick,
               pinCodeContainerStyle: styles.pinCodeContainer,
-
               filledPinCodeContainerStyle: styles.filledPinCodeContainer,
             }}
           />
@@ -72,12 +77,12 @@ const OtpVerification = () => {
         <Text style={styles.codeNotReceivedText}>Haven’t received code?</Text>
         {resendCode ? (
           <TouchableOpacity>
-            <Text style={[styles.codeNotReceivedText, {color: '#247BA0'}]}>
+            <Text style={[styles.codeNotReceivedText, styles.spanTimerText]}>
               Resend Code
             </Text>
           </TouchableOpacity>
         ) : (
-          <Text style={[styles.codeNotReceivedText, {color: '#247BA0'}]}>
+          <Text style={[styles.codeNotReceivedText, styles.spanTimerText]}>
             Please wait 00:{countTimer}
           </Text>
         )}
@@ -87,18 +92,18 @@ const OtpVerification = () => {
 };
 
 const styles = StyleSheet.create({
-  verficationOTPContainer: {
+  verificationOTPContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: GLColors.Natural.White,
   },
-  verficationOTPContainerText: {
+  verificationOTPContainerText: {
     fontFamily: GLFontsFamily.InterRegular,
-    margin: 20,
+    margin: WP('5'),
   },
   codeNotReceivedContainer: {
     width: '100%',
-    height: 80,
-    backgroundColor: 'white',
+    height: WP('14'),
+    backgroundColor: GLColors.Natural.White,
   },
   codeNotReceivedText: {
     alignSelf: 'center',
@@ -107,32 +112,37 @@ const styles = StyleSheet.create({
   },
 
   pinCodeText: {
-    color: 'white',
-    fontSize: 30,
+    color: GLColors.Natural.White,
+    fontSize: GLFontSize.FONT_SIZE_30,
     textAlign: 'center',
     fontFamily: GLFontsFamily.InterBold,
   },
   focusStick: {
-    backgroundColor: GLColors.Red.R6,
+    backgroundColor: GLColors.Primary.PinkishRed,
   },
   activePinCodeContainer: {
-    borderColor: 'green',
     borderWidth: 2,
     borderRadius: 14,
   },
 
   pinCodeContainer: {
-    backgroundColor: GLColors.Red.R6,
+    backgroundColor: GLColors.Primary.PinkishRed,
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: GLColors.Red.R6,
+    borderColor: GLColors.Primary.PinkishRed,
     width: WP('14%'),
     height: WP('15%'),
   },
   filledPinCodeContainer: {
-    backgroundColor: GLColors.Red.R6,
+    backgroundColor: GLColors.Primary.PinkishRed,
     width: WP('14%'),
     height: WP('15%'),
+  },
+  spanTimerText: {
+    color: GLColors.Primary.DarkBlue,
+  },
+  inputContainer: {
+    margin: WP('5'),
   },
 });
 

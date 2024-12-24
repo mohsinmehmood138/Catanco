@@ -11,11 +11,11 @@ import {
   TextInputProps,
   TouchableOpacity,
 } from 'react-native';
-import {appIcons} from '../../../shared/exporter';
 import Icon from 'react-native-vector-icons/Ionicons';
 import CountryPicker from 'react-native-country-picker-modal';
-import {GLColors, GLFontsFamily} from '../../../shared/exporter';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import {appIcons, GLFontSize, WP} from '../../../shared/exporter';
+import {GLColors, GLFontsFamily} from '../../../shared/exporter';
 
 interface AppInputProps extends TextInputProps {
   label: string;
@@ -52,8 +52,8 @@ const AppInput: React.FC<AppInputProps> = ({
   isRequired = false,
   date = 'Enter Date',
   isDatePicker = false,
-  keyboardType = 'default',
   secureTextEntry = false,
+  keyboardType = 'default',
   ...rest
 }) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -143,48 +143,47 @@ const AppInput: React.FC<AppInputProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    width: '90%',
-    marginVertical: 10,
+    width: WP('90'),
+    marginVertical: WP('2'),
     alignSelf: 'center',
     alignItems: 'center',
   },
   label: {
-    fontSize: 16,
-    color: 'black',
-    marginBottom: 5,
-    fontWeight: '700',
+    fontSize: GLFontSize.FONT_SIZE_16,
+    color: GLColors.Natural.Black,
+    marginBottom: WP('1'),
+    fontFamily: GLFontsFamily.InterBold,
     alignSelf: 'flex-start',
-    fontFamily: 'Inter-Regular',
   },
   inputContainer: {
-    height: 44,
+    height: WP('12'),
     width: '100%',
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#D0D5DD',
+    borderColor: GLColors.Natural.DarkGrey,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 10,
+    paddingHorizontal: WP('2'),
     justifyContent: 'center',
   },
   input: {
     flex: 1,
     height: '100%',
-    paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingHorizontal: WP('2'),
+    paddingVertical: WP('2'),
   },
   icon: {
-    marginLeft: 10,
+    marginLeft: WP('2'),
   },
   star: {
-    color: 'red',
-    fontSize: 20,
+    color: GLColors.Primary.PinkishRed,
+    fontSize: GLFontSize.FONT_SIZE_20,
   },
   errorText: {
-    marginTop: 8,
-    marginLeft: 10,
+    marginTop: WP('2'),
+    marginLeft: WP('2'),
     alignSelf: 'flex-start',
-    color: GLColors.Red.R6,
+    color: GLColors.Primary.PinkishRed,
     fontFamily: GLFontsFamily.InterLight,
   },
 });
