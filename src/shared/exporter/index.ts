@@ -10,7 +10,7 @@ export {
   HOME_HEADER,
   CALL_LOGS,
   BREAK,
-  Scan_QR,
+  SCAN_QR,
   COMPLETE_VISIT,
   CLICK_FOR_CALL,
 } from '../utils/enums';

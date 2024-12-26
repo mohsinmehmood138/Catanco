@@ -3,27 +3,27 @@ import {svgIcon} from '../../assets/svg';
 
 export const PROFILE_TAB_CONTENT = [
   {
-    tabsname: 'Manage Profile',
+    tabsName: 'Manage Profile',
     tabsIcon: svgIcon.UserIcon,
     tabsRoute: 'ManageProfile',
   },
   {
-    tabsname: 'FAQ’s',
+    tabsName: 'FAQ’s',
     tabsIcon: svgIcon.UserIcon,
     tabsRoute: 'FAQS',
   },
   {
-    tabsname: 'Terms & Condition',
+    tabsName: 'Terms & Condition',
     tabsIcon: svgIcon.UserIcon,
     tabsRoute: 'TermsAndCondition',
   },
   {
-    tabsname: 'Privacy Policy',
+    tabsName: 'Privacy Policy',
     tabsIcon: svgIcon.UserIcon,
     tabsRoute: 'PrivacyProfile',
   },
   {
-    tabsname: 'Notification',
+    tabsName: 'Notification',
     tabsIcon: svgIcon.NotificationIcon,
     tabsRoute: 'Notification',
   },

@@ -46,7 +46,7 @@ const ProfileTab = () => {
               <View style={styles.profileIconBackgroundContainer}>
                 {svgIcon.UserIcon}
               </View>
-              <Text style={styles.profileTabHeading}>{item.tabsname}</Text>
+              <Text style={styles.profileTabHeading}>{item.tabsName}</Text>
               <View style={styles.expandMoreIcon}>
                 {svgIcon.ExpandMoreIcon}
               </View>

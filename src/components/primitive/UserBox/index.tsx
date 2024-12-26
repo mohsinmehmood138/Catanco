@@ -2,16 +2,17 @@ import {svgIcon} from '../../../assets/svg';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {useSharedState} from '../../../hooks';
 import React, {useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {
   appIcons,
   CLICK_FOR_CALL,
   COMPLETE_VISIT,
   GLColors,
-  Scan_QR,
+  SCAN_QR,
 } from '../../../shared/exporter';
-import {useNavigation} from '@react-navigation/native';
-import {GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
 import {Routes} from '../../../shared/exporter';
+import {usePaymentSheet} from '../../../hooks/usePaymentStripe';
+import {GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
 
 interface BoxProps {
   type: string;
@@ -22,6 +23,8 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
+
+  const {openPaymentSheet} = usePaymentSheet();
 
   const handleNavigate = () => {
     navigation.navigate(Routes.DynamicScreen);
@@ -37,10 +40,10 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
     } else {
       const timer = setInterval(() => {
         setSeconds(prev => {
-          if (prev == 59) {
+          if (prev === 59) {
             setMinutes(prev => {
               setSeconds(0);
-              if (prev == 59) {
+              if (prev === 59) {
                 setHours(prev => {
                   setMinutes(0);
                   return prev + 1;
@@ -61,14 +64,17 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
 
   let content;
   switch (type) {
-    case Scan_QR:
+    case SCAN_QR:
       content = (
         <View style={styles.teleHealthScannerContainer}>
           <Text style={styles.teleHealthText}>New Visit</Text>
-          <TouchableOpacity style={styles.scanQrBoxButton}>
-            <Text style={styles.scanQrBoxButtonText}>Click to Scan</Text>
+          <TouchableOpacity
+            style={styles.scanQrBoxButton}
+            onPress={openPaymentSheet}>
+            <Text style={styles.scanQrBoxButtonText}>Click to Pay</Text>
             {svgIcon.ArrowLeftIcon}
           </TouchableOpacity>
+          {/* {isInitializing && <ActivityIndicator size="small" color="#000" />} */}
           <Image style={styles.imageStyle} source={appIcons.qrUserBoxImages} />
         </View>
       );
