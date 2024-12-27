@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Text, StyleSheet, Platform} from 'react-native';
-import {GLFontsFamily, GLFontSize} from '../../../shared/exporter';
-import VisitsScreenTab from '../../../screens/App/Home/TopBarTabs/Visit';
-import TeleHealthScreenTab from '../../../screens/App/Home/TopBarTabs/TeleHealth';
+import {View, Text, StyleSheet,} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import VisitsScreenTab from '../../../screens/App/Home/TopBarTabs/Visit';
+import {GLColors, GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
+import TeleHealthScreenTab from '../../../screens/App/Home/TopBarTabs/TeleHealth';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -12,29 +12,29 @@ const HomeTopTabs = () => {
     <View style={styles.container}>
       <Tab.Navigator
         screenOptions={{
-          tabBarActiveTintColor: 'white',
-          tabBarInactiveTintColor: 'black',
+          tabBarActiveTintColor: GLColors.Natural.White,
+          tabBarInactiveTintColor: GLColors.Natural.Black,
           tabBarStyle: {
-            backgroundColor: '#F8F8F8',
-            borderRadius: 40,
-            marginHorizontal: 10,
             elevation: 0,
             shadowOpacity: 0,
+            borderRadius: 40,
+            marginHorizontal: WP('2'),
             shadowColor: 'transparent',
+            backgroundColor: GLColors.Natural.White,
           },
           tabBarIndicatorStyle: {
-            backgroundColor: '#247BA0',
+            width: '48%',
             height: '80%',
             borderRadius: 40,
-            marginBottom: 6,
-            width: '48%',
+            marginBottom: WP('1'),
+            backgroundColor:GLColors.Primary.DarkBlue,
           },
-          tabBarPressColor: 'transparent',
           lazy: false,
-          animationEnabled: false,
           swipeEnabled: true,
-          tabBarScrollEnabled: false,
           tabBarBounces: false,
+          animationEnabled: false,
+          tabBarScrollEnabled: false,
+          tabBarPressColor: 'transparent',
         }}
         tabBarPosition="top">
         <Tab.Screen
@@ -45,7 +45,7 @@ const HomeTopTabs = () => {
               <Text
                 style={[
                   styles.tabBarItemText,
-                  {color: focused ? color : 'black'},
+                  {color: focused ? color :GLColors.Natural.Black},
                 ]}>
                 Visit
               </Text>
@@ -60,7 +60,7 @@ const HomeTopTabs = () => {
               <Text
                 style={[
                   styles.tabBarItemText,
-                  {color: focused ? color : 'black'},
+                  {color: focused ? color :GLColors.Natural.Black},
                 ]}>
                 TeleHealth
               </Text>
@@ -74,23 +74,23 @@ const HomeTopTabs = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width: '90%',
     alignSelf: 'center',
+    width: '90%',
+    flex: 1,
   },
   tabBarItem: {
-    width: 140,
-    height: 45,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 40,
     marginHorizontal: 5,
+    borderRadius: 40,
+    width: WP('70'),
+    height: WP('9'),
   },
   tabBarItemText: {
     fontFamily: GLFontsFamily.InterMedium,
-    alignSelf: 'center',
     fontSize: GLFontSize.FONT_SIZE_16,
-    paddingVertical: 12,
+    paddingVertical:WP('2'),
+    alignSelf: 'center',
   },
 });
 

@@ -148,3 +148,12 @@ export const TODAY_VISITOR_DATA = [
     time: '10:00 AM',
   },
 ];
+
+
+export  const TRACKING_PLACE_TIME = [
+  {visit: 'Visit 1', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
+  {visit: 'Visit 2', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
+  {visit: 'Visit 3', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
+  {visit: 'Visit 4', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
+  {visit: 'Visit 5', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
+];

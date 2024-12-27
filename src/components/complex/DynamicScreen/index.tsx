@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import {
+ import {
   GLColors,
   GLFontsFamily,
   GLFontSize,
@@ -24,7 +24,7 @@ const DynamicScreen = () => {
   const [callTimer, setCallTimer] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
 
-  const refRBSheet = useRef();
+  const refRBSheet = useRef<RBSheet>(null);
 
   const startCall = () => {
     if (phoneNumber.length >= 11) {
@@ -52,7 +52,8 @@ const DynamicScreen = () => {
   };
 
   const handleAddCallLogs = () => {
-    refRBSheet.current.open();
+    refRBSheet.current?.open();
+  
   };
 
   return (

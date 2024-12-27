@@ -8,7 +8,7 @@ import TodayVisitor from '../../../../../components/complex/TodayVisitor';
 import {GLFontsFamily, GLFontSize, WP} from '../../../../../shared/exporter';
 
 const TelehealthScreenTab = () => {
-  const {isEnabled} = useSharedState();
+  const {isEnabled}:any = useSharedState();
 
   return (
     <ScrollView style={styles.teleHealthContainer}>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 
   teleHealthText: {
     marginTop: WP('3'),
-    marginLeft: 10,
+    marginLeft: WP('2'),
     fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterExtraBold,
   },
@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   noVisitorText: {
-    marginTop: 10,
-    width: WP('60%'),
+    marginTop: WP('2'),
+    width: WP('60'),
     alignSelf: 'center',
     textAlign: 'center',
     fontFamily: GLFontsFamily.InterMedium,

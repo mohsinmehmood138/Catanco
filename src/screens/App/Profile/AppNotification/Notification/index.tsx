@@ -1,23 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {
-  SafeAreaView,
-  StyleSheet,
   Text,
-  TouchableOpacity,
   View,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
+import {
+  WP,
+  GLColors,
+  GLFontSize,
+  GLFontsFamily,
+} from '../../../../../shared/exporter';
+import { svgIcon } from '../../../../../assets/svg';
 import AppHeader from '../../../../../components/complex/AppHeader';
 import AppCustomSwitch from '../../../../../components/complex/AppSwitch';
-import {
-  GLColors,
-  GLFontsFamily,
-  GLFontSize,
-  WP,
-} from '../../../../../shared/exporter';
 
 const Notification = () => {
   const navigation = useNavigation();
+  const [otherNotification, setOtherNotification] = useState(false);
+  const [systemNotification, setsystemNotification] = useState(false);
+
+  const toggleSystemSwitch = () =>
+    setsystemNotification(previousState => !previousState);
+  const toggleOtherNotification = () =>
+    setOtherNotification(previousState => !previousState);
 
   return (
     <SafeAreaView>
@@ -25,21 +33,26 @@ const Notification = () => {
       <View style={styles.notificationContainer}>
         <View style={styles.notificationList}>
           <View style={styles.systemNotification}>
-            <View style={styles.iconDiv}></View>
+            <View style={styles.iconDiv}>{svgIcon.MobileIcon}</View>
             <Text style={styles.notificationText}>System Notification</Text>
           </View>
 
-          <AppCustomSwitch isEnabled={''} onToggle={() => ''} />
+          <AppCustomSwitch
+            isEnabled={systemNotification}
+            onToggle={toggleSystemSwitch}
+          />
         </View>
 
         <View style={styles.divider} />
         <View style={styles.notificationList}>
           <View style={styles.systemNotification}>
-            <View style={styles.iconDiv}></View>
+            <View style={styles.iconDiv}>{svgIcon.TwoPersonIcon}</View>
             <Text style={styles.notificationText}>Other Notifications</Text>
           </View>
-
-          <AppCustomSwitch isEnabled={''} onToggle={() => ''} />
+          <AppCustomSwitch
+            isEnabled={otherNotification}
+            onToggle={toggleOtherNotification}
+          />
         </View>
       </View>
 
@@ -61,33 +74,35 @@ const Notification = () => {
 const styles = StyleSheet.create({
   notificationContainer: {
     width: '90%',
-    height: WP('38'),
-    borderRadius: 20,
-    alignSelf: 'center',
-    marginTop: WP('5'),
-    borderColor: GLColors.Natural.DarkGrey,
     borderWidth: 1,
+    borderRadius: 20,
+    height: WP('38'),
+    marginTop: WP('5'),
+    alignSelf: 'center',
     alignItems: 'center',
+    borderColor: GLColors.Natural.DarkGrey,
   },
   notificationList: {
-    flexDirection: 'row',
     width: '95%',
     height: WP('14'),
-    paddingHorizontal: WP('2'),
-    marginVertical: WP('2'),
-    justifyContent: 'space-between',
     alignItems: 'center',
+    flexDirection: 'row',
+    marginVertical: WP('2'),
+    paddingHorizontal: WP('2'),
+    justifyContent: 'space-between',
   },
   iconDiv: {
-    backgroundColor: GLColors.Primary.PinkishRed,
     width: WP('10'),
     height: WP('10'),
-    borderRadius: WP('2'),
+    alignItems:"center",
     marginRight: WP('2'),
+    borderRadius: WP('2'),
+    justifyContent:"center",
+    backgroundColor: GLColors.Primary.PinkishRed,
   },
   notificationText: {
-    fontFamily: GLFontsFamily.InterBold,
     fontSize: GLFontSize.FONT_SIZE_16,
+    fontFamily: GLFontsFamily.InterBold,
   },
   divider: {
     height: 1,
@@ -96,28 +111,29 @@ const styles = StyleSheet.create({
     backgroundColor: GLColors.Natural.DarkGrey,
   },
   disablingNotification: {
+    backgroundColor: GLColors.Primary.Pale,
     width: '90%',
     height: WP('17'),
-    alignSelf: 'center',
-    backgroundColor: '#D7D7FF',
     marginTop: WP('5'),
+    alignSelf: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
     borderRadius: WP('5'),
     justifyContent: 'center',
-    alignItems: 'center',
     paddingHorizontal: WP('5'),
-    flexDirection: 'row',
+    
   },
   disablingNotificationIcon: {
-    backgroundColor: GLColors.Primary.PinkishRed,
-    borderRadius: 50,
     width: WP('9'),
-    height: WP('9'),
     marginRight: 9,
+    height: WP('9'),
+    borderRadius: 50,
+    backgroundColor: GLColors.Primary.PinkishRed,
   },
   disableNotificationText: {
-    fontFamily: GLFontsFamily.InterMedium,
-    fontSize: GLFontSize.FONT_SIZE_12,
     lineHeight: WP('5'),
+    fontSize: GLFontSize.FONT_SIZE_12,
+    fontFamily: GLFontsFamily.InterMedium,
   },
   systemNotification: {
     flexDirection: 'row',

@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  WP,
+  GLColors,
+  GLFontSize,
+  GLFontsFamily,
+  FAQS_LIST_DATA,
+} from '../../../../shared/exporter';
 import {svgIcon} from '../../../../assets/svg';
 import Accordion from 'react-native-collapsible/Accordion';
-import {FAQS_LIST_DATA, GLColors, WP} from '../../../../shared/exporter';
 import AppHeader from '../../../../components/complex/AppHeader';
-import {GLFontsFamily, GLFontSize} from '../../../../shared/exporter';
 
 const AccordionView = () => {
   const [activeSections, setActiveSections] = useState([]);
@@ -73,51 +78,51 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     backgroundColor: GLColors.Natural.LightGrey,
-    height: WP('14'),
-    width: '90%',
-    alignSelf: 'center',
-    borderRadius: 12,
-    alignItems: 'center',
     paddingHorizontal: WP('5'),
     flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+    height: WP('14'),
+    borderRadius: 12,
+    width: '90%',
   },
   faqsSearchInput: {
-    width: '80%',
     fontFamily: GLFontsFamily.InterMedium,
     fontSize: GLFontSize.FONT_SIZE_15,
     marginLeft: WP('4'),
+    width: '80%',
   },
   accordionContainer: {
     marginTop: WP('5'),
-    width: '90%',
     alignSelf: 'center',
+    width: '90%',
   },
   header: {
     backgroundColor: GLColors.Natural.LightGrey,
-    flexDirection: 'row',
     justifyContent: 'space-between',
+    flexDirection: 'row',
     alignItems: 'center',
     padding: WP('4'),
     marginTop: 5,
   },
   headerText: {
-    color: GLColors.Natural.Black,
-    fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterBold,
+    fontSize: GLFontSize.FONT_SIZE_16,
+    color: GLColors.Natural.Black,
     textAlign: 'left',
   },
   content: {
     backgroundColor: GLColors.Natural.LightGrey,
-    padding: WP('2'),
-    paddingHorizontal: WP('4'),
-    height: '100%',
-    borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
+    paddingHorizontal: WP('4'),
+    borderBottomLeftRadius: 8,
+    padding: WP('2'),
+    height: '100%',
   },
   contentText: {
-    color: 'black',
-    fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterRegular,
+    fontSize: GLFontSize.FONT_SIZE_16,
+    color: 'black',
   },
 });
 

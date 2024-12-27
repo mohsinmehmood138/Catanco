@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: GLColors.Natural.White,
   },
   todayVisitor: {
-    padding: WP('2'),
+    padding: WP('4'),
   },
 });
 

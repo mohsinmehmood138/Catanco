@@ -12,7 +12,7 @@ import {GLColors, GLFontSize, WP} from '../../../shared/exporter';
 interface AppButtonProps {
   color: string;
   label: string;
-  width: number | string;
+  width: number |'auto' ;
   onPress: (event: GestureResponderEvent) => void;
 }
 

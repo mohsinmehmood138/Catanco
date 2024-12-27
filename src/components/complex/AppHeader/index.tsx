@@ -32,7 +32,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   openBottomSheet,
 }) => {
   const navigation = useNavigation();
-  const {isEnabled, toggleSwitch} = useSharedState();
+  const {isEnabled, toggleSwitch}:any = useSharedState();
   const [appNotification] = useState(3);
 
   return (
@@ -92,32 +92,32 @@ const AppHeader: React.FC<AppHeaderProps> = ({
 
 const styles = StyleSheet.create({
   headerContainer: {
-    width: '100%',
-    height: WP('19'),
     backgroundColor: GLColors.Natural.White,
     shadowColor: GLColors.Natural.Black,
     shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 1,
     justifyContent: 'center',
-    elevation: 1,
     position: 'relative',
+    shadowOpacity: 0.1,
+    height: WP('19'),
+    shadowRadius: 1,
+    width: '100%',
+    elevation: 1,
   },
   headerTitle: {
     fontFamily: GLFontsFamily.InterBold,
-    alignSelf: 'center',
     fontSize: GLFontSize.FONT_SIZE_18,
+    alignSelf: 'center',
   },
   headerBackIcon: {
     position: 'absolute',
     left: WP('5'),
   },
   homeHeaderContainer: {
-    marginHorizontal: WP('5'),
-    alignItems: 'center',
-    justifyContent: 'flex-start',
     flex: 1,
+    alignItems: 'center',
     flexDirection: 'row',
+    marginHorizontal: WP('5'),
+    justifyContent: 'flex-start',
   },
   homeHeaderText: {
     fontFamily: GLFontsFamily.InterBold,
@@ -128,13 +128,13 @@ const styles = StyleSheet.create({
     transform: [{scale: 1.2}],
   },
   notificationShowContainer: {
-    width: WP('5'),
-    height: WP('5'),
     backgroundColor: GLColors.Primary.PinkishRed,
     position: 'relative',
+    borderRadius: 20,
+    width: WP('5'),
+    height: WP('5'),
     right: WP('3'),
     top: WP('-3'),
-    borderRadius: 20,
   },
   historyView: {
     width: WP('8'),

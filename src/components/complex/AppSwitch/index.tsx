@@ -30,13 +30,13 @@ const AppCustomSwitch: React.FC<CustomSwitchProps> = ({
 
 const styles = StyleSheet.create({
   switchContainer: {
-    width: WP('10.5'),
+    width: WP('11'),
     marginLeft: WP('5'),
     alignItems: 'center',
     justifyContent: 'center',
   },
   track: {
-    height: WP('5.5'),
+    height: WP('6'),
     width: '100%',
     borderRadius: 15,
     position: 'relative',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: GLColors.Primary.PinkishRed,
   },
   thumb: {
-    top: 1,
+    top: 2,
     width: WP('5'),
     height: WP('5'),
     borderRadius: 10,
@@ -55,10 +55,10 @@ const styles = StyleSheet.create({
     backgroundColor: GLColors.Natural.White,
   },
   thumbEnabled: {
-    left: WP('5'),
+    left: WP('5.5'),
   },
   thumbDisabled: {
-    left: 1.4,
+    left: 1.3,
   },
 });
 

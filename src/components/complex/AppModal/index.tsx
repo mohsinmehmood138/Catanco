@@ -2,11 +2,11 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import Modal from 'react-native-modal';
 import {
-  GLColors,
+  WP,
   appIcons,
+  GLColors,
   GLFontSize,
   GLFontsFamily,
-  WP,
 } from '../../../shared/exporter';
 
 interface ModalProps {
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: WP('3'),
   },
   detailText: {
-    width: '80%',
+    width: '90%',
     textAlign: 'center',
     marginBottom: WP('4'),
     color: GLColors.Natural.DarkGrey,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderWidth: 1,
     padding: WP('2'),
-    borderRadius: 20,
+    borderRadius: 40,
     alignItems: 'center',
     borderColor: GLColors.Natural.Black,
   },
@@ -101,8 +101,9 @@ const styles = StyleSheet.create({
     padding: WP('2'),
     marginLeft: WP('2'),
     alignItems: 'center',
-    borderRadius: WP('4'),
+    borderRadius:20,
     backgroundColor: GLColors.Primary.PinkishRed,
+
   },
   buttonText: {
     fontSize: GLFontSize.FONT_SIZE_16,

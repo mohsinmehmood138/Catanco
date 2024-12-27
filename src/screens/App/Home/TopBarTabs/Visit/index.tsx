@@ -13,7 +13,7 @@ import UserBox from '../../../../../components/primitive/UserBox';
 import TodayVisitor from '../../../../../components/complex/TodayVisitor';
 
 const VisitsScreenTab = () => {
-  const {isEnabled} = useSharedState();
+  const {isEnabled}:any = useSharedState();
 
   return (
     <ScrollView
@@ -56,10 +56,10 @@ const styles = StyleSheet.create({
   },
   noVisitorText: {
     fontFamily: GLFontsFamily.InterMedium,
-    width: WP('60%'),
     alignSelf: 'center',
     textAlign: 'center',
     marginTop: WP('2'),
+    width: WP('60'),
   },
 });
 

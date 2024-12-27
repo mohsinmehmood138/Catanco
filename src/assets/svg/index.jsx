@@ -9,6 +9,7 @@ import CancelIcon from './cancel_icon.svg';
 import ClockIcon1 from './clock_icon1.svg';
 import ClockIcon2 from './clock_icon2.svg';
 import GoBackIcon from './go_back_Icon.svg';
+import MobileIcon from "./mobile_icon.svg" ;
 import ProfileIcon from './profile_icon.svg';
 import ProfileIcon1 from './profile_icon1.svg';
 import DownloadIcon from './download_Icon.svg';
@@ -21,6 +22,7 @@ import CallPhoneIcon from './call_phone_icon.svg';
 import ArrowLeftIcon from './arrow_left_icon.svg';
 import StatisticsIcon from './statistics_icon.svg';
 import DocumentsIcon1 from './documents_icon1.svg';
+import TwoPersonIcon  from "./two_person_icon.svg";
 import WhitePhoneIcon from './white_phone_Icon.svg';
 import ArrowRightIcon from './arrow_right_icon.svg';
 import StatisticsIcon1 from './statistics_icon1.svg';
@@ -36,6 +38,7 @@ export const svgIcon = {
   HomeIcon1: <HomeIcon1 />,
   ClockIcon: <ClockIcon />,
   TimerIcon: <TimerIcon />,
+  MobileIcon:<MobileIcon/>,
   PhoneIcon: <PhoneIcon />,
   ClockIcon1: <ClockIcon1 />,
   ClockIcon2: <ClockIcon2 />,
@@ -45,6 +48,7 @@ export const svgIcon = {
   DownloadIcon: <DownloadIcon />,
   CalendarIcon: <CalendarIcon />,
   ProfileIcon1: <ProfileIcon1 />,
+  TwoPersonIcon:<TwoPersonIcon/>,
   LocationIcon: <LocationIcon />,
   LocationIcon1: <LocationIcon1/>,
   CallPhoneIcon: <CallPhoneIcon />,

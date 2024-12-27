@@ -1,8 +1,8 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {svgIcon} from '../../../../../assets/svg';
-import AppHeader from '../../../../../components/complex/AppHeader';
 import {GLColors, WP} from '../../../../../shared/exporter';
+import AppHeader from '../../../../../components/complex/AppHeader';
 
 const AllNotificationScree = () => {
   return (
@@ -26,15 +26,15 @@ const AllNotificationScree = () => {
 const styles = StyleSheet.create({
   listContainer: {
     width: '90%',
-    minHeight: WP('30'),
-    backgroundColor: GLColors.Primary.Vivid,
     borderRadius: 8,
     alignSelf: 'center',
-    marginVertical: WP('3'),
+    minHeight: WP('30'),
     alignItems: 'center',
     flexDirection: 'row',
+    marginVertical: WP('3'),
     paddingVertical: WP('5'),
     paddingHorizontal: WP('5'),
+    backgroundColor: GLColors.Primary.Vivid,
   },
   textContainer: {
     flex: 1,
