@@ -1,16 +1,19 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
+import {CardField} from '@stripe/stripe-react-native';
 import AppInput from '../AppInput';
 import AppButton from '../AppButton';
 import {svgIcon} from '../../../assets/svg';
+import {usePaymentSheet} from '../../../hooks/usePaymentStripe';
 import {
-  GLColors,
-  GLFontsFamily,
-  GLFontSize,
-  CALL_LOGS,
-  BREAK,
   WP,
+  BREAK,
+  GLColors,
+  CALL_LOGS,
+  GLFontSize,
+  GLFontsFamily,
+  APP_PAYMENT,
 } from '../../../shared/exporter';
 
 interface BottomSheetProps {
@@ -20,6 +23,8 @@ interface BottomSheetProps {
   bottomSheetHeight: any;
   bottomSheetHeader: string;
   onPress?: () => void | any;
+  onCardChange?: (cardDetails: any) => void;
+  cardComplete?: boolean;
 }
 
 const AppBottomSheet: React.FC<BottomSheetProps> = ({
@@ -31,6 +36,7 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
   onPress,
 }) => {
   const renderContent = () => {
+    const {handleCardChange} = usePaymentSheet();
     switch (type) {
       case CALL_LOGS:
         return (
@@ -60,6 +66,41 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
             </View>
           </>
         );
+
+      case APP_PAYMENT:
+        return (
+          <View style={styles.paymentContainer}>
+            <CardField
+              postalCodeEnabled={false}
+              cardStyle={{
+                textColor: GLColors.Natural.Black,
+                borderWidth: 1,
+                borderColor: GLColors.Primary.Pale,
+                borderRadius: 8,
+                fontSize: GLFontSize.FONT_SIZE_16,
+              }}
+              autofocus
+              placeholders={{
+                number: '4242 4242 4242 4242',
+                postalCode: '12345',
+                cvc: 'CVC',
+                expiration: 'MM|YY',
+              }}
+              style={styles.cardField}
+              onCardChange={handleCardChange}
+            />
+
+            <View style={styles.paymentButton}>
+              <AppButton
+                color={GLColors.Primary.PinkishRed}
+                onPress={onPress}
+                width="90%"
+                label={appBottomText}
+              />
+            </View>
+          </View>
+        );
+
       default:
         return null;
     }
@@ -76,8 +117,6 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
           borderTopLeftRadius: WP('4'),
           borderTopRightRadius: WP('4'),
           backgroundColor: GLColors.Natural.White,
-          position: 'relative',
-          justifyContent: 'space-between',
         },
         draggableIcon: {
           backgroundColor: GLColors.Natural.Black,
@@ -103,6 +142,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingBottom: 0,
   },
   bottomSheetHeading: {
     fontSize: GLFontSize.FONT_SIZE_18,
@@ -117,6 +157,25 @@ const styles = StyleSheet.create({
     bottom: WP('-2'),
     left: WP('4'),
     right: WP('4'),
+  },
+  paymentContainer: {
+    paddingTop: 3,
+    padding: WP('4'),
+    height: WP('40'),
+    justifyContent: 'space-between',
+  },
+  cardField: {
+    width: '100%',
+    height: WP('15'),
+    marginTop: WP('4'),
+  },
+
+  disabledButton: {
+    opacity: 0.7,
+  },
+  paymentButton: {
+    position: 'relative',
+    top: WP('9'),
   },
 });
 

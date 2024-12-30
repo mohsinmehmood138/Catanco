@@ -1,7 +1,7 @@
 import {svgIcon} from '../../../assets/svg';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {useSharedState} from '../../../hooks';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {
   appIcons,
@@ -10,6 +10,7 @@ import {
   GLColors,
   SCAN_QR,
 } from '../../../shared/exporter';
+import AppBottomSheet from '../BottomSheet';
 import {Routes} from '../../../shared/exporter';
 import {usePaymentSheet} from '../../../hooks/usePaymentStripe';
 import {GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
@@ -20,17 +21,19 @@ interface BoxProps {
 
 const UserBox: React.FC<BoxProps> = ({type}) => {
   const navigation = useNavigation();
+  const bottomSheetRef = useRef<any>();
+
+  const [hours, setHours] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
-  const [hours, setHours] = useState(0);
 
-  const {openPaymentSheet} = usePaymentSheet();
+  const {handleGenerateToken, cardComplete} = usePaymentSheet();
 
   const handleNavigate = () => {
     navigation.navigate(Routes.DynamicScreen);
   };
 
-  const {isEnabled} = useSharedState();
+  const {isEnabled}: any = useSharedState();
 
   useEffect(() => {
     if (!isEnabled) {
@@ -68,13 +71,16 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
       content = (
         <View style={styles.teleHealthScannerContainer}>
           <Text style={styles.teleHealthText}>New Visit</Text>
+
           <TouchableOpacity
             style={styles.scanQrBoxButton}
-            onPress={openPaymentSheet}>
+            onPress={() => {
+              bottomSheetRef.current.open();
+            }}>
             <Text style={styles.scanQrBoxButtonText}>Click to Pay</Text>
+
             {svgIcon.ArrowLeftIcon}
           </TouchableOpacity>
-          {/* {isInitializing && <ActivityIndicator size="small" color="#000" />} */}
           <Image style={styles.imageStyle} source={appIcons.qrUserBoxImages} />
         </View>
       );
@@ -117,15 +123,28 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
       break;
   }
 
-  return <View> {content}</View>;
+  return (
+    <View>
+      {content}
+      <AppBottomSheet
+        type="appPayment"
+        appBottomText="Confirm Payment"
+        bottomSheetHeader="Enter Card Details"
+        refRBSheet={bottomSheetRef}
+        bottomSheetHeight={WP('50')}
+        onPress={handleGenerateToken}
+        cardComplete={cardComplete}
+      />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
   teleHealthScannerContainer: {
-    height: WP('30'),
-    padding: WP('3'),
-    marginTop: WP('5'),
     width: '100%',
+    padding: WP('3'),
+    height: WP('30'),
+    marginTop: WP('5'),
     borderRadius: WP('5'),
     backgroundColor: GLColors.Primary.Pale,
   },
@@ -136,10 +155,10 @@ const styles = StyleSheet.create({
     fontFamily: GLFontsFamily.InterExtraBold,
   },
   scanQrBoxButton: {
-    height: WP('12'),
-    marginTop: WP('3'),
-    borderRadius: 40,
     width: WP('50'),
+    height: WP('12'),
+    borderRadius: 40,
+    marginTop: WP('3'),
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -147,14 +166,14 @@ const styles = StyleSheet.create({
   },
   scanQrBoxButtonText: {
     color: GLColors.Natural.White,
-    marginRight: WP('2'),
     textAlign: 'center',
+    marginRight: WP('2'),
     fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterBold,
   },
   scanQrBoxButtonSmallText: {
-    color: GLColors.Natural.White,
     textAlign: 'center',
+    color: GLColors.Natural.White,
     fontSize: GLFontSize.FONT_SIZE_12,
     fontFamily: GLFontsFamily.InterMedium,
   },
@@ -167,6 +186,14 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     flexDirection: 'column',
+  },
+  card: {
+    color: GLColors.Natural.Black,
+    backgroundColor: GLColors.Natural.White,
+  },
+  cardContainer: {
+    height: WP('15'),
+    marginVertical: WP('10'),
   },
 });
 

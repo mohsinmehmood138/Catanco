@@ -1,6 +1,6 @@
 import React from 'react';
-import TrackingTab from '../../screens/App/Tracking';
 import {createStackNavigator} from '@react-navigation/stack';
+import TrackingTab from '../../screens/App/Tracking';
 
 type AuthStackParamList = {
   TrackingTab: undefined;

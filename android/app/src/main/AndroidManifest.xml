@@ -22,6 +22,9 @@
         android:windowSoftInputMode="adjustResize"
         android:screenOrientation="portrait"
         android:exported="true">
+        <meta-data
+        android:name="com.stripe.android.publishableKey"
+        android:value="pk_test_51QaDDQGOseHptfKrrR2eALw5EbTCPTSzSDc0X4rksy8qreXbK1GZJWgHQXaYGo1fTSWrg97vmY3an2RUFR7C84pl00vYHe40yG" />
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />  
             <category android:name="android.intent.category.LAUNCHER" />

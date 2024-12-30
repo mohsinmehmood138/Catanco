@@ -32,7 +32,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   openBottomSheet,
 }) => {
   const navigation = useNavigation();
-  const {isEnabled, toggleSwitch}:any = useSharedState();
+  const {isEnabled, toggleSwitch}: any = useSharedState();
   const [appNotification] = useState(3);
 
   return (
@@ -92,21 +92,21 @@ const AppHeader: React.FC<AppHeaderProps> = ({
 
 const styles = StyleSheet.create({
   headerContainer: {
-    backgroundColor: GLColors.Natural.White,
+    elevation: 1,
+    width: '100%',
+    shadowRadius: 1,
+    height: WP('19'),
+    shadowOpacity: 0.1,
+    position: 'relative',
+    justifyContent: 'center',
     shadowColor: GLColors.Natural.Black,
     shadowOffset: {width: 0, height: 2},
-    justifyContent: 'center',
-    position: 'relative',
-    shadowOpacity: 0.1,
-    height: WP('19'),
-    shadowRadius: 1,
-    width: '100%',
-    elevation: 1,
+    backgroundColor: GLColors.Natural.White,
   },
   headerTitle: {
-    fontFamily: GLFontsFamily.InterBold,
-    fontSize: GLFontSize.FONT_SIZE_18,
     alignSelf: 'center',
+    fontSize: GLFontSize.FONT_SIZE_18,
+    fontFamily: GLFontsFamily.InterBold,
   },
   headerBackIcon: {
     position: 'absolute',
@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   homeHeaderText: {
-    fontFamily: GLFontsFamily.InterBold,
     fontSize: GLFontSize.FONT_SIZE_18,
+    fontFamily: GLFontsFamily.InterBold,
   },
   switchContainer: {
     marginLeft: WP('5'),
@@ -131,8 +131,8 @@ const styles = StyleSheet.create({
     backgroundColor: GLColors.Primary.PinkishRed,
     position: 'relative',
     borderRadius: 20,
-    width: WP('5'),
     height: WP('5'),
+    width: WP('5'),
     right: WP('3'),
     top: WP('-3'),
   },

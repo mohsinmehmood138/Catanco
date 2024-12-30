@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
+import {Provider} from 'react-redux';
+import {StripeProvider} from '@stripe/stripe-react-native';
+import {store} from './src/redux/store';
 import AppNavigator from './src/navigation';
 import {SharedStateProvider} from './src/hooks';
-import {Provider} from 'react-redux';
-import {store} from './src/redux/store';
-import {StripeProvider} from '@stripe/stripe-react-native';
 
 function App(): React.JSX.Element {
   return (
