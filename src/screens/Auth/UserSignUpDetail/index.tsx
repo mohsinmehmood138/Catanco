@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {ScrollView, SafeAreaView, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {ScrollView, SafeAreaView, StyleSheet} from 'react-native';
 import {GLColors, Routes, WP} from '../../../shared/exporter';
 import AppHeader from '../../../components/complex/AppHeader';
 import AppInput from '../../../components/primitive/AppInput';

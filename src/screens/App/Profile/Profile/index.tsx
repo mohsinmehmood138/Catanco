@@ -1,27 +1,43 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   View,
-  StyleSheet,
-  Image,
   Text,
-  TouchableOpacity,
+  Image,
+  Animated,
+  StyleSheet,
   SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {svgIcon} from '../../../../assets/svg';
 import {useNavigation} from '@react-navigation/native';
-import {GLColors, PROFILE_TAB_CONTENT, WP} from '../../../../shared/exporter';
 import AppHeader from '../../../../components/complex/AppHeader';
+import {GLColors, PROFILE_TAB_CONTENT, WP} from '../../../../shared/exporter';
 import {
-  GLFontsFamily,
-  GLFontSize,
   appImages,
+  GLFontSize,
+  GLFontsFamily,
 } from '../../../../shared/exporter';
 
 const ProfileTab = () => {
   const navigation = useNavigation();
   const [profileName] = useState('Sarah Tom');
   const [organizationName] = useState('organization Name');
+
+  const positionAnim = useRef(new Animated.Value(100)).current;
+
+  const startSpringAnimation = () => {
+    Animated.spring(positionAnim, {
+      toValue: 0,
+      friction: 2,
+      tension: 100,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  useEffect(() => {
+    startSpringAnimation();
+  }, []);
 
   return (
     <SafeAreaView>
@@ -34,23 +50,25 @@ const ProfileTab = () => {
         </View>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {PROFILE_TAB_CONTENT.map(item => {
+        {PROFILE_TAB_CONTENT.map((item, index) => {
           return (
-            <TouchableOpacity
-              style={styles.listContainer}
-              onPress={() => {
-                navigation.navigate('ProfileStack', {
-                  screen: item.tabsRoute,
-                });
-              }}>
-              <View style={styles.profileIconBackgroundContainer}>
-                {svgIcon.UserIcon}
-              </View>
-              <Text style={styles.profileTabHeading}>{item.tabsName}</Text>
-              <View style={styles.expandMoreIcon}>
-                {svgIcon.ExpandMoreIcon}
-              </View>
-            </TouchableOpacity>
+            <Animated.View style={[{transform: [{translateY: positionAnim}]}]}>
+              <TouchableOpacity
+                style={styles.listContainer}
+                onPress={() => {
+                  navigation.navigate('ProfileStack', {
+                    screen: item.tabsRoute,
+                  });
+                }}>
+                <View style={styles.profileIconBackgroundContainer}>
+                  {svgIcon.UserIcon}
+                </View>
+                <Text style={styles.profileTabHeading}>{item.tabsName}</Text>
+                <View style={styles.expandMoreIcon}>
+                  {svgIcon.ExpandMoreIcon}
+                </View>
+              </TouchableOpacity>
+            </Animated.View>
           );
         })}
       </ScrollView>

@@ -92,29 +92,29 @@ export const TERMS_AND_CONDITION = [
 
 export const FAQS_LIST_DATA = [
   {
-    title: 'Question 1',
+    title: 'What is the purpose of this application?',
     content:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking .',
+      'The purpose of this application is to provide a user-friendly platform for managing and organizing your tasks, projects, and deadlines efficiently.',
   },
   {
-    title: 'Question 2',
+    title: 'How can I reset my password?',
     content:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking .',
+      'To reset your password, go to the login page and click on the "Forgot Password" link. You will receive an email with a link to reset your password.',
   },
   {
-    title: 'Question 3',
+    title: 'Can I use the app on multiple devices?',
     content:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking .',
+      'Yes, you can access your account from multiple devices. Just log in with the same credentials on each device to sync your data.',
   },
   {
-    title: 'Question 4',
+    title: 'How do I delete my account?',
     content:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking .',
+      'To delete your account, go to the settings page and click on "Delete Account." Follow the prompts to confirm your decision.',
   },
   {
-    title: 'Question 5',
+    title: 'Is my data secure?',
     content:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking .',
+      'Yes, we take your privacy and security seriously. We use encryption and other security measures to ensure your data is safe and secure.',
   },
 ];
 
@@ -149,8 +149,7 @@ export const TODAY_VISITOR_DATA = [
   },
 ];
 
-
-export  const TRACKING_PLACE_TIME = [
+export const TRACKING_PLACE_TIME = [
   {visit: 'Visit 1', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
   {visit: 'Visit 2', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
   {visit: 'Visit 3', time: '1 hr 30 mins', place: 'Great Falls, Maryland'},
