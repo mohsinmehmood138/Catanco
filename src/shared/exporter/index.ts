@@ -1,5 +1,5 @@
-export {appIcons, appImages} from '../theme/assets';
 export {
+  CARD,
   BREAK,
   SCAN_QR,
   CALL_LOGS,
@@ -20,4 +20,5 @@ export {Routes} from '../utils/routes';
 export {GLColors} from '../theme/colors';
 export {GLFontSize} from '../theme/fontSize';
 export {GLFontsFamily} from '../theme/fontFamily';
+export {appIcons, appImages} from '../theme/assets';
 export {WP, HP, scrWidth, scrHeight} from '../theme/responsive';

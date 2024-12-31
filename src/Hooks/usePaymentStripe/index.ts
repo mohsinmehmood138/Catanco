@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Alert} from 'react-native';
 import {useStripe, CardFieldInput} from '@stripe/stripe-react-native';
+import {CARD} from '../../shared/exporter/index';
 
 export const usePaymentSheet = () => {
   const {createToken} = useStripe();
@@ -26,7 +27,7 @@ export const usePaymentSheet = () => {
   const handleGenerateToken = async () => {
     try {
       const {token, error} = await createToken({
-        type: 'Card',
+        type: CARD,
       });
 
       if (error) {

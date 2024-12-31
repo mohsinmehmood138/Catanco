@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {BottomTabBarOptions, Route} from '@react-navigation/bottom-tabs';
 import {svgIcon} from '../../../assets/svg';
-import {GLColors, WP} from '../../../shared/exporter';
+import {GLColors, Routes, WP} from '../../../shared/exporter';
 
 type TabIconProps = {
   focused: boolean;
@@ -28,20 +28,20 @@ export const BottomTab = ({route}: BottomTabProps): BottomTabBarOptions => ({
     let IconComponent;
 
     switch (route.name) {
-      case 'HomeStack':
+      case Routes.HomeTab:
         IconComponent = focused ? svgIcon.HomeIcon : svgIcon.HomeIcon1;
         break;
-      case 'HistoryStack':
+      case Routes.HistoryTab:
         IconComponent = focused
           ? svgIcon.DocumentsIcon
           : svgIcon.DocumentsIcon1;
         break;
-      case 'TrackingStack':
+      case Routes.TrackingTab:
         IconComponent = focused
           ? svgIcon.StatisticsIcon
           : svgIcon.StatisticsIcon1;
         break;
-      case 'Profile':
+      case Routes.Profile:
         IconComponent = focused ? svgIcon.ProfileIcon : svgIcon.ProfileIcon1;
         break;
       default:

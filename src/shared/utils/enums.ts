@@ -1,3 +1,4 @@
+export const CARD = 'Card';
 export const BREAK = 'break';
 export const SCAN_QR = 'scanQr';
 export const CALL_LOGS = 'callLogs';

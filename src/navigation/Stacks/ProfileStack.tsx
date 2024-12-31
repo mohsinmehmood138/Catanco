@@ -8,11 +8,11 @@ import Notification from '../../screens/App/Profile/AppNotification/Notification
 
 type ProfileStackProps = {
   FAQS: undefined;
+  Profile: undefined;
+  Notification: undefined;
   ManageProfile: undefined;
   PrivacyProfile: undefined;
   TermsAndCondition: undefined;
-  Notification: undefined;
-  Profile: undefined;
 };
 
 const Stack = createStackNavigator<ProfileStackProps>();
@@ -20,11 +20,7 @@ const Stack = createStackNavigator<ProfileStackProps>();
 const ProfileStack: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen
-        name="FAQS"
-        component={FAQS}
-        options={{tabBarStyle: {display: 'none'}}}
-      />
+      <Stack.Screen name="FAQS" component={FAQS} />
       <Stack.Screen name="ManageProfile" component={ManageProfile} />
       <Stack.Screen name="PrivacyProfile" component={PrivacyProfile} />
       <Stack.Screen name="TermsAndCondition" component={TermsAndCondition} />
