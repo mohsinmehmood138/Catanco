@@ -18,8 +18,6 @@ import {appIcons, GLFontSize, WP} from '../../../shared/exporter';
 import {GLColors, GLFontsFamily} from '../../../shared/exporter';
 
 interface AppInputProps extends TextInputProps {
-  label: string;
-  placeholder: string;
   keyboardType?:
     | 'default'
     | 'numeric'
@@ -29,7 +27,9 @@ interface AppInputProps extends TextInputProps {
     | 'email-address'
     | 'visible-password';
   errors?: any;
+  label: string;
   countryCode?: any;
+  placeholder: string;
   setCountryCode?: any;
   isRequired?: boolean;
   date?: Date | string;
@@ -77,7 +77,7 @@ const AppInput: React.FC<AppInputProps> = ({
 
   return (
     <View style={[styles.container, customStyle]}>
-      <Text style={[styles.label, labelStyle]}>
+      <Text style={[styles.label]}>
         {label} <Text style={styles.star}>*</Text>
       </Text>
 
@@ -144,40 +144,40 @@ const AppInput: React.FC<AppInputProps> = ({
 const styles = StyleSheet.create({
   container: {
     width: WP('90'),
-    marginVertical: WP('2'),
     alignSelf: 'center',
     alignItems: 'center',
+    marginVertical: WP('2'),
   },
   label: {
-    fontSize: GLFontSize.FONT_SIZE_16,
-    color: GLColors.Natural.Black,
     marginBottom: WP('1'),
-    fontFamily: GLFontsFamily.InterBold,
     alignSelf: 'flex-start',
+    color: GLColors.Natural.Black,
+    fontSize: GLFontSize.FONT_SIZE_16,
+    fontFamily: GLFontsFamily.InterBold,
   },
   inputContainer: {
-    height: WP('12'),
     width: '100%',
-    borderRadius: 8,
     borderWidth: 1,
-    borderColor: GLColors.Natural.DarkGrey,
-    flexDirection: 'row',
+    borderRadius: 8,
+    height: WP('12'),
     alignItems: 'center',
-    paddingHorizontal: WP('2'),
+    flexDirection: 'row',
     justifyContent: 'center',
+    paddingHorizontal: WP('2'),
+    borderColor: GLColors.Natural.DarkGrey,
   },
   input: {
     flex: 1,
     height: '100%',
-    paddingHorizontal: WP('2'),
     paddingVertical: WP('2'),
+    paddingHorizontal: WP('2'),
   },
   icon: {
     marginLeft: WP('2'),
   },
   star: {
-    color: GLColors.Primary.PinkishRed,
     fontSize: GLFontSize.FONT_SIZE_20,
+    color: GLColors.Primary.PinkishRed,
   },
   errorText: {
     marginTop: WP('2'),

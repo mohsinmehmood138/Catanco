@@ -1,12 +1,12 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import {svgIcon} from '../../../assets/svg';
 import {BottomTabBarOptions, Route} from '@react-navigation/bottom-tabs';
+import {svgIcon} from '../../../assets/svg';
 import {GLColors, WP} from '../../../shared/exporter';
 
 type TabIconProps = {
-  icon: React.ReactNode;
   focused: boolean;
+  icon: React.ReactNode;
 };
 
 const TabIcon: React.FC<TabIconProps> = ({icon, focused}) => (
@@ -64,12 +64,12 @@ export const BottomTab = ({route}: BottomTabProps): BottomTabBarOptions => ({
 
 const styles = StyleSheet.create({
   bottomTabsContainer: {
+    display: 'flex',
     width: WP('12'),
     height: WP('12'),
     padding: WP('2'),
-    marginTop: WP('2'),
-    display: 'flex',
     borderRadius: 50,
+    marginTop: WP('2'),
     alignItems: 'center',
     justifyContent: 'center',
   },

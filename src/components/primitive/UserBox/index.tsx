@@ -1,16 +1,16 @@
-import {svgIcon} from '../../../assets/svg';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
-import {useSharedState} from '../../../hooks';
 import React, {useEffect, useRef, useState} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {
+  SCAN_QR,
   appIcons,
+  GLColors,
   CLICK_FOR_CALL,
   COMPLETE_VISIT,
-  GLColors,
-  SCAN_QR,
 } from '../../../shared/exporter';
+import {svgIcon} from '../../../assets/svg';
 import AppBottomSheet from '../BottomSheet';
+import {useSharedState} from '../../../hooks';
 import {Routes} from '../../../shared/exporter';
 import {usePaymentSheet} from '../../../hooks/usePaymentStripe';
 import {GLFontsFamily, GLFontSize, WP} from '../../../shared/exporter';
@@ -26,7 +26,6 @@ const UserBox: React.FC<BoxProps> = ({type}) => {
   const [hours, setHours] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
-
   const {handleGenerateToken, cardComplete} = usePaymentSheet();
 
   const handleNavigate = () => {
@@ -165,9 +164,9 @@ const styles = StyleSheet.create({
     backgroundColor: GLColors.Primary.DarkBlue,
   },
   scanQrBoxButtonText: {
-    color: GLColors.Natural.White,
     textAlign: 'center',
     marginRight: WP('2'),
+    color: GLColors.Natural.White,
     fontSize: GLFontSize.FONT_SIZE_16,
     fontFamily: GLFontsFamily.InterBold,
   },

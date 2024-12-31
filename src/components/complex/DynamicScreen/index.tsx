@@ -2,15 +2,15 @@ import React, {useState, useRef} from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TextInput,
+  StyleSheet,
   TouchableOpacity,
 } from 'react-native';
- import {
-  GLColors,
-  GLFontsFamily,
-  GLFontSize,
+import {
   WP,
+  GLColors,
+  GLFontSize,
+  GLFontsFamily,
 } from '../../../shared/exporter';
 import {svgIcon} from '../../../assets/svg';
 import AppBottomSheet from '../../primitive/BottomSheet';
@@ -53,7 +53,6 @@ const DynamicScreen = () => {
 
   const handleAddCallLogs = () => {
     refRBSheet.current?.open();
-  
   };
 
   return (
@@ -118,9 +117,9 @@ const styles = StyleSheet.create({
     backgroundColor: GLColors.Primary.PinkishRed,
   },
   dynamicScreenButtonText: {
-    color: GLColors.Natural.White,
     marginLeft: WP('2'),
     textAlign: 'center',
+    color: GLColors.Natural.White,
     fontSize: GLFontSize.FONT_SIZE_18,
     fontFamily: GLFontsFamily.InterMedium,
   },

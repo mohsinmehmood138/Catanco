@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {
   WP,
   GLColors,
@@ -137,14 +137,14 @@ const styles = StyleSheet.create({
     top: WP('-3'),
   },
   historyView: {
-    width: WP('8'),
-    height: WP('8'),
     backgroundColor: GLColors.Primary.DarkBlue,
-    borderRadius: 100,
-    position: 'absolute',
-    right: WP('5'),
     justifyContent: 'center',
+    position: 'absolute',
     alignItems: 'center',
+    borderRadius: 100,
+    height: WP('8'),
+    width: WP('8'),
+    right: WP('5'),
   },
   timeSheet: {
     position: 'absolute',

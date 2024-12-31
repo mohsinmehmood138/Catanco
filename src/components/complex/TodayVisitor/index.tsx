@@ -81,11 +81,11 @@ const styles = StyleSheet.create({
   },
 
   visitContainer: {
-    height: WP('27'),
-    padding: WP('3'),
     elevation: 1,
-    marginTop: WP('4'),
+    height: WP('27'),
     borderRadius: 12,
+    padding: WP('3'),
+    marginTop: WP('4'),
     backgroundColor: GLColors.Natural.LightGrey,
   },
   visitHeader: {
@@ -111,8 +111,8 @@ const styles = StyleSheet.create({
   },
   visitorDateContainer: {
     width: '90%',
-    marginVertical: WP('1'),
     flexDirection: 'row',
+    marginVertical: WP('1'),
   },
   teleHealthText: {
     marginTop: WP('3'),

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import RBSheet from 'react-native-raw-bottom-sheet';
 import {CardField} from '@stripe/stripe-react-native';
+import RBSheet from 'react-native-raw-bottom-sheet';
 import AppInput from '../AppInput';
 import AppButton from '../AppButton';
 import {svgIcon} from '../../../assets/svg';
@@ -12,19 +12,19 @@ import {
   GLColors,
   CALL_LOGS,
   GLFontSize,
-  GLFontsFamily,
   APP_PAYMENT,
+  GLFontsFamily,
 } from '../../../shared/exporter';
 
 interface BottomSheetProps {
   type?: String;
   refRBSheet: any;
+  cardComplete?: boolean;
   appBottomText?: string;
   bottomSheetHeight: any;
   bottomSheetHeader: string;
   onPress?: () => void | any;
   onCardChange?: (cardDetails: any) => void;
-  cardComplete?: boolean;
 }
 
 const AppBottomSheet: React.FC<BottomSheetProps> = ({
@@ -138,15 +138,15 @@ const AppBottomSheet: React.FC<BottomSheetProps> = ({
 
 const styles = StyleSheet.create({
   header: {
-    padding: WP('5'),
-    alignItems: 'center',
-    flexDirection: 'row',
     justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: WP('5'),
     paddingBottom: 0,
   },
   bottomSheetHeading: {
-    fontSize: GLFontSize.FONT_SIZE_18,
     fontFamily: GLFontsFamily.InterExtraBold,
+    fontSize: GLFontSize.FONT_SIZE_18,
   },
   cancelButton: {
     position: 'absolute',
@@ -159,15 +159,15 @@ const styles = StyleSheet.create({
     right: WP('4'),
   },
   paymentContainer: {
-    paddingTop: 3,
+    justifyContent: 'space-between',
     padding: WP('4'),
     height: WP('40'),
-    justifyContent: 'space-between',
+    paddingTop: 3,
   },
   cardField: {
-    width: '100%',
-    height: WP('15'),
     marginTop: WP('4'),
+    height: WP('15'),
+    width: '100%',
   },
 
   disabledButton: {

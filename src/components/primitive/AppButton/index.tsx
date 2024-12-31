@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-  StyleSheet,
   Text,
   View,
-  TouchableOpacity,
   Platform,
+  StyleSheet,
+  TouchableOpacity,
   GestureResponderEvent,
 } from 'react-native';
 import {GLColors, GLFontSize, WP} from '../../../shared/exporter';
@@ -35,15 +35,15 @@ const AppButton: React.FC<AppButtonProps> = ({
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: GLColors.Natural.White,
-    alignItems: 'center',
   },
   button: {
-    position: 'absolute',
     height: WP('12'),
     borderRadius: 50,
     alignItems: 'center',
+    position: 'absolute',
     justifyContent: 'center',
     bottom: Platform.OS === 'ios' ? WP('9') : WP('6'),
   },
