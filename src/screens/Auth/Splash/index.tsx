@@ -12,7 +12,7 @@ const SplashScreen = () => {
   const navigation = useNavigation<SplashProps>();
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace(Routes.IntroStack);
+      navigation.replace(Routes.BottomTabs);
     }, 2000);
   }, []);
 

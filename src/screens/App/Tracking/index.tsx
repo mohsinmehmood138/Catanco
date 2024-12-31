@@ -99,7 +99,7 @@ const TrackingTab = () => {
         </View>
       </ScrollView>
       <AppBottomSheet
-        bottomSheetHeight={WP('250')}
+        bottomSheetHeight={WP('100')}
         refRBSheet={bottomSheetRef}
         type="Filter"
         bottomSheetHeader="Filter"

@@ -24,6 +24,23 @@ const ProfileTab = () => {
   const [profileName] = useState('Sarah Tom');
   const [organizationName] = useState('organization Name');
 
+  const scaleValue = useRef(new Animated.Value(1)).current;
+
+  const startScaleAnimation = () => {
+    Animated.sequence([
+      Animated.timing(scaleValue, {
+        toValue: 1.5,
+        duration: 300,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleValue, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
+
   const positionAnim = useRef(new Animated.Value(100)).current;
 
   const startSpringAnimation = () => {
@@ -36,7 +53,7 @@ const ProfileTab = () => {
   };
 
   useEffect(() => {
-    startSpringAnimation();
+    startScaleAnimation();
   }, []);
 
   return (
@@ -52,7 +69,7 @@ const ProfileTab = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         {PROFILE_TAB_CONTENT.map((item, index) => {
           return (
-            <Animated.View style={[{transform: [{translateY: positionAnim}]}]}>
+            <Animated.View style={[{transform: [{scale: scaleValue}]}]}>
               <TouchableOpacity
                 style={styles.listContainer}
                 onPress={() => {
@@ -77,12 +94,12 @@ const ProfileTab = () => {
 };
 const styles = StyleSheet.create({
   ProfileTabContainer: {
-    width: '100%',
-    height: WP('24'),
     backgroundColor: GLColors.Natural.LightGreen,
-    paddingLeft: WP('4'),
     flexDirection: 'row',
     alignItems: 'center',
+    paddingLeft: WP('4'),
+    height: WP('24'),
+    width: '100%',
   },
   profileTabHeading: {
     fontFamily: GLFontsFamily.InterBold,
@@ -90,23 +107,23 @@ const styles = StyleSheet.create({
   },
 
   listContainer: {
-    width: '90%',
-    height: WP('15'),
     backgroundColor: GLColors.Natural.LightGrey,
-    borderRadius: 12,
-    alignSelf: 'center',
-    marginTop: WP('5'),
     flexDirection: 'row',
     alignItems: 'center',
+    alignSelf: 'center',
+    marginTop: WP('5'),
+    borderRadius: 12,
+    height: WP('15'),
+    width: '90%',
   },
   profileIconBackgroundContainer: {
-    width: WP('9'),
-    height: WP('9'),
     backgroundColor: GLColors.Primary.Pale,
-    borderRadius: 12,
     marginHorizontal: WP('2'),
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 12,
+    height: WP('9'),
+    width: WP('9'),
   },
   profileNameContainer: {
     marginLeft: WP('2'),
